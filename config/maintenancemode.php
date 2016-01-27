@@ -59,7 +59,7 @@ return [
      *
      * @var array
      */
-    'exempt-ips'          => [''],
+    'exempt-ips'          => ['::1'],
 
     /**
      * Use proxies to get the user's IP address
@@ -85,7 +85,7 @@ return [
      *
      * @var array
      */
-    'exempt-routes'       => ['/'],
+    'exempt-routes'       => [''],
 
     /**
      * A list of exemption classes to execute
