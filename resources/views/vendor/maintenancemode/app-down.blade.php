@@ -160,8 +160,8 @@
 			<div class="row">
 				<div class="col l4 offset-l2 s12">
 					<ul>
-						<li><a href="https://www.facebook.com/vocomfest" class="social white-text"><img src="assets/img/fb.png">&nbsp; Vocomfest</a></li>
-						<li><a href="https://twitter.com/vocomfest" class="social white-text"><img src="assets/img/tweet.png">&nbsp; @vocomfest</a></li>
+						<li><a href="https://www.facebook.com/vocomfest" class="social white-text"><img src="assets/img/facebook.png">&nbsp; Vocomfest</a></li>
+						<li><a href="https://twitter.com/vocomfest" class="social white-text"><img src="assets/img/twitter.png">&nbsp; @vocomfest</a></li>
 						<li><a href="mailto:info@vocomfest.com" class="social white-text"><img src="assets/img/mail.jpg">&nbsp; info@vocomfest.com</a></li>
 					</ul>
 				</div>

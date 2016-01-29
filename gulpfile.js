@@ -1,4 +1,7 @@
 var elixir = require('laravel-elixir');
+
+require('laravel-elixir-imagemin');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -18,6 +21,25 @@ var elixir = require('laravel-elixir');
 //     });
 // });
 
+elixir.config.images = {
+    folder: 'img',
+    outputFolder: 'assets/img'
+};
+
+
 elixir(function(mix) {
-    mix.styles(['comingsoon.css'], 'public/assets/css/comingsoon.css');
+    mix.styles([
+    	'resources/assets/css/*.css'
+    	],'public/assets/css/vocomfest.css'
+    );
+    mix.scripts([
+    	'jquery.1.11.1-min.js',
+    	'bootstrap.min.js',
+    	'modernizr.js',
+    	'jquery.nicescroll.min.js',
+    	'loader.js',
+    	'wow.min.js',
+        'owl.carousel.min.js'], 'public/assets/js/vocomfest.js'
+    );
+    mix.imagemin();
 });

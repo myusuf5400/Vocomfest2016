@@ -1,0 +1,157 @@
+/*
+	* Project name : Vocomfest 2016
+	* Author : SIS Rangers, Technical Support of Vocomfest 2016
+	* License : MIT
+	* Date created : January 14th 2016
+*/
+/* Reset the font family face */
+@font-face {
+    font-family: 'Lato-Light';
+    src: url('../fonts/lato-lig-webfont.eot');
+    src: url('../fonts/lato-lig-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato-lig-webfont.woff2') format('woff2'),
+         url('../fonts/lato-lig-webfont.woff') format('woff'),
+         url('../fonts/lato-lig-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('../fonts/lato-bold-webfont.eot');
+    src: url('../fonts/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato-bold-webfont.woff2') format('woff2'),
+         url('../fonts/lato-bold-webfont.woff') format('woff'),
+         url('../fonts/lato-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Lato-Heavy';
+    src: url('../fonts/lato-heavy-webfont.eot');
+    src: url('../fonts/lato-heavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato-heavy-webfont.woff2') format('woff2'),
+         url('../fonts/lato-heavy-webfont.woff') format('woff'),
+         url('../fonts/lato-heavy-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato-regular-webfont.eot');
+    src: url('../fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato-regular-webfont.woff2') format('woff2'),
+         url('../fonts/lato-regular-webfont.woff') format('woff'),
+         url('../fonts/lato-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+	font-family : 'Raleway' ;
+	src : url('../fonts/Raleway-Regular.woff') format('woff');
+	src : url('../fonts/Raleway-Regular.ttf') format('truetype');
+
+	font-size : 100% ;
+	font-weight : normal ;
+	font-style : normal ;
+}
+
+@font-face{
+	font-family : 'Raleway-Light' ;
+	src : url('../fonts/Raleway-Light.woff') format('woff');
+	src : url('../fonts/Raleway-Light.ttf') format('truetype');
+
+	font-size : 100% ;
+	font-weight : normal ;
+	font-style : normal ;
+}
+
+@font-face{
+	font-family : 'Raleway-Semibold' ;
+	src : url('../fonts/Raleway-SemiBold.woff') format('woff');
+	src : url('../fonts/Raleway-SemiBold.ttf') format('truetype');
+
+	font-size : 100% ;
+	font-weight : normal ;
+	font-style : normal ;
+}
+
+@font-face{
+	font-family : 'Raleway-Bold' ;
+	src : url('../fonts/Raleway-Bold.woff') format('woff');
+	src : url('../fonts/Raleway-Bold.ttf') format('truetype');
+
+	font-size : 100% ;
+	font-weight : normal ;
+	font-style : normal ;
+}
+
+@font-face{
+	font-family : 'KottaOne' ;
+	src : url('../fonts/KottaOne-Regular.woff') format('woff');
+	src : url('../fonts/KottaOne-Regular.ttf') format('truetype');
+
+	font-size : 100% ;
+	font-weight : normal ;
+	font-style : normal ;
+}
+
+body{
+	color : #000 ;
+}
+.wh{
+	color : #fff ;
+}
+.navbar-nav{
+	font-family: 'Lato-Light' ;
+	font-size: 14px ;
+	font-weight: bold ;
+}
+.navbar-nav:active{
+	color : #fff ;
+}
+.content strong, .content .strong{
+	font-family: 'Raleway' ;
+}
+.strong{
+	font-weight: bold ;
+}
+.big{
+	font-size :125%;
+}
+.separator{
+	font-family: 'Lato-Heavy' ;
+}
+.separator-wh{
+	font-family: 'Lato-Heavy' ;
+	color : #fff ;
+}
+.content{
+	font-family: 'Raleway-Light' ;
+	font-size: 1.05em ;
+}
+.testi{
+	font-family: 'KottaOne' ;
+	color: #fff ;
+}
+.contact-us{
+	font-family: 'Lato-Light' ;
+	font-size: 1.04em ;
+	color : #fff ;
+	vertical-align: center ;
+}
+.copyright{
+	font-family : 'Raleway-Light' ;
+	color: #fff ;
+}
+
+@media (max-width : 480px){
+	.contact-us{
+		text-align: center ;
+	}
+}
