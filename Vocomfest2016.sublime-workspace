@@ -1,0 +1,1396 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"uni",
+				"unique"
+			],
+			[
+				"boo",
+				"boolean	(maintenancemode.php)"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"hi",
+				"hidden"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"App",
+				"Application"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"Req",
+				"request"
+			],
+			[
+				"exte",
+				"exemptRoutes"
+			],
+			[
+				"re",
+				"require"
+			],
+			[
+				"va",
+				"var"
+			],
+			[
+				"s",
+				"styles"
+			],
+			[
+				"r",
+				"require"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"ac",
+				"action	Attr"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"ali",
+				"vertical-align"
+			],
+			[
+				"fo",
+				"footer	Tag"
+			],
+			[
+				"paddi",
+				"padding"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"st",
+				"style	Tag"
+			],
+			[
+				"pa",
+				"padding: 〔property〕"
+			],
+			[
+				"wa",
+				"watcher"
+			],
+			[
+				"getPa",
+				"getPathInput"
+			],
+			[
+				"as",
+				"assets"
+			],
+			[
+				"class",
+				"class	class …"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"comin",
+				"comingsoon"
+			],
+			[
+				"min-",
+				"min-height"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"coun",
+				"countdown"
+			],
+			[
+				"sec",
+				"section"
+			],
+			[
+				"count",
+				"ccountdown"
+			],
+			[
+				"trans",
+				"transparant"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"scro",
+				"scrollspy"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"a",
+				"about"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"doc",
+				"document〔variable〕"
+			],
+			[
+				"in",
+				"info"
+			],
+			[
+				"en",
+				"$environment〔variable〕"
+			],
+			[
+				"con",
+				"config"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"o",
+				"$overwrite〔variable〕"
+			],
+			[
+				"ar",
+				"argument"
+			],
+			[
+				"Envi",
+				"EnvironmentGetCommand"
+			],
+			[
+				"get",
+				"getElementById〔function〕"
+			],
+			[
+				"t",
+				"type	Attr"
+			],
+			[
+				"ge",
+				"getAttribute〔function〕"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"avatar",
+				"avatarfile"
+			],
+			[
+				"di",
+				"disabled	Attr"
+			],
+			[
+				"ur",
+				"$url_avatar〔variable〕"
+			],
+			[
+				"id",
+				"id_user"
+			],
+			[
+				"border",
+				"border-width"
+			],
+			[
+				"h",
+				"href"
+			],
+			[
+				"im",
+				"img"
+			],
+			[
+				"if",
+				"if	<?php if (…) ?> … <?php endif ?>"
+			],
+			[
+				"borde",
+				"border-color"
+			],
+			[
+				"user",
+				"$username〔variable〕"
+			],
+			[
+				"use",
+				"$username〔variable〕"
+			],
+			[
+				"fad",
+				"fadeOut"
+			],
+			[
+				"fa",
+				"fadeIn"
+			],
+			[
+				"slide",
+				"slideDown〔function〕"
+			],
+			[
+				"comm",
+				"comment_model"
+			],
+			[
+				"com",
+				"$comment〔variable〕"
+			],
+			[
+				"na",
+				"$name_image〔variable〕"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"name_",
+				"name_image"
+			],
+			[
+				"tim",
+				"timestamp_created"
+			],
+			[
+				"head",
+				"header_view"
+			],
+			[
+				"tag",
+				"tag_image_model"
+			],
+			[
+				"ca",
+				"$category〔variable〕"
+			],
+			[
+				"fi",
+				"$filter〔variable〕"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"nam",
+				"name_image"
+			],
+			[
+				"fade",
+				"fadeOut〔function〕"
+			],
+			[
+				"endf",
+				"endforeach〔keyword〕"
+			],
+			[
+				"id_",
+				"id_image"
+			],
+			[
+				"ima",
+				"$image〔variable〕"
+			],
+			[
+				"base",
+				"base_url"
+			],
+			[
+				"pag",
+				"paggination"
+			],
+			[
+				"imp",
+				"implode〔function〕"
+			],
+			[
+				"form",
+				"formdata〔variable〕"
+			],
+			[
+				"image_",
+				"$image_url〔variable〕"
+			],
+			[
+				"name",
+				"name_tag"
+			],
+			[
+				"ta",
+				"$tag_name〔variable〕"
+			],
+			[
+				"pritn",
+				"print_r〔function〕"
+			],
+			[
+				"log",
+				"login_library"
+			],
+			[
+				"exp",
+				"explode〔function〕"
+			],
+			[
+				"prin",
+				"print_r〔function〕"
+			],
+			[
+				"ke",
+				"$key〔variable〕"
+			],
+			[
+				"print_",
+				"print_r〔function〕"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"cate",
+				"category_model"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"alig",
+				"text-align"
+			],
+			[
+				"mart",
+				"margin-left"
+			],
+			[
+				"me",
+				"messegeLogin"
+			],
+			[
+				"se",
+				"serialize〔function〕"
+			],
+			[
+				"lo",
+				"loginForm"
+			],
+			[
+				"button",
+				"buttonLogin"
+			],
+			[
+				"fun",
+				"function〔keyword〕"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"incld",
+				"include"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"te",
+				"text-decoration"
+			],
+			[
+				"inc",
+				"include〔keyword〕"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"input",
+				"inputEmail"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"style",
+				"list-style"
+			],
+			[
+				"sc",
+				"script	Tag"
+			],
+			[
+				"li",
+				"link	Tag"
+			],
+			[
+				"upload",
+				"upload_path"
+			],
+			[
+				"userna",
+				"username"
+			],
+			[
+				"user_",
+				"user_model"
+			],
+			[
+				"data",
+				"data_user"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"CHECK",
+				"check_email"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Stack",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Breakpoint",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 82.0,
+		"last_filter": "sidebar",
+		"selected_items":
+		[
+			[
+				"sidebar",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"serve",
+				"Laravel Artisan 5: Serve"
+			],
+			[
+				"Laravel ",
+				"Set Syntax: PHP - Laravel Blade"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
+				"sideba",
+				"View: Toggle Side Bar"
+			],
+			[
+				"artisan rot",
+				"Laravel Artisan 5: Route:Clear"
+			],
+			[
+				"gu",
+				"Gulp"
+			],
+			[
+				"artisan:ser",
+				"Laravel Artisan 5: Stop Serving"
+			],
+			[
+				"gulp",
+				"Gulp: Kill running tasks"
+			],
+			[
+				"gul",
+				"Gulp"
+			],
+			[
+				"artisan u",
+				"Laravel Artisan 5: Up"
+			],
+			[
+				"artisan down",
+				"Laravel Artisan 5: Down"
+			],
+			[
+				"artisan ser",
+				"Laravel Artisan 5: Serve"
+			],
+			[
+				"git bra",
+				"Git: Change Branch"
+			],
+			[
+				"git st",
+				"Git: Status"
+			],
+			[
+				"git lo",
+				"Git: Log All"
+			],
+			[
+				"git log",
+				"Git: Log All"
+			],
+			[
+				"artisan:a",
+				"Laravel Artisan 5: Auth:Clear Resets"
+			],
+			[
+				"migrate",
+				"Laravel Artisan 5: Migrate"
+			],
+			[
+				"artisan mi",
+				"Laravel Artisan 5: Migrate:Reset"
+			],
+			[
+				"route",
+				"Laravel Artisan 5: Route:Clear"
+			],
+			[
+				"artisan",
+				"Laravel Artisan 5: Cache:Clear"
+			],
+			[
+				"blade",
+				"Set Syntax: PHP - Laravel Blade"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"fo",
+				"CodeFormatter: Format as HTML Syntax"
+			],
+			[
+				"git p",
+				"Git: Push Current Branch"
+			],
+			[
+				"git mer",
+				"Git: Merge Branch"
+			],
+			[
+				"git ",
+				"Git: Change Branch"
+			],
+			[
+				"git cha",
+				"Git: Change Branch"
+			],
+			[
+				"git co",
+				"Git: Commit history"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"git",
+				"Git: Change Branch"
+			],
+			[
+				"seed",
+				"Laravel Artisan 5: Make:Seeder"
+			],
+			[
+				"db:see",
+				"Laravel Artisan 5: DB:Seed"
+			],
+			[
+				"migra",
+				"Laravel Artisan 5: Migrate"
+			],
+			[
+				"db:",
+				"Laravel Artisan 5: DB:Seed"
+			],
+			[
+				"db:s",
+				"Laravel Artisan 5: DB:Seed"
+			],
+			[
+				"seede",
+				"Laravel Artisan 5: Make:Seeder"
+			],
+			[
+				"make:mi",
+				"Laravel Artisan 5: Make:Migration"
+			],
+			[
+				"artisa",
+				"Laravel Artisan 5: Make:Migration"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"fotm",
+				"CodeFormatter: Format as Javascript Syntax"
+			],
+			[
+				"php",
+				"CodeFormatter: Show PHP Transformations"
+			],
+			[
+				"for",
+				"CodeFormatter: Format as PHP Syntax"
+			],
+			[
+				"dock",
+				"Snippet: Start Docblock"
+			],
+			[
+				"gitgu",
+				"GitGutter: Compare Against Commit"
+			],
+			[
+				"form",
+				"CodeFormatter: Format as CSS Syntax"
+			],
+			[
+				"gitg",
+				"Git: Log All"
+			],
+			[
+				"forma",
+				"CodeFormatter: Format as HTML Syntax"
+			],
+			[
+				"PHP Code Sniffer: ",
+				"PHP Code Sniffer: Sniff this file"
+			],
+			[
+				"comm",
+				"SublimeCodeIntel: Dump Import Directories"
+			],
+			[
+				"func",
+				"Snippet: Function Signature"
+			],
+			[
+				"packga",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 408.0
+	},
+	"console":
+	{
+		"height": 181.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/ReaL/vocomfest2016/app/Http/Controllers/Auth/AuthController.php",
+		"/D/ReaL/vocomfest2016/Vocomfest2016.sublime-project",
+		"/D/ReaL/vocomfest2016/app/User.php",
+		"/D/ReaL/vocomfest2016/app/Http/Middleware/VerifyCsrfToken.php",
+		"/D/ReaL/vocomfest2016/app/Http/routes.php",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/D/ReaL/vocomfest2016/Vocomfest2016.zip",
+		"/D/ReaL/vocomfest2016/app/Http/Middleware/EncryptCookies.php",
+		"/C/xampp/php/php.ini",
+		"/D/ReaL/vocomfest2016/app/Http/Controllers/Controller.php",
+		"/D/ReaL/vocomfest2016/app/Http/Middleware/Authenticate.php",
+		"/D/ReaL/vocomfest2016/resources/views/auth/register.blade.php",
+		"/D/ReaL/vocomfest2016/resources/views/auth/register.blade",
+		"/D/ReaL/design/register.html",
+		"/D/ReaL/vocomfest2016/resources/views/layouts/app.blade.php",
+		"/D/ReaL/design/index.html",
+		"/D/ReaL/vocomfest2016/resources/views/vendor/maintenancemode/notification.blade.php",
+		"/D/ReaL/vocomfest2016/resources/views/vendor/maintenancemode/app-down.blade.php",
+		"/D/ReaL/vocomfest2016/gulpfile.js",
+		"/D/ReaL/vocomfest2016/resources/views/layouts/auth.blade.php",
+		"/D/ReaL/Vocomfest2016/resources/assets/js/mod.js",
+		"/D/ReaL/vocomfest2016/resources/assets/js/mod.js",
+		"/D/ReaL/vocomfest2016/resources/assets/js/modernizr.js",
+		"/D/ReaL/vocomfest2016/resources/assets/js/owl.carousel.min.js",
+		"/D/ReaL/vocomfest2016/resources/assets/js/wow.min.js",
+		"/D/ReaL/vocomfest2016/resources/views/home.blade.php",
+		"/D/ReaL/vocomfest2016/resources/views/auth/login.blade.php",
+		"/D/ReaL/vocomfest2016/app/Http/Controllers/HomeController.php",
+		"/D/ReaL/vocomfest2016/resources/views/welcome.blade.php",
+		"/D/ReaL/Vocomfest2016/resources/views/index.html",
+		"/D/ReaL/vocomfest2016/config/maintenancemode.php",
+		"/D/ReaL/vocomfest2016/package.json",
+		"/D/ReaL/vocomfest2016/public/assets/css/comingsoon.css",
+		"/D/ReaL/vocomfest2016/resources/views/templates/auth.blade.php",
+		"/D/ReaL/vocomfest2016/app/Http/Controllers/MailController.php",
+		"/D/ReaL/vocomfest2016/app/Http/Controllers/Auth/PasswordController.php",
+		"/D/ReaL/vocomfest2016/config/app.php",
+		"/D/ReaL/vocomfest2016/resources/views/templates/master.blade.php",
+		"/D/ReaL/vocomfest2016/.env",
+		"/D/ReaL/Vocomfest2016/resources/views/login.blade.php",
+		"/D/ReaL/vocomfest2016/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/D/ReaL/vocomfest2016/resources/views/register.blade.php",
+		"/D/ReaL/Vocomfest2016/public/assets/css/vocomfest.css",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/Gulp/Default (Windows).sublime-keymap",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/Gulp/Gulp.sublime-settings",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/User/Gulp.sublime-settings",
+		"/D/ReaL/design/login.html",
+		"/D/ReaL/vocomfest2016/resources/views/templates/head.blade.php",
+		"/D/ReaL/vocomfest2016/app/Exemptions/RouteWhitelist.php",
+		"/D/ReaL/Vocomfest2016/resources/views/templates/footer.blade.php",
+		"/D/ReaL/Vocomfest2016/resources/views/register.html",
+		"/D/ReaL/Vocomfest2016/resources/views/templates/head.blade.php",
+		"/D/ReaL/vocomfest2016/.sublime-gulp.cache",
+		"/D/ReaL/vocomfest2016/.sublime-gulp-tmp.js",
+		"/D/ReaL/vocomfest2016as/resources/views/welcome.blade.php",
+		"/D/ReaL/vocomfest2016/database/seeds/SemnasTableSeeder.php",
+		"/D/ReaL/vocomfest2016/database/migrations/2016_01_27_133109_create_semnas_table.php",
+		"/D/ReaL/vocomfest2016/database/migrations/2014_10_12_100000_create_password_resets_table.php",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/D/ReaL/vocomfest2016/database/migrations/2016_01_27_132924_create_files_table.php",
+		"/D/ReaL/vocomfest2016/database/migrations/2016_01_27_131539_create_teams_table.php",
+		"/D/ReaL/Vocomfest2016/.git/HEAD",
+		"/C/xampp/apache/conf/extra/httpd-vhosts.conf",
+		"/C/xampp/apache/conf/httpd.conf",
+		"/D/ReaL/vocomfest2016/database/seeds/UsersTableSeeder.php",
+		"/D/ReaL/vocomfest2016/database/seeds/DatabaseSeeder.php",
+		"/D/ReaL/vocomfest2016/database/factories/ModelFactory.php",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
+		"/C/Users/User/Desktop/hosts",
+		"/D/ReaL/Vocomfest2016/.git/COMMIT_EDITMSG",
+		"/D/ReaL/Vocomfest2016/.git/description",
+		"/D/ReaL/vocomfest2016/app/Http/Kernel.php",
+		"/D/ReaL/vocomfest2016/config/cache.php",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/User/Laravel 5 Artisan.sublime-commands",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/Laravel 5 Artisan/Laravel 5 Artisan.sublime-settings",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/User/Laravel 5 Artisan.sublime-settings",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/Glue/keymaps/Default (Windows).sublime-keymap",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/Terminality/Default (Windows).sublime-keymap",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/CodeFormatter/Default (Windows).sublime-keymap",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/Terminality/Terminality.sublime-settings",
+		"/D/ReaL/vocomfest2016/node_modules/weinre/web/interfaces/interfaces.js",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/Terminal/Default (Windows).sublime-keymap",
+		"/D/ReaL/vocomfest2016/resources/assets/css/comingsoon.css",
+		"/D/ReaL/vocomfest2016/resources/assets/css/sprite.css",
+		"/D/ReaL/Vocomfest2016/resources/assets/css/sprite.css",
+		"/D/ReaL/Vocomfest2016/public/index.php",
+		"/D/ReaL/Vocomfest2016/public/images/sprite.png",
+		"/D/ReaL/Vocomfest2016/public/assets/css/comingsoon.css",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/Http/Middleware/CheckForMaintenanceMode",
+		"/D/ReaL/vocomfest2016/config/services.php",
+		"/D/ReaL/vocomfest2016/config/mail.php",
+		"/D/ReaL/Vocomfest2016/resources/views/vendor/maintenancemode/comingsoon.blade.php",
+		"/D/ReaL/Vocomfest2016/config/assets.php",
+		"/D/ReaL/Vocomfest2016/.env",
+		"/D/ReaL/Vocomfest2016/app/Http/Controllers/MailController.php",
+		"/D/ReaL/vocomfest2016/composer.json",
+		"/D/ReaL/Vocomfest2016/resources/views/emails/example.blade.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/Http/Middleware/CheckForMaintenanceMode.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/Exemptions/MaintenanceModeExemption.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/MaintenanceCommandServiceProvider.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/examples/exemptions/UserGroupWhitelist.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/Exemptions/EnvironmentWhitelist.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/MaintenanceModeServiceProvider.php",
+		"/D/ReaL/vocomfest2016ori/app/Http/Middleware/CheckForMaintenanceMode.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/Exemptions/IPWhitelist.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/examples/exemptions/LoggedOut.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/Console/Commands/StartMaintenanceCommand.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/Exceptions/InvalidExemption.php",
+		"/D/ReaL/vocomfest2016/app/Exceptions/Handler.php",
+		"/D/ReaL/Vocomfest2016/app/Exemptions/RouteWhitelist.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/MisterPhilip/MaintenanceMode/Exceptions/ExemptionDoesNotExist.php",
+		"/D/ReaL/Vocomfest2016/resources/views/vendor/maintenancemode/app-down.blade.php",
+		"/D/ReaL/Vocomfest2016/config/maintenancemode.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/views/notification.blade.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/views/app-down.blade.php",
+		"/D/ReaL/vocomfest2016/vendor/misterphilip/maintenance-mode/src/config/maintenancemode.php",
+		"/D/ReaL/vocomfest2016/config/view.php",
+		"/D/ReaL/gulp/gulpfile.js",
+		"/D/ReaL/gulp/index.html",
+		"/D/ReaL/Vocomfest2016/composer.json",
+		"/D/ReaL/gulp/resources/assets/css/vocomfest-reset.css",
+		"/D/ReaL/mygithubpage/index.html",
+		"/D/ReaL/Vocomfest2016/resources/views/templates/master.blade.php",
+		"/D/ReaL/design/madc.html",
+		"/D/ReaL/design/semnas.html"
+	],
+	"find":
+	{
+		"height": 46.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"home",
+			"../fontss",
+			"../font",
+			"../fonts",
+			"../font",
+			"font",
+			"user",
+			"ctrl+shift+t",
+			"img",
+			"logo",
+			"z-index:",
+			"z-index: 2",
+			"503",
+			"view",
+			"curl.c",
+			"$re",
+			"exem",
+			"app",
+			"reque",
+			"respon",
+			"ip",
+			"rou",
+			"',",
+			"ip",
+			"container",
+			"clea",
+			"socia",
+			" {",
+			": ",
+			"\n",
+			"\n  ",
+			"conte",
+			": ",
+			"  ",
+			": ",
+			"  ",
+			"\n",
+			"    ",
+			": ",
+			" ",
+			"\n ",
+			"	",
+			"/*!",
+			"conten",
+			"resources/assets/js/",
+			"comingsoon",
+			"filt",
+			"fil",
+			"scro",
+			"scroll",
+			"content",
+			"co",
+			".count-down {\n        margin: 0px 0px 20px 0px;\n        padding: 0;\n        font-family: 'Roboto', sans-serif;\n        text-align: center;\n        height: auto;\n    }\n    .count-down div {\n        margin: 20px 0 30px 0;\n        padding: 0;\n        list-style: none;\n        font-size: 28px;\n        display: inline-block;\n    }\n    .count-down div div {\n        margin: 0 !important;\n        padding: 0;\n    }\n    .count-down div input {\n        font-family: 'Roboto', sans-serif !important;\n        font-size: 60px!important;    \n        width: 150px!important;\n        height: 150px!important;\n        margin: -20px 0 0 -150px !important;\n        font-weight: normal!important;\n    }\n    canvas{\n        max-width: 100%;\n        max-height: 100%;\n    }\n    input.knob{\n        margin: 0px !important;\n    }\n    .count-down div div{\n        max-height: 150px !important;\n        max-width: 150px !important;\n    }\n    #days-title,\n    #hours-title,\n    #mins-title,\n    #secs-title {\n        max-height: 100%;\n        max-width: 100%;\n        display: block;\n        text-transform: uppercase;\n        margin-top: -65px;\n        font-size: 60%;\n        position: relative;\n        text-align: center;\n    }\n\n    .logo{\n        margin-left: auto;\n        margin-right: auto;\n        display: block;\n        margin-top: 10px;\n        max-width: 70%;\n        padding: 0%;\n    }",
+			"resp",
+			"res",
+			"#fff",
+			"footer-cop",
+			"footer",
+			"mail",
+			"scro",
+			"soci",
+			"sosi",
+			"textare",
+			"input",
+			"text-are",
+			"cont",
+			"font",
+			"container",
+			"-container",
+			"container-",
+			"span",
+			"logo",
+			"img",
+			"bra",
+			"content",
+			"conte",
+			"wat",
+			"mkdi",
+			"mk",
+			"mkdi",
+			"getPath",
+			"getpa",
+			"con",
+			"WatchCommand",
+			"brows",
+			"html",
+			"view",
+			"503",
+			"collapsible",
+			"$(\".count-down\").ccountdown(2016,2,5,'20:00');",
+			"comingsoon/assets/img/",
+			"val",
+			"change",
+			"_dsec",
+			"change",
+			"min",
+			"inpu",
+			"trigg",
+			"datam",
+			"fadeou",
+			"font",
+			"assets/",
+			"14",
+			"das",
+			"widt",
+			"don",
+			"image",
+			"ima",
+			"PNG",
+			"donate",
+			"don",
+			"donate",
+			"don",
+			"donate",
+			"don",
+			"wid",
+			"widt",
+			"wi",
+			"260",
+			"col m3",
+			"li",
+			"inline",
+			"li",
+			"ccoun",
+			"scrollsp",
+			"scroll",
+			"offse",
+			"scroll"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"../fonts",
+			".css',",
+			"{",
+			":",
+			"",
+			":",
+			"",
+			" ",
+			"",
+			"resources",
+			"Watch",
+			"assets/img/",
+			"comingsoon/assets/",
+			"col s12 m6 l3",
+			"div",
+			"content",
+			"assets/js/",
+			"assets/css/",
+			"assets/css",
+			"assets/css/",
+			"assets/css",
+			"<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n	<meta charset=\"utf-8\">\n	<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n	<title>Website Chat</title>\n\n	<!-- Bootstrap -->\n	<link href=\"assets/css/bootstrap.min.css\" rel=\"stylesheet\">\n</head>\n<body>\n<div class=\"container\">\n<div class=\"well\">\n		Hallo\n	</div>\n	</div>\n</script>\n</body>\n</html>",
+			"'",
+			"nif",
+			"tag",
+			"/n",
+			"col-sm-9",
+			"col-sm-2",
+			"'",
+			"Signup",
+			"'",
+			"Upload",
+			"Signup",
+			"'",
+			"col-sm-8",
+			"col-sm-4",
+			"PassConf",
+			"passconf",
+			"col-sm-8",
+			"col-sm-4",
+			"LastName",
+			"FirstName",
+			"'",
+			"login",
+			"email",
+			"\"",
+			"image",
+			"%",
+			"file:///SDCard/BlackBerry/music/Music/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.7,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 88.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 94.0
+	},
+	"output.gulp_output":
+	{
+		"height": 124.0
+	},
+	"output.paneltranformations":
+	{
+		"height": 118.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 124.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Vocomfest2016.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"app\\Http\\routes.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "git",
+		"selected_items":
+		[
+			[
+				"git",
+				"getIdlType"
+			]
+		],
+		"width": 900.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"15":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"16":
+				{
+					"group": 0,
+					"index": 1
+				},
+				"17":
+				{
+					"group": 0,
+					"index": 2
+				},
+				"18":
+				{
+					"group": 0,
+					"index": 3
+				},
+				"19":
+				{
+					"group": 0,
+					"index": 5
+				},
+				"23":
+				{
+					"group": 0,
+					"index": 4
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 297.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

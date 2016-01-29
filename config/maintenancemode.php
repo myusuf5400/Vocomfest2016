@@ -59,7 +59,7 @@ return [
      *
      * @var array
      */
-    'exempt-ips'          => ['::1'],
+    'exempt-ips'          => [''],
 
     /**
      * Use proxies to get the user's IP address
