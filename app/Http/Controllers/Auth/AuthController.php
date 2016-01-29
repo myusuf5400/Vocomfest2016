@@ -48,12 +48,13 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name'     => 'required|max:60',
-            'email'    => 'required|email|max:60|unique:users',
-            'password' => 'required|confirmed|min:6',
-            'notelp'   => 'required|max:14|unique:users',
-        ]);
+        print_r($data);
+        // return Validator::make($data, [
+        //     'name'     => 'required|max:60',
+        //     'email'    => 'required|email|max:60|unique:users',
+        //     'password' => 'required|confirmed|min:6',
+        //     'notelp'   => 'required|max:14|unique:users',
+        // ]);
     }
 
     /**
