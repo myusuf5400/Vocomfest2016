@@ -88,35 +88,35 @@
                                 </h4>
                                 <div class="form-group" id="mem1">
                                     <div class="col-md-4">
-                                        <input type="text" name="member1" class="form-control reg-form" placeholder="Nama Anggota"/>
+                                        <input type="text" name="member_name[]" class="form-control reg-form" placeholder="Nama Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="member1_email" class="form-control reg-form" placeholder="Email Anggota"/>
+                                        <input type="email" name="member_email[]" class="form-control reg-form" placeholder="Email Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" name="member1_hp" class="form-control reg-form" placeholder="No HP Anggota"/>
+                                        <input type="number" name="member_notelp[]" class="form-control reg-form" placeholder="No HP Anggota"/>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem2">
                                     <div class="col-md-4">
-                                        <input type="text" name="member2" class="form-control reg-form" placeholder="Nama Anggota"/>
+                                        <input type="text" name="member_name[]" class="form-control reg-form" placeholder="Nama Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="member2_email" class="form-control reg-form" placeholder="Email Anggota"/>
+                                        <input type="email" name="member_email[]" class="form-control reg-form" placeholder="Email Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" name="member2_hp" class="form-control reg-form" placeholder="No HP Anggota"/>
+                                        <input type="number" name="member_notelp[]" class="form-control reg-form" placeholder="No HP Anggota"/>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem3">
                                     <div class="col-md-4">
-                                        <input type="text" name="member3" class="form-control reg-form" placeholder="Nama Anggota"/>
+                                        <input type="text" name="member_name[]" class="form-control reg-form" placeholder="Nama Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="member3_email" class="form-control reg-form" placeholder="Email Anggota"/>
+                                        <input type="email" name="member_email[]" class="form-control reg-form" placeholder="Email Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" name="member3_hp" class="form-control reg-form" placeholder="No HP Anggota"/>
+                                        <input type="number" name="member_notelp[]" class="form-control reg-form" placeholder="No HP Anggota"/>
                                     </div>
                                 </div>
                                 <!--
