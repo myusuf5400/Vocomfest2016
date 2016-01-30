@@ -14,8 +14,9 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nameteam', 60);
+            $table->string('namateam', 60);
             $table->boolean('kategori');
+            $table->string('institusi', 60);
             $table->string('imgteam', 60);
             $table->timestamps();
             $table->softDeletes();

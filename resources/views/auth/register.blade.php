@@ -27,41 +27,52 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="comp">
-                           <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                            {!! csrf_field() !!}
+                           @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                                {!! csrf_field() !!}
                                 <div class="form-group mg-t-15">
                                     <div class="col-md-6">
-                                        <input type="text" name="ketua" class="form-control reg-form" placeholder="Nama Ketua"/>
+                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua"/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="email" class="form-control reg-form" placeholder="Email Ketua"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-6">
-                                        <input type="text" name="user" class="form-control reg-form" placeholder="Username"/>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" name="no" class="form-control reg-form" placeholder="Nomor HP"/>
+                                        <input type="text" name="emailketua" class="form-control reg-form" placeholder="Email Ketua"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="text" name="pass" class="form-control reg-form" placeholder="Password"/>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" name="re-pass" class="form-control reg-form" placeholder="Confirm Password"/>
+                                        <div class="input-group">
+                                            <div class="input-group-addon reg-form">
+                                                (+62)
+                                            </div>
+                                            <input type="text" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomor HP"/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="radio" name="event" value="web" id="web" checked class="ev-cat"/>
+                                        <input type="text" name="password" class="form-control reg-form" placeholder="Password"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="password_confirmation" class="form-control reg-form" placeholder="Confirm Password"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <input type="radio" name="kategori" value="0" id="kategori" checked class="ev-cat">
                                         <label for="web">
                                             Web Design Competition
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="radio" name="event" value="madc" id="madc" class="ev-cat"/>
+                                        <input type="radio" name="kategori" value="1" id="kategori" class="ev-cat">
                                         <label for="madc">
                                             Mobile Apps Development Competition
                                         </label>
@@ -69,18 +80,10 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="text" name="tim" class="form-control reg-form" placeholder="Nama Tim"/>
+                                        <input type="text" name="namateam" class="form-control reg-form" placeholder="Nama Tim"/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="asal" class="form-control reg-form" placeholder="Asal Instansi"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-6">
-                                        <input type="text" name="tim" class="form-control reg-form" placeholder="Nama Tim"/>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" name="asal" class="form-control reg-form" placeholder="Asal Instansi"/>
+                                        <input type="text" name="institusi" class="form-control reg-form" placeholder="Asal Instansi"/>
                                     </div>
                                 </div>
                                 <h4>
@@ -88,48 +91,52 @@
                                 </h4>
                                 <div class="form-group" id="mem1">
                                     <div class="col-md-4">
-                                        <input type="text" name="member_name[]" class="form-control reg-form" placeholder="Nama Anggota"/>
+                                        <input type="text" name="anggota[0][nama]" class="form-control reg-form" placeholder="Nama Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="member_email[]" class="form-control reg-form" placeholder="Email Anggota"/>
+                                        <input type="email" name="anggota[0][email]" class="form-control reg-form" placeholder="Email Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" name="member_notelp[]" class="form-control reg-form" placeholder="No HP Anggota"/>
+                                        <div class="input-group">
+                                            <div class="input-group-addon reg-form">
+                                                (+62)
+                                            </div>
+                                            <input type="text" class="form-control reg-form" id="hp" name="anggota[0][notelp]" placeholder="Nomor HP"/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem2">
                                     <div class="col-md-4">
-                                        <input type="text" name="member_name[]" class="form-control reg-form" placeholder="Nama Anggota"/>
+                                        <input type="text" name="anggota[1][nama]" class="form-control reg-form" placeholder="Nama Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="member_email[]" class="form-control reg-form" placeholder="Email Anggota"/>
+                                        <input type="email" name="anggota[1][email]" class="form-control reg-form" placeholder="Email Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" name="member_notelp[]" class="form-control reg-form" placeholder="No HP Anggota"/>
+                                        <div class="input-group">
+                                            <div class="input-group-addon reg-form">
+                                                (+62)
+                                            </div>
+                                            <input type="text" class="form-control reg-form" id="hp" name="anggota[1][notelp]" placeholder="Nomor HP"/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem3">
                                     <div class="col-md-4">
-                                        <input type="text" name="member_name[]" class="form-control reg-form" placeholder="Nama Anggota"/>
+                                        <input type="text" name="anggota[2][nama]" class="form-control reg-form" placeholder="Nama Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="member_email[]" class="form-control reg-form" placeholder="Email Anggota"/>
+                                        <input type="email" name="anggota[2][email]" class="form-control reg-form" placeholder="Email Anggota"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" name="member_notelp[]" class="form-control reg-form" placeholder="No HP Anggota"/>
-                                    </div>
-                                </div>
-                                <!--
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <textarea class="form-control reg-text" name="desc_tim" placeholder="Deskripsi Tim">
-                                            </textarea>
-                                            <span id="helpBlock" class="help-block">
-                                                Data yang perlu dimasukkan adalah Nama Anggota, No. HP Anggota, dan Email Anggota
-                                            </span>
+                                        <div class="input-group">
+                                            <div class="input-group-addon reg-form">
+                                                (+62)
+                                            </div>
+                                            <input type="text" class="form-control reg-form" id="hp" name="anggota[2][notelp]" placeholder="Nomor HP"/>
                                         </div>
                                     </div>
-                                -->
+                                </div>
                                 <div class="form-group">
                                     <div class="col-md-3">
                                         <input type="submit" value="REGISTER" class="btn btn-success btn-reg"/>
@@ -153,7 +160,7 @@
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="hp" placeholder="Nomor HP"/>
+                                            <input type="text" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomor HP"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -248,5 +255,4 @@
         </div>
     </div>
     <!-- /container -->
-   
     @endsection

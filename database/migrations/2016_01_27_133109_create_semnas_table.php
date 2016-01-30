@@ -14,7 +14,7 @@ class CreateSemnasTable extends Migration
     {
         Schema::create('semnas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 60);
+            $table->string('nama', 60);
             $table->string('notelp',14);
             $table->string('email', 60)->unique();
             $table->boolean('kategori');
