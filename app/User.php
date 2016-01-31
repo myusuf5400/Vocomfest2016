@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nama', 'email', 'password', 'notelp', 'code', 'idteam',
+        'nama', 'email', 'password', 'notelp', 'code', 'idteam', 'level',
     ];
 
     /**
@@ -24,7 +24,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function code(){
-        return 0;
+    public function accountIsActive($code)
+    {
+        $user = User::where('code', '=', $code)->first();
+        if ($user) {
+            $user->code = 1;
+            if ($user->save()) {
+                \Auth::login($user);
+                return true;
+            }
+        }
+
+        return false;
     }
 }

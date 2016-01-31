@@ -7,9 +7,9 @@ use App\Team;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Validator;
 use Illuminate\Http\Request;
-use Auth;
+use Mail;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -88,15 +88,15 @@ class AuthController extends Controller
 
         $team = Team::where('namateam', $data['namateam'])->first();
 
-        if($data['kategori']==0){
+        if ($data['kategori'] == 0) {
             $max = 2;
-        }else{
+        } else {
             $max = 3;
         }
 
         $anggota = $data['anggota'];
 
-        for ($i=0; $i <= $max; $i++) {
+        for ($i = 0; $i <= $max; $i++) {
             if ($anggota[$i]['nama'] != null) {
                 User::create([
                     'nama'   => $anggota[$i]['nama'],
@@ -104,12 +104,12 @@ class AuthController extends Controller
                     'notelp' => $anggota[$i]['notelp'],
                     'idteam' => $team['id'],
                 ]);
-            }else{
+            } else {
                 $i = $max;
             }
         }
 
-        return User::create([
+        $user = User::create([
             'nama'     => $data['namaketua'],
             'email'    => $data['emailketua'],
             'password' => bcrypt($data['password']),
@@ -117,46 +117,59 @@ class AuthController extends Controller
             'code'     => str_random(30),
             'idteam'   => $team['id'],
         ]);
+
+        $user['kategori'] = $data['kategori'];
+
+        return $user;
+
     }
 
     /**
-     * Handle a login request to the application.
+     * Handle a registration request for the application.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function login(Request $request)
+    public function register(Request $request)
     {
-        $this->validate($request, [
-            $this->loginUsername() => 'required', 'password' => 'required', 'code' => 'required'
-        ]);
+        $validator = $this->validator($request->all());
 
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
-        $throttles = $this->isUsingThrottlesLoginsTrait();
-
-        if ($throttles && $this->hasTooManyLoginAttempts($request)) {
-            return $this->sendLockoutResponse($request);
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
         }
 
-        $credentials = $this->getCredentials($request);
+        if ($user = $this->create($request->all())) {
+            $config['subject'] = "Aktivasi Email";
+            if ($user['kategori'] == 0) {
+                $config['email'] = "wdc@vocomfest.com";
+                $config['nama']  = "Registrasi WDC";
+            } else {
+                $config['email'] = "madc@vocomfest.com";
+                $config['nama']  = "Registrasi MADC";
+            }
 
-        //Menambahkan kondisi di login yaitu status
-        
-        $credentials['code'] = 1;       
-
-        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-            return $this->handleUserWasAuthenticated($request, $throttles);
+            Mail::send('emails.activateAccount', ['code' => $user['code']], function ($message) use ($config, $user) {
+                $message->from($config['email'], $config['nama']);
+                $message->subject($config['subject']);
+                $message->to($user['email']);
+            });
         }
 
-        // If the login attempt was unsuccessful we will increment the number of attempts
-        // to login and redirect the user back to the login form. Of course, when this
-        // user surpasses their maximum number of attempts they will get locked out.
-        if ($throttles) {
-            $this->incrementLoginAttempts($request);
+        return redirect("/login");
+    }
+
+    public function activateAccount($code)
+    {
+        if (strlen($code) != 30) {
+            return "Activate code sadlah";
         }
 
-        print_r(Auth::guard($this->getGuard())->getLastAttempted());
+        if (User::accountIsActive($code)) {
+            return Redirect::route('login');
+        }
+
+        return "Error";
     }
 }
