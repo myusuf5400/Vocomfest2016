@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
+
+    use SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -24,17 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function accountIsActive($code)
-    {
-        $user = User::where('code', '=', $code)->first();
-        if ($user) {
-            $user->code = 1;
-            if ($user->save()) {
-                \Auth::login($user);
-                return true;
-            }
-        }
-
-        return false;
-    }
+    protected $dates = [
+        'deleted_at',
+    ];
 }

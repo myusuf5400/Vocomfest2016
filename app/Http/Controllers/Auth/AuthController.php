@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Mail;
+use Response;
 use Validator;
 
 class AuthController extends Controller
@@ -157,19 +158,32 @@ class AuthController extends Controller
             });
         }
 
-        return redirect("/login");
+        return redirect('/login');
     }
 
     public function activateAccount($code)
     {
         if (strlen($code) != 30) {
-            return "Activate code sadlah";
+            return redirect('/');
         }
 
-        if (User::accountIsActive($code)) {
-            return Redirect::route('login');
+        $user = User::where('code', '=', $code)->first();
+
+        if ($user) {
+            $now     = time();
+            $expired = date(strtotime('+2 day' . $user->created_at));
+
+            if ($now > $expired) {
+                User::where('idteam','=',$user->idteam)->delete();
+                return "expired";
+            }
+
+            $user->code = 1;
+            if ($user->save()) {
+                \Auth::login($user);
+                return "Activated";
+            }
         }
 
-        return "Error";
     }
 }
