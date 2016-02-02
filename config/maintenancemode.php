@@ -85,7 +85,7 @@ return [
      *
      * @var array
      */
-    'exempt-routes'       => [''],
+    'exempt-routes'       => ['register'],
 
     /**
      * A list of exemption classes to execute

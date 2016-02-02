@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "misterphilip/maintenance-mode": "1.0.*",
-        "guzzlehttp/guzzle": "~5.3|~6.0"
+        "guzzlehttp/guzzle": "~5.3|~6.0",
+        "transloadit/php-sdk": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

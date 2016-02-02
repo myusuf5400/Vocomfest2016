@@ -142,20 +142,8 @@ class AuthController extends Controller
         }
 
         if ($user = $this->create($request->all())) {
-            $config['subject'] = "Aktivasi Email";
-            if ($user['kategori'] == 0) {
-                $config['email'] = "wdc@vocomfest.com";
-                $config['nama']  = "Registrasi WDC";
-            } else {
-                $config['email'] = "madc@vocomfest.com";
-                $config['nama']  = "Registrasi MADC";
-            }
 
-            Mail::send('emails.activateAccount', ['code' => $user['code']], function ($message) use ($config, $user) {
-                $message->from($config['email'], $config['nama']);
-                $message->subject($config['subject']);
-                $message->to($user['email']);
-            });
+            $this->sendEmail($user);
         }
 
         return redirect('/login');
@@ -174,16 +162,35 @@ class AuthController extends Controller
             $expired = date(strtotime('+2 day' . $user->created_at));
 
             if ($now > $expired) {
-                User::where('idteam','=',$user->idteam)->delete();
+                User::where('idteam', '=', $user->idteam)->delete();
+                Team::where('id', '=', $user->idteam)->delete();
                 return "expired";
             }
 
             $user->code = 1;
             if ($user->save()) {
-                \Auth::login($user);
-                return "Activated";
+                return redirect('/login');
             }
         }
 
+    }
+
+    public function sendEmail(User $user)
+    {
+
+        $config['subject'] = "Aktivasi Email";
+        if ($user['kategori'] == 0) {
+            $config['email'] = "wdc@vocomfest.com";
+            $config['nama']  = "Registrasi WDC";
+        } else {
+            $config['email'] = "madc@vocomfest.com";
+            $config['nama']  = "Registrasi MADC";
+        }
+
+        Mail::send('emails.activateAccount', ['code' => $user['code']], function ($message) use ($config, $user) {
+            $message->from($config['email'], $config['nama']);
+            $message->subject($config['subject']);
+            $message->to($user['email']);
+        });
     }
 }

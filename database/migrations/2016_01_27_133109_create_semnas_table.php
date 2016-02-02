@@ -16,10 +16,11 @@ class CreateSemnasTable extends Migration
             $table->increments('id');
             $table->string('nama', 60);
             $table->string('notelp',14);
-            $table->string('email', 60)->unique();
+            $table->string('email', 60);
             $table->boolean('kategori');
             $table->boolean('status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

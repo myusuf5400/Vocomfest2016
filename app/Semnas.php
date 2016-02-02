@@ -3,22 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Team extends Model
+class Semnas extends Model
 {
-	use SoftDeletes;
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'namateam', 'kategori', 'institusi', 'imgteam',
+        'nama', 'notelp', 'email', 'kategori','status',
     ];
 
     protected $dates = [
         'deleted_at',
     ];
 }
-
