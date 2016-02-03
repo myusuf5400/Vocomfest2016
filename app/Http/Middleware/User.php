@@ -29,6 +29,6 @@ class User
             }
         }
 
-        echo $guard;
+        return $next($request);
     }
 }

@@ -26,7 +26,7 @@
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in active" id="comp">
+                        <div role="tabpanel" class="tab-pane fade in" id="comp">
                            @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
@@ -144,8 +144,8 @@
                                 </div>
                             </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade" id="semnas">
-                            @if (count($errors->semnas) > 0)
+                        <div role="tabpanel" class="tab-pane fade active" id="semnas">
+                        @if (count($errors->semnas) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->semnas->all() as $error)
@@ -155,7 +155,10 @@
                                 </div>
                             @endif
                             <form role="form" class="form-horizontal" method="POST" action="{{ url('/semnas') }}">
-                                {!! csrf_field() !!}      
+                                {!! csrf_field() !!}
+                            
+                                
+                            
                                 <div class="form-group mg-t-15">
                                     <div class="col-md-6">
                                         <input type="text" name="nama" class="form-control reg-form" placeholder="Nama Lengkap"/>

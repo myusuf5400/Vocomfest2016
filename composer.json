@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "misterphilip/maintenance-mode": "1.0.*",
         "guzzlehttp/guzzle": "~5.3|~6.0",
-        "transloadit/php-sdk": "dev-master"
+        "transloadit/php-sdk": "dev-master",
+        "google/recaptcha": "~1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

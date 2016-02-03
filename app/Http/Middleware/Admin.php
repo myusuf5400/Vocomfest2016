@@ -30,6 +30,6 @@ class Admin
             }
         }
 
-        echo $guard;
+        return $next($request);
     }
 }
