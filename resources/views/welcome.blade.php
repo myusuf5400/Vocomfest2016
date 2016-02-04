@@ -13,14 +13,14 @@
                         <div class="caption-box">
                             <div class="caption pd-bt-10 pd-lr-30 pull-right">
                                 <h1>
-                                    Lorem Ipsum Lorem Ipsum
+                                    WELCOME TO VOCOMFEST!
                                 </h1>
                             </div>
                         </div>
                         <div class="caption-box">
                             <div class="subcap pd-bt-5 pd-lr-10 pull-right">
                                 <h3>
-                                    Lorem Ipsum Lorem Ipsum
+                                    Vocational Computer Festival 2016
                                 </h3>
                             </div>
                         </div>
@@ -29,14 +29,14 @@
                         <div class="caption-box">
                             <div class="caption pd-bt-10 pd-lr-30 pull-right">
                                 <h1>
-                                    Lorem Ipsum Lorem Ipsum 2
+                                    Our Biggest Event This Year!
                                 </h1>
                             </div>
                         </div>
                         <div class="caption-box">
                             <div class="subcap pd-bt-5 pd-lr-10 pull-right">
                                 <h3>
-                                    Lorem Ipsum Lorem Ipsum 2
+                                    Presented by Himakomsi UGM
                                 </h3>
                             </div>
                         </div>
@@ -45,14 +45,14 @@
                         <div class="caption-box">
                             <div class="caption pd-bt-10 pd-lr-30 pull-right">
                                 <h1>
-                                    Lorem Ipsum Lorem Ipsum 3
+                                    Make a Great Experience!
                                 </h1>
                             </div>
                         </div>
                         <div class="caption-box">
                             <div class="subcap pd-bt-5 pd-lr-10 pull-right">
                                 <h3>
-                                    Lorem Ipsum Lorem Ipsum 3
+                                    National Seminar And Competitions
                                 </h3>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
             </div>
         </div>
     </header>
-    <section id="about" class="pd-bt-15">
+    <section id="about" style="padding : 40px 0px 15px 0px ;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -189,11 +189,95 @@
                         </h3>
                         <hr class="bord greeny"/>
                     </div>
+					<section class="cd-horizontal-timeline">
+	<div class="timeline">
+		<div class="events-wrapper">
+			<div class="events">
+				<ol class="timelinee">
+					<li><a href="#0" data-date="11/02/2016" class="selected">11 Feb</a></li>
+					<li><a href="#0" data-date="10/03/2016">10 Mar</a></li>
+					<li><a href="#0" data-date="20/03/2016">20 Mar</a></li>
+					<li><a href="#0" data-date="21/03/2016">23 Mar</a></li>
+					<li><a href="#0" data-date="27/03/2016">27 Mar</a></li>
+					<li><a href="#0" data-date="28/03/2016">28 Mar</a></li>
+					<li><a href="#0" data-date="31/03/2016">31 Mar</a></li>
+				</ol>
+
+				<span class="filling-line" aria-hidden="true"></span>
+			</div> <!-- .events -->
+		</div> <!-- .events-wrapper -->
+			
+		<ul class="cd-timeline-navigation">
+			<li><a href="#0" class="prev inactive">Prev</a></li>
+			<li><a href="#0" class="next">Next</a></li>
+		</ul> <!-- .cd-timeline-navigation -->
+	</div> <!-- .timeline -->
+
+	<div class="events-content">
+		<ol>
+			<li class="selected" data-date="11/02/2016">
+				<h2>Registration Open!</h2>
+				<em>February 10th, 2016</em>
+				<p>	
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+				</p>
+			</li>
+
+			<li data-date="10/03/2016">
+				<h2>Registration Closed!</h2>
+				<em>March 10th, 2016</em>
+				<p>	
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+				</p>
+			</li>
+			
+			<li data-date="20/03/2016">
+				<h2>Technical Meeting WDC</h2>
+				<em>March 20th, 2014</em>
+				<p>	
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+				</p>
+			</li>
+
+			<li data-date="21/03/2016">
+				<h2>Final Web Design Competition</h2>
+				<em>March 20th, 2014</em>
+				<p>	
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+				</p>
+			</li>
+
+			<li data-date="27/03/2016">
+				<h2>Technical Meeting MADC</h2>
+				<em>May 20th, 2014</em>
+				<p>	
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+				</p>
+			</li>
+			
+			<li data-date="28/03/2016">
+				<h2>Final Mobile Apps Development Competition</h2>
+				<em>May 20th, 2014</em>
+				<p>	
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+				</p>
+			</li>
+
+			<li data-date="31/03/2016">
+				<h2>National Seminar</h2>
+				<em>July 9th, 2014</em>
+				<p>	
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+				</p>
+			</li>
+		</ol>
+	</div> <!-- .events-content -->
+</section>
                 </div>
             </div>
         </div>
     </section>
-    <section id="testimoni" class="pd-bt-15">
+    <section id="testimoni" class="pd-bt-20">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

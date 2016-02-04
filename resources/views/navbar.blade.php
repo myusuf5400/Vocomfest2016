@@ -45,16 +45,25 @@
                                     CONTACT
                                 </a>
                             </li>
-                            <li>
-                                <a href="register">
-                                    REGISTER
-                                </a>
-                            </li>
-                            <li>
-                                <a href="login">
-                                    LOGIN
-                                </a>
-                            </li>
+							@if(Auth::guest())
+								<li>
+									<a href="{{url('/register')}}">
+										REGISTER
+									</a>
+								</li>
+								<li>
+									<a href="{{url('/login')}}">
+										LOGIN
+									</a>
+								</li>
+							@else
+								<li><a href="#">PROFILE</a></li>
+								<li>
+									<a href="{{url('/logout')}}">
+										LOGOUT
+									</a>
+								</li>
+							@endif
                         </ul>
                     </div>
                 </div>
