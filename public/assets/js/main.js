@@ -98,7 +98,7 @@ jQuery(document).ready(function($){
 		//translate timeline to the left/right according to the position of the selected event
 		var eventStyle = window.getComputedStyle(event.get(0), null),
 			eventLeft = Number(eventStyle.getPropertyValue("left").replace('px', '')),
-			timelineWidth = Number(timelineComponents['timelineWrapper'].css('width').replace('px', '')),
+			timelineWidth = Number(timelineComponents['timelineWrapper'].css('width').replace('px', '')), 
 			timelineTotWidth = Number(timelineComponents['eventsWrapper'].css('width').replace('px', ''));
 		var timelineTranslate = getTranslateValue(timelineComponents['eventsWrapper']);
 

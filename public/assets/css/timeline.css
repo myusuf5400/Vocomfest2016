@@ -222,7 +222,7 @@ Main Components
   transform: translateY(-50%) rotate(180deg);
 }
 .cd-timeline-navigation a.next {
-  right: 0 ;
+  right: 0;
   position : absolute ;
 }
 .no-touch .cd-timeline-navigation a:hover {
