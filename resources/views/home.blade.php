@@ -119,7 +119,7 @@
             </div>
         </div>
     </header>
-    <section id="about" class="pd-bt-15">
+    <section id="about" style="padding : 40px 0px 15px 0px ;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

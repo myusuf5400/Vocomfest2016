@@ -49,11 +49,11 @@
             </button>
             <p class="text-center">
                 Don't have account?
-                <a href="register.html">
+                <a href="{{url('/register')}}">
                     Register!
                 </a>
                 or
-                <a href="index.html">
+                <a href="{{url('/')}}">
                     back to home?
                 </a>
             </p>
