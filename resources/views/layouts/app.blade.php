@@ -20,7 +20,7 @@
     @yield('content')
     <script type="text/javascript" src="assets/js/vocomfest.js">
     </script>
-	<script type="text/javascript" src="{{asset('/assets/js/main.js')}}"></script>
+	<script type="text/javascript" src="{{ asset('/assets/js/main.js') }}"></script>
     <script type="text/javascript">
     // change style of navbar
     $(window).scroll(function(){

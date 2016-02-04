@@ -194,6 +194,7 @@
 		<div class="events-wrapper">
 			<div class="events">
 				<ol class="timelinee">
+				
 					<li><a href="#0" data-date="11/02/2016" class="selected">11 Feb</a></li>
 					<li><a href="#0" data-date="10/03/2016">10 Mar</a></li>
 					<li><a href="#0" data-date="20/03/2016">20 Mar</a></li>
@@ -201,6 +202,7 @@
 					<li><a href="#0" data-date="27/03/2016">27 Mar</a></li>
 					<li><a href="#0" data-date="28/03/2016">28 Mar</a></li>
 					<li><a href="#0" data-date="31/03/2016">31 Mar</a></li>
+					
 				</ol>
 
 				<span class="filling-line" aria-hidden="true"></span>
