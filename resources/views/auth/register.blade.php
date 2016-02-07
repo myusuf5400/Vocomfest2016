@@ -40,28 +40,31 @@
                                 {!! csrf_field() !!}
                                 <div class="form-group mg-t-15">
                                     <div class="col-md-6">
-                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua" value="{{ old('namaketua') }}" />
+                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="emailketua" class="form-control reg-form" placeholder="Email Ketua" value="{{ old('password') }}" />
+                                        <input type="email" name="emailketua" class="form-control reg-form" placeholder="Email Ketua" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
+									<div class="col-md-6">
+										<input type="text" name="username" class="form-control reg-form" placeholder="Username" required/>
+									</div>
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="text" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomor HP"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomor HP" required/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="text" name="password" class="form-control reg-form" placeholder="Password"/>
+                                        <input type="password" name="password" class="form-control reg-form" placeholder="Password" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="password_confirmation" class="form-control reg-form" placeholder="Confirm Password"/>
+                                        <input type="password" name="password_confirmation" class="form-control reg-form" placeholder="Confirm Password" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -80,10 +83,10 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="text" name="namateam" class="form-control reg-form" placeholder="Nama Tim"/>
+                                        <input type="text" name="namateam" class="form-control reg-form" placeholder="Nama Tim" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="institusi" class="form-control reg-form" placeholder="Asal Instansi"/>
+                                        <input type="text" name="institusi" class="form-control reg-form" placeholder="Asal Instansi" required/>
                                     </div>
                                 </div>
                                 <h4>
@@ -101,7 +104,7 @@
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="text" class="form-control reg-form" id="hp" name="anggota[0][notelp]" placeholder="Nomor HP"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[0][notelp]" placeholder="Nomor HP"/>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +120,7 @@
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="text" class="form-control reg-form" id="hp" name="anggota[1][notelp]" placeholder="Nomor HP"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[1][notelp]" placeholder="Nomor HP"/>
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +136,7 @@
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="text" class="form-control reg-form" id="hp" name="anggota[2][notelp]" placeholder="Nomor HP"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[2][notelp]" placeholder="Nomor HP"/>
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +164,7 @@
                                         <input type="text" name="nama" class="form-control reg-form" placeholder="Nama Lengkap"/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="email" class="form-control reg-form" placeholder="Alamat Email"/>
+                                        <input type="email" name="email" class="form-control reg-form" placeholder="Alamat Email"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -170,7 +173,7 @@
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="text" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomor HP"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomor HP"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -196,14 +199,14 @@
                         </div>
                     </div>
                 </div>
-                <aside class="col-md-3">
+                <aside class="col-md-3 strong">
                     <div id="compete">
                         <blockquote>
                             <p class="small">
-                                Mobile Apps Development
+                                Mobile Apps Development Competition
                             </p>
                             <p class="small">
-                                <strong>
+                                <strong class="vr">
                                     FREE
                                 </strong>
                                 <br/>
@@ -230,7 +233,7 @@
                             <p class="small">
                                 Bukti pembayaran, kirim ke :
                                 <br/>
-                                info@vocomfest.com
+                                <em>info@vocomfest.com</em>
                             </p>
                         </blockquote>
                     </div>
@@ -254,11 +257,11 @@
         <div class="col-md-12 pd-bt-10">
             <p class="text-center">
                 Want to
-                <a href="index.html">
+                <a href="{{url('/')}}">
                     back home?
                 </a>
                 Or you already have accout?
-                <a href="login.html">
+                <a href="{{url('/login')}}">
                     Login here.
                 </a>
             </p>

@@ -15,10 +15,12 @@
         </title>
         <!-- CSS Here -->
         <link rel="stylesheet" type="text/css" href="assets/css/vocomfest.css"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/timeline.css')}}"/>
     </head>
     @yield('content')
     <script type="text/javascript" src="assets/js/vocomfest.js">
     </script>
+	<script type="text/javascript" src="{{ asset('/assets/js/main.js') }}"></script>
     <script type="text/javascript">
     // change style of navbar
     $(window).scroll(function(){

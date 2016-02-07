@@ -1,5 +1,47 @@
 @charset "UTF-8";
 
+html,body, span, applet, object, iframe,blockquote, pre, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+	padding : 0 ;
+	margin : 0 ;
+	border : 0 ;
+	top : 0 ;
+	left : 0 ;
+	font-family : 'Lato-Light' ;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+ol.timelinee > li > a{
+	top : -30px ;
+}
+ol.timelinee > li > a:hover{
+	text-decoration : none ;
+	color : #7B9D6F ;
+}
+
 /*!
  * animate.css -http://daneden.me/animate
  * Version - 3.5.0
