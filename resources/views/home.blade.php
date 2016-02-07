@@ -336,10 +336,11 @@
                             </div>
                             <div class="col-md-12 wow animated fadeInUp pd-bt-25">
                                 <div class="col-md-5">
-                                    <form role="form">
+                                   <form class="form-horizontal" role="form" method="POST" action="{{ url('/send') }}">
+                                {!! csrf_field() !!}
                                         <div class="form-group">
                                             <div class="col-md-12 pd-bt-5">
-                                                <input type="text" class="form-control contact-form" id="name" name="name" placeholder="Your name"/>
+                                                <input type="text" class="form-control contact-form" id="name" name="nama" placeholder="Your name"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -354,7 +355,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-12 pd-bt-5">
-                                                <textarea class="form-control msg contact-form" name="message" id="subject" placeholder="Your message">
+                                                <textarea class="form-control msg contact-form" name="pesan" id="subject" placeholder="Your message">
                                                 </textarea>
                                             </div>
                                         </div>

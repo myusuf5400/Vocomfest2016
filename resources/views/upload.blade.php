@@ -3,10 +3,11 @@
 @section('content')
 <div>
 
-    <?php echo $transloadit;?>
+    {!!$transloadit!!}
     <h1>
         Pick an image to resize
     </h1>
+    <input name="server" type="text" value="{!!$server!!}">
     <input name="example_upload" type="file"/>
     <input type="submit" value="Upload"/>
 </form>

@@ -34,4 +34,15 @@ return [
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+
+    'transloadit' => [
+        [
+            'key'    => '346447c0be4b11e58822ad144396c0a2',
+            'secret' => '184c2bd432dca7a9c32d9b4907e939dd281ca58c',
+        ],
+        [
+            'key'    => '346447c0be4b11e58822ad144396c0a2',
+            'secret' => '184c2bd432dca7a9c32d9b4907e939dd281ca58c',
+        ],
+    ],
 ];

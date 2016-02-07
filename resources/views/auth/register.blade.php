@@ -40,10 +40,10 @@
                                 {!! csrf_field() !!}
                                 <div class="form-group mg-t-15">
                                     <div class="col-md-6">
-                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua"/>
+                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua" value="{{ old('namaketua') }}" />
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="emailketua" class="form-control reg-form" placeholder="Email Ketua"/>
+                                        <input type="text" name="emailketua" class="form-control reg-form" placeholder="Email Ketua" value="{{ old('password') }}" />
                                     </div>
                                 </div>
                                 <div class="form-group">

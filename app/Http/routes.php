@@ -20,7 +20,6 @@ Route::get('activate/{code}', [
     'uses' => 'Auth\AuthController@activateAccount',
 ]);
 
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -34,11 +33,11 @@ Route::get('activate/{code}', [
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-    Route::post('semnas','SemnasController@store');
+    Route::get('send', 'HomeController@sendEmail');
+    Route::post('semnas', 'SemnasController@store');
 
-    Route::get('user', 'UserController@index');
     Route::get('user/upload', 'UserController@getUpload');
-    Route::post('user/upload', 'UserController@doUpload');
+    Route::get('user/upload/redirect', 'UserController@redirectUpload');
 
     Route::get('/admin', 'AdminController@index');
 });

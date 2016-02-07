@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\File;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,7 +25,19 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function(){
+            $files = File::where('status','=',0)->get();
+        foreach ($files as $key) {
+            $file = file_get_contents($key->url);
+            $save = file_put_contents('storage/file/'.$key->namafile, $file);
+            if($save){
+                $key->status = 1;
+                $key->url = 'storage/file/'.$key->namafile;
+                $key->save();
+            }
+        }
+        })->everyMinute();
     }
+
+
 }

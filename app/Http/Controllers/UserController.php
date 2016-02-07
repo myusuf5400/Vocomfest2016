@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\File;
 use App\Http\Controllers\Controller;
 use transloadit\Transloadit;
 
@@ -17,54 +18,62 @@ class UserController extends Controller
         $this->middleware('user');
     }
 
-    public function index()
-    {
+    public function getAkun(){
         return view('home');
+    }
+
+    public function getPictureUpload(){
+
     }
 
     public function getUpload()
     {
         $config = $this->getTransloaditConfig();
-
-        return view('upload')
-            ->with('transloadit', $this->preUpload()->createAssemblyForm($config));
-    }
-
-    public function doUpload(Request $request){
-        return print_r($request);
-    }
-
-    public function preUpload()
-    {
-        $auth   = $this->getTransloaditKey()[0];
-       
+        $server = $this->getServer();
+        $auth = config('services.transloadit')[$server];
 
         $transloadit = new transloadit($auth);
 
-        return $transloadit;
+        return view('upload')
+            ->with('transloadit', $transloadit->createAssemblyForm($config))
+            ->with('server', $server);
     }
 
-    public function getTransloaditKey()
+    public function redirectUpload()
     {
-        return [
-            [
-                'key'    => '346447c0be4b11e58822ad144396c0a2',
-                'secret' => '184c2bd432dca7a9c32d9b4907e939dd281ca58c',
-            ],
-        ];
+        $respon = Transloadit::response()->data['results']['upload'][0];
+        $server = Transloadit::response()->data['fields']['server'];
+        File::create([
+            'namafile' => $respon['name'],
+            'size'     => $respon['size'],
+            'url'      => $respon['url'],
+            'server'   => $server,
+            'status'   => 0,
+        ]);
+        return redirect('user');
+    }
+
+    public function getServer()
+    {
+        $server = 0;
+        while (File::where('server','=',$server)->sum('size')>=1500000000) {
+            $server++;
+        }
+
+        return $server;
+
     }
 
     public function getTransloaditConfig()
     {
         return [
             'params' => [
-                'steps' => [
+                'steps'        => [
                     'upload' => [
                         'robot' => '/file/filter',
-                    ]
+                    ],
                 ],
-                'notify_url' => 'http://vocomfest.io/user/upload',
-                'redirect_url'=> 'http://vocomfest.io/user/upload'
+                'redirect_url' => 'http://vocomfest.io/user/upload/redirect',
             ],
         ];
     }

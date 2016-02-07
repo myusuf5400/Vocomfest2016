@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Mail;
 use Response;
 use Validator;
+use DB;
 
 class AuthController extends Controller
 {
@@ -56,6 +57,7 @@ class AuthController extends Controller
             'namaketua'              => 'required|max:60',
             'emailketua'             => 'required|email|max:60|unique:users,email',
             'notelp'                 => 'required|max:14|unique:users',
+            // 'username'               => 'required|max:60|unique:users',
             'password'               => 'required|confirmed|min:6',
             'password_confirmation ' => 'min:6',
             'kategori'               => 'required',
@@ -90,9 +92,9 @@ class AuthController extends Controller
         $team = Team::where('namateam', $data['namateam'])->first();
 
         if ($data['kategori'] == 0) {
-            $max = 2;
+            $max = 1;
         } else {
-            $max = 3;
+            $max = 2;
         }
 
         $anggota = $data['anggota'];
@@ -112,6 +114,7 @@ class AuthController extends Controller
 
         $user = User::create([
             'nama'     => $data['namaketua'],
+            // 'username' => $data['username'],
             'email'    => $data['emailketua'],
             'password' => bcrypt($data['password']),
             'notelp'   => $data['notelp'],
@@ -187,7 +190,7 @@ class AuthController extends Controller
             $config['nama']  = "Registrasi MADC";
         }
 
-        Mail::send('emails.activateAccount', ['code' => $user['code']], function ($message) use ($config, $user) {
+        Mail::queue('emails.activateAccount', ['code' => $user['code']], function ($message) use ($config, $user) {
             $message->from($config['email'], $config['nama']);
             $message->subject($config['subject']);
             $message->to($user['email']);
