@@ -29,10 +29,10 @@ class Kernel extends ConsoleKernel
             $files = File::where('status','=',0)->get();
         foreach ($files as $key) {
             $file = file_get_contents($key->url);
-            $save = file_put_contents('storage/file/'.$key->namafile, $file);
+            $save = file_put_contents(storage_path().'/file/'.$key->namafile, $file);
             if($save){
                 $key->status = 1;
-                $key->url = 'storage/file/'.$key->namafile;
+                $key->url = storage_path().'/file/'.$key->namafile;
                 $key->save();
             }
         }

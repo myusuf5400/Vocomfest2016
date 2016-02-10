@@ -17,16 +17,17 @@ class User
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if($request->user()['code']!=1){
-            Auth::logout(); 
-            return redirect()->guest('login');
-        }
         if(Auth::guard($guard)->guest()) {
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
                 return redirect()->guest('login');
             }
+        }
+
+        if($request->user()['code']!=1&&$request->user()['level']!=1){
+            Auth::logout(); 
+            return redirect()->guest('login');
         }
 
         return $next($request);

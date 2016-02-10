@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 60);
             $table->string('password', 60);
             $table->string('code', 30);
+            $table->string('img', 60);
             $table->boolean('level')->default(0);
             $table->integer('idteam')->unsigned();
             $table->rememberToken();

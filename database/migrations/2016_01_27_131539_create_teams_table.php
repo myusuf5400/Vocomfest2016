@@ -16,8 +16,8 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             $table->string('namateam', 60);
             $table->boolean('kategori');
-            $table->string('institusi', 60);
-            $table->string('imgteam', 60);
+            $table->string('instansi', 60);
+            $table->string('alamatinstansi', 60);
             $table->timestamps();
             $table->softDeletes();
         });

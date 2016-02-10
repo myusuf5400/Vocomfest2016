@@ -13,12 +13,12 @@
                 <div class="col-md-9" id="tab-event">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active">
+                        <li role="presentation" @if (count($errors->semnas) == 0) class="active" @endif>
                             <a href="#comp" aria-controls="comp" role="tab" data-toggle="tab">
                                 Competitions
                             </a>
                         </li>
-                        <li role="presentation">
+                        <li role="presentation"  @if (count($errors->semnas) > 0) class="active" @endif>
                             <a href="#semnas" aria-controls="semnas" role="tab" data-toggle="tab">
                                 Seminar Nasional
                             </a>
@@ -26,7 +26,7 @@
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in active" id="comp">
+                        <div role="tabpanel" class="tab-pane fade @if (count($errors->semnas) == 0) in active @endif" id="comp">
                            @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
@@ -40,22 +40,22 @@
                                 {!! csrf_field() !!}
                                 <div class="form-group mg-t-15">
                                     <div class="col-md-6">
-                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua" required/>
+                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua" value="{{old('namaketua')}}" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" name="emailketua" class="form-control reg-form" placeholder="Email Ketua" required/>
+                                        <input type="email" name="emailketua" class="form-control reg-form" placeholder="Email Ketua" value="{{old('emailketua')}}" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
 									<div class="col-md-6">
-										<input type="text" name="username" class="form-control reg-form" placeholder="Username" required/>
+										<input type="text" name="username" class="form-control reg-form" placeholder="Username" value="{{old('username')}}" required/>
 									</div>
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomor HP" required/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomer Handphone" value="{{old('notelp')}}" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -64,18 +64,18 @@
                                         <input type="password" name="password" class="form-control reg-form" placeholder="Password" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="password" name="password_confirmation" class="form-control reg-form" placeholder="Confirm Password" required/>
+                                        <input type="password" name="password_confirmation" class="form-control reg-form" placeholder="Ketik Ulang Password" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="radio" name="kategori" value="0" id="kategori" checked class="ev-cat">
+                                        <input type="radio" name="kategori" value="0" id="wdc" @if(old('kategori')==0) checked @endif class="ev-cat">
                                         <label for="web">
                                             Web Design Competition
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="radio" name="kategori" value="1" id="kategori" class="ev-cat">
+                                        <input type="radio" name="kategori" value="1" id="madc" @if(old('kategori')==1) checked @endif class="ev-cat">
                                         <label for="madc">
                                             Mobile Apps Development Competition
                                         </label>
@@ -83,10 +83,10 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="text" name="namateam" class="form-control reg-form" placeholder="Nama Tim" required/>
+                                        <input type="text" name="namateam" class="form-control reg-form" placeholder="Nama Tim" value="{{old('namateam')}}" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="institusi" class="form-control reg-form" placeholder="Asal Instansi" required/>
+                                        <input type="text" name="institusi" class="form-control reg-form" placeholder="Asal Instansi" value="{{old('institusi')}}" required/>
                                     </div>
                                 </div>
                                 <h4>
@@ -94,49 +94,49 @@
                                 </h4>
                                 <div class="form-group" id="mem1">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota[0][nama]" class="form-control reg-form" placeholder="Nama Anggota"/>
+                                        <input type="text" name="anggota[0][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota[0][nama]')}}"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota[0][email]" class="form-control reg-form" placeholder="Email Anggota"/>
+                                        <input type="email" name="anggota[0][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota[0][email]')}}"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[0][notelp]" placeholder="Nomor HP"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[0][notelp]" placeholder="Nomer Handphone" value="{{old('anggota[0][notelp]')}}"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem2">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota[1][nama]" class="form-control reg-form" placeholder="Nama Anggota"/>
+                                        <input type="text" name="anggota[1][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota[1][nama]')}}"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota[1][email]" class="form-control reg-form" placeholder="Email Anggota"/>
+                                        <input type="email" name="anggota[1][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota[1][email]')}}"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[1][notelp]" placeholder="Nomor HP"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[1][notelp]" placeholder="Nomer Handphone" value="{{old('anggota[0][notelp]')}}"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem3">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota[2][nama]" class="form-control reg-form" placeholder="Nama Anggota"/>
+                                        <input type="text" name="anggota[2][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota[2][nama]')}}"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota[2][email]" class="form-control reg-form" placeholder="Email Anggota"/>
+                                        <input type="email" name="anggota[2][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota[2][email]')}}"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[2][notelp]" placeholder="Nomor HP"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[2][notelp]" placeholder="Nomer Handphone" value="{{old('anggota[2][notelp]')}}"/>
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +147,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade" id="semnas">
+                        <div role="tabpanel" class="tab-pane fade @if (count($errors->semnas) > 0) in active @endif" id="semnas">
                             @if (count($errors->semnas) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
@@ -161,10 +161,10 @@
                                 {!! csrf_field() !!}      
                                 <div class="form-group mg-t-15">
                                     <div class="col-md-6">
-                                        <input type="text" name="nama" class="form-control reg-form" placeholder="Nama Lengkap"/>
+                                        <input type="text" name="nama" class="form-control reg-form" placeholder="Nama Lengkap" value="{{old('nama')}}" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" name="email" class="form-control reg-form" placeholder="Alamat Email"/>
+                                        <input type="email" name="email" class="form-control reg-form" placeholder="Alamat Email" value="{{old('email')}}" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -173,18 +173,18 @@
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomor HP"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="notelpsemnas" placeholder="Nomer Handphone" value="{{old('notelpsemnas')}}" required/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <select class="form-control reg-form" name="kategori">
-                                            <option value="0">
+                                        <select class="form-control reg-form" name="kategorisemnas">
+                                            <option value="0" @if(old('kategorisemnas')==0)selected @endif>
                                                 Mahasiswa
                                             </option>
-                                            <option value="1">
+                                            <option value="1" @if(old('kategorisemnas')==1)selected @endif>
                                                 Pelajar
                                             </option>
-                                            <option value="2">
+                                            <option value="2" @if(old('kategorisemnas')==2)selected @endif>
                                                 Umum
                                             </option>
                                         </select>

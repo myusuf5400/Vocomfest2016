@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -31,4 +32,8 @@ class User extends Authenticatable
     protected $dates = [
         'deleted_at',
     ];
+
+    public function team(){
+        return $this->hasOne('App\Team','id');
+    }
 }

@@ -1,5 +1,3 @@
-@extends('welcome')
-@section('navbar')
 <nav id="main-nav" class="navbar navbar-default transparent">
                 <div class="container">
                     <div class="navbar-header">
@@ -68,4 +66,3 @@
                     </div>
                 </div>
             </nav>
-            @endsection

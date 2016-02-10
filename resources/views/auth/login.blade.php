@@ -30,7 +30,7 @@
             <label for="inputUsername" class="sr-only">
                 Username
             </label>
-            <input type="text" name="email" id="inputUsername" class="form-control" placeholder="Username" required="required" autofocus/>
+            <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required="required" autofocus/>
             <label for="inputPassword" class="sr-only">
                 Password
             </label>
@@ -40,7 +40,7 @@
             </label>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" value="remember-me"/>
+                    <input type="checkbox" name="remember" />
                     Remember me
                 </label>
             </div>

@@ -6,65 +6,7 @@
     </div>
     <header class="header" id="home">
         <div class="cover-overlay">
-            <nav id="main-nav" class="navbar navbar-default transparent">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
-                            <span class="sr-only">
-                                Toggle navigation
-                            </span>
-                            <span class="icon-bar">
-                            </span>
-                            <span class="icon-bar">
-                            </span>
-                            <span class="icon-bar">
-                            </span>
-                        </button>
-                        <a href="#" class="navbar-brand">
-                            <img src="assets/img/logo.png" alt="Vocomfest 2016" title="Vocomfest 2016" class="logo"/>
-                        </a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="menu">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="#home">
-                                    HOME
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#about">
-                                    ABOUT
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#events">
-                                    EVENTS
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#testimoni">
-                                    TESTIMONIALS
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#contact">
-                                    CONTACT
-                                </a>
-                            </li>
-                            <li>
-                                <a href="register.html">
-                                    REGISTER
-                                </a>
-                            </li>
-                            <li>
-                                <a href="login.html">
-                                    LOGIN
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            @include('navbar')
             <div class="container capti">
                 <div id="owl-example" class="owl-carousel">
                     <div>
@@ -247,92 +189,151 @@
                         </h3>
                         <hr class="bord greeny"/>
                     </div>
-					<section class="cd-horizontal-timeline">
-	<div class="timeline">
-		<div class="events-wrapper">
-			<div class="events">
-				<ol class="timelinee">
-				
-					<li><a href="#0" data-date="11/02/2016" class="selected">11 Feb</a></li>
-					<li><a href="#0" data-date="10/03/2016">10 Mar</a></li>
-					<li><a href="#0" data-date="20/03/2016">20 Mar</a></li>
-					<li><a href="#0" data-date="21/03/2016">23 Mar</a></li>
-					<li><a href="#0" data-date="27/03/2016">27 Mar</a></li>
-					<li><a href="#0" data-date="28/03/2016">28 Mar</a></li>
-					<li><a href="#0" data-date="31/03/2016">31 Mar</a></li>
-					
-				</ol>
-
-				<span class="filling-line" aria-hidden="true"></span>
-			</div> <!-- .events -->
-		</div> <!-- .events-wrapper -->
-			
-		<ul class="cd-timeline-navigation">
-			<li><a href="#0" class="prev inactive">Prev</a></li>
-			<li><a href="#0" class="next">Next</a></li>
-		</ul> <!-- .cd-timeline-navigation -->
-	</div> <!-- .timeline -->
-
-	<div class="events-content">
-		<ol>
-			<li class="selected" data-date="11/02/2016">
-				<h2>Registration Open!</h2>
-				<em>February 10th, 2016</em>
-				<p>	
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-				</p>
-			</li>
-
-			<li data-date="10/03/2016">
-				<h2>Registration Closed!</h2>
-				<em>March 10th, 2016</em>
-				<p>	
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-				</p>
-			</li>
-			
-			<li data-date="20/03/2016">
-				<h2>Technical Meeting WDC</h2>
-				<em>March 20th, 2014</em>
-				<p>	
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-				</p>
-			</li>
-
-			<li data-date="21/03/2016">
-				<h2>Final Web Design Competition</h2>
-				<em>March 20th, 2014</em>
-				<p>	
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-				</p>
-			</li>
-
-			<li data-date="27/03/2016">
-				<h2>Technical Meeting MADC</h2>
-				<em>May 20th, 2014</em>
-				<p>	
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-				</p>
-			</li>
-			
-			<li data-date="28/03/2016">
-				<h2>Final Mobile Apps Development Competition</h2>
-				<em>May 20th, 2014</em>
-				<p>	
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-				</p>
-			</li>
-
-			<li data-date="31/03/2016">
-				<h2>National Seminar</h2>
-				<em>July 9th, 2014</em>
-				<p>	
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-				</p>
-			</li>
-		</ol>
-	</div> <!-- .events-content -->
-</section>
+                    <section class="cd-horizontal-timeline">
+                        <div class="timeline">
+                            <div class="events-wrapper">
+                                <div class="events">
+                                    <ol class="timelinee">
+                                        <li>
+                                            <a href="#0" data-date="11/02/2016" class="selected">
+                                                11 Feb
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="10/03/2016">
+                                                10 Mar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="20/03/2016">
+                                                20 Mar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="21/03/2016">
+                                                23 Mar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="27/03/2016">
+                                                27 Mar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="28/03/2016">
+                                                28 Mar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="31/03/2016">
+                                                31 Mar
+                                            </a>
+                                        </li>
+                                    </ol>
+                                    <span class="filling-line" aria-hidden="true">
+                                    </span>
+                                </div>
+                                <!-- .events -->
+                            </div>
+                            <!-- .events-wrapper -->
+                            <ul class="cd-timeline-navigation">
+                                <li>
+                                    <a href="#0" class="prev inactive">
+                                        Prev
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#0" class="next">
+                                        Next
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- .cd-timeline-navigation -->
+                        </div>
+                        <!-- .timeline -->
+                        <div class="events-content">
+                            <ol>
+                                <li class="selected" data-date="11/02/2016">
+                                    <h2>
+                                        Registration Open!
+                                    </h2>
+                                    <em>
+                                        February 10th, 2016
+                                    </em>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                    </p>
+                                </li>
+                                <li data-date="10/03/2016">
+                                    <h2>
+                                        Registration Closed!
+                                    </h2>
+                                    <em>
+                                        March 10th, 2016
+                                    </em>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                    </p>
+                                </li>
+                                <li data-date="20/03/2016">
+                                    <h2>
+                                        Technical Meeting WDC
+                                    </h2>
+                                    <em>
+                                        March 20th, 2014
+                                    </em>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                    </p>
+                                </li>
+                                <li data-date="21/03/2016">
+                                    <h2>
+                                        Final Web Design Competition
+                                    </h2>
+                                    <em>
+                                        March 20th, 2014
+                                    </em>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                    </p>
+                                </li>
+                                <li data-date="27/03/2016">
+                                    <h2>
+                                        Technical Meeting MADC
+                                    </h2>
+                                    <em>
+                                        May 20th, 2014
+                                    </em>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                    </p>
+                                </li>
+                                <li data-date="28/03/2016">
+                                    <h2>
+                                        Final Mobile Apps Development Competition
+                                    </h2>
+                                    <em>
+                                        May 20th, 2014
+                                    </em>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                    </p>
+                                </li>
+                                <li data-date="31/03/2016">
+                                    <h2>
+                                        National Seminar
+                                    </h2>
+                                    <em>
+                                        July 9th, 2014
+                                    </em>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                    </p>
+                                </li>
+                            </ol>
+                        </div>
+                        <!-- .events-content -->
+                    </section>
                 </div>
             </div>
         </div>
@@ -422,26 +423,35 @@
                             </div>
                             <div class="col-md-12 wow animated fadeInUp pd-bt-25">
                                 <div class="col-md-5">
-                                    <form role="form">
+                                @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                                    <form role="form" method="POST" action="{{ url('/send') }}">
+                                        {!! csrf_field() !!}
                                         <div class="form-group">
                                             <div class="col-md-12 pd-bt-5">
-                                                <input type="text" class="form-control contact-form" id="name" name="name" placeholder="Your name"/>
+                                                <input type="text" class="form-control contact-form" id="name" name="nama" placeholder="Your name" required/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-12 pd-bt-5">
-                                                <input type="email" class="form-control contact-form" id="email" name="email" placeholder="Your email"/>
+                                                <input type="email" class="form-control contact-form" id="email" name="email" placeholder="Your email"  required/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-12 pd-bt-5">
-                                                <input type="text" class="form-control contact-form" id="subject" name="subject" placeholder="Subject"/>
+                                                <input type="text" class="form-control contact-form" id="subject" name="subject" placeholder="Subject"  required/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-12 pd-bt-5">
-                                                <textarea class="form-control msg contact-form" name="message" id="subject" placeholder="Your message">
-                                                </textarea>
+                                                <textarea class="form-control msg contact-form" name="message" id="subject" placeholder="Your message"  required></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">

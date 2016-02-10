@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\File;
 use App\Http\Controllers\Controller;
+use Auth;
 use transloadit\Transloadit;
+use App\Http\Requests\UploadImageRequest;
+
 
 class UserController extends Controller
 {
@@ -18,23 +21,42 @@ class UserController extends Controller
         $this->middleware('user');
     }
 
-    public function getAkun(){
-        return view('home');
+    public function getAkun()
+    {
+        return view('user.akun')
+            ->with('user', Auth::user());
     }
 
-    public function getPictureUpload(){
+    public function getImageUpload()
+    {
+        return view('user.imageUpload');
+    }
 
+    public function postImageUpload(UploadImageRequest $request)
+    {
+        $image = $request->file('image');
+
+        $nameImage = time().'.'.$image->getClientOriginalExtension();
+
+        $nameImage = $image->move(storage_path().'/image',$nameImage);
+
+        $team = Auth::user()->team;
+
+        $team->imgteam = $nameImage;
+        $team->save();
+
+        return redirect()->back();
     }
 
     public function getUpload()
     {
         $config = $this->getTransloaditConfig();
         $server = $this->getServer();
-        $auth = config('services.transloadit')[$server];
+        $auth   = config('services.transloadit')[$server];
 
         $transloadit = new transloadit($auth);
 
-        return view('upload')
+        return view('user.upload')
             ->with('transloadit', $transloadit->createAssemblyForm($config))
             ->with('server', $server);
     }
@@ -56,7 +78,7 @@ class UserController extends Controller
     public function getServer()
     {
         $server = 0;
-        while (File::where('server','=',$server)->sum('size')>=1500000000) {
+        while (File::where('server', '=', $server)->sum('size') >= 1500000000) {
             $server++;
         }
 

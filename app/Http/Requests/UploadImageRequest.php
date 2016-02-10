@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ContactUsDataRequest extends Request
+class UploadImageRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class ContactUsDataRequest extends Request
     public function rules()
     {
         return [
-            'nama' => 'required',
-            'email' => 'required|email',
-            'pesan' => 'required|min:20'
+            'image' => 'required|image|max:2000',
         ];
     }
 }

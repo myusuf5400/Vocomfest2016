@@ -23,7 +23,13 @@
     <script type="text/javascript">
     $(document).ready(function() {
     // initialize
-        $('#seminar').hide();
+        @if(count($errors->semnas)>0)
+            $('#seminar').show();
+            $('#compete').hide();
+        @else
+            $('#seminar').hide();
+        @endif
+
         $('#mem3').hide();
         $('#tab-event a[href="#comp"]').click(function() {
             $('#compete').fadeIn();
@@ -43,7 +49,7 @@
             zindex: '101'
         });
         $('.ev-cat').click(function() {
-            if ($('#web').is(':checked')) {
+            if ($('#wdc').is(':checked')) {
                 $('#mem3').fadeOut();
             } else {
                 $('#mem3').fadeIn();

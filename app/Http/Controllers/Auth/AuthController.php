@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 use Mail;
 use Response;
 use Validator;
-use DB;
 
 class AuthController extends Controller
 {
@@ -34,6 +33,7 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    protected $username   = 'username';
 
     /**
      * Create a new authentication controller instance.
@@ -56,22 +56,23 @@ class AuthController extends Controller
         return Validator::make($data, [
             'namaketua'              => 'required|max:60',
             'emailketua'             => 'required|email|max:60|unique:users,email',
-            'notelp'                 => 'required|max:14|unique:users',
-            // 'username'               => 'required|max:60|unique:users',
+            'notelp'                 => 'required|max:12|unique:users',
+            'username'               => 'required|max:60|unique:users',
             'password'               => 'required|confirmed|min:6',
             'password_confirmation ' => 'min:6',
             'kategori'               => 'required',
             'namateam'               => 'required|max:60|unique:teams',
-            'institusi'              => 'required|max:60',
+            'instansi'               => 'required|max:60',
+            'alamatinstansi'         => 'required|max:60',
             'anggota.0.nama'         => 'max:60',
             'anggota.0.email'        => 'email|max:60|unique:users,email|required_with:anggota.0.nama',
-            'anggota.0.notelp'       => 'max:14|unique:users,notelp|required_with:anggota.0.nama,anggota.0.email',
+            'anggota.0.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.0.email',
             'anggota.1.nama'         => 'max:60',
             'anggota.1.email'        => 'email|max:60|unique:users,email|required_with:anggota.1.nama',
-            'anggota.1.notelp'       => 'max:14|unique:users,notelp|required_with:anggota.1.nama,anggota.1.email',
+            'anggota.1.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.1.email',
             'anggota.2.nama'         => 'max:60',
             'anggota.2.email'        => 'email|max:60|unique:users,email|required_with:anggota.2.nama',
-            'anggota.2.notelp'       => 'max:14|unique:users,notelp|required_with:anggota.2.nama,anggota.2.email',
+            'anggota.2.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.2.email',
         ]);
     }
 
@@ -84,17 +85,20 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         Team::create([
-            'namateam'  => $data['namateam'],
-            'kategori'  => $data['kategori'],
-            'institusi' => $data['institusi'],
+            'namateam'       => $data['namateam'],
+            'kategori'       => $data['kategori'],
+            'instansi'       => $data['instansi'],
+            'alamatinstansi' => $data['alamatinstansi'],
         ]);
 
         $team = Team::where('namateam', $data['namateam'])->first();
 
         if ($data['kategori'] == 0) {
-            $max = 1;
+            $max   = 1;
+            $level = 0;
         } else {
-            $max = 2;
+            $max   = 2;
+            $level = 1;
         }
 
         $anggota = $data['anggota'];
@@ -114,11 +118,12 @@ class AuthController extends Controller
 
         $user = User::create([
             'nama'     => $data['namaketua'],
-            // 'username' => $data['username'],
+            'username' => $data['username'],
             'email'    => $data['emailketua'],
             'password' => bcrypt($data['password']),
             'notelp'   => $data['notelp'],
             'code'     => str_random(30),
+            'level'    => $level,
             'idteam'   => $team['id'],
         ]);
 
@@ -154,28 +159,28 @@ class AuthController extends Controller
 
     public function activateAccount($code)
     {
-        if (strlen($code) != 30) {
-            return redirect('/');
-        }
+        if (strlen($code) == 30) {
 
-        $user = User::where('code', '=', $code)->first();
+            $user = User::where('code', '=', $code)->first();
 
-        if ($user) {
-            $now     = time();
-            $expired = date(strtotime('+2 day' . $user->created_at));
+            if ($user) {
+                $now     = time();
+                $expired = date(strtotime('+2 day' . $user->created_at));
 
-            if ($now > $expired) {
-                User::where('idteam', '=', $user->idteam)->delete();
-                Team::where('id', '=', $user->idteam)->delete();
-                return "expired";
+                if ($now > $expired) {
+                    User::where('idteam', '=', $user->idteam)->delete();
+                    Team::where('id', '=', $user->idteam)->delete();
+                    return "expired";
+                }
+
+                $user->code = 1;
+                if ($user->save()) {
+                    return redirect('/');
+                }
             }
-
-            $user->code = 1;
-            if ($user->save()) {
-                return redirect('/login');
-            }
         }
-
+        return redirect('/')
+            ->with('message', 'Code salah');
     }
 
     public function sendEmail(User $user)

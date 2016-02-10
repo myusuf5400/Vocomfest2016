@@ -10,15 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
  */
-Route::get('/', [
-    'as'   => 'home',
-    'uses' => 'HomeController@index',
-]);
-
-Route::get('activate/{code}', [
-    'as'   => 'activate',
-    'uses' => 'Auth\AuthController@activateAccount',
-]);
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +22,23 @@ Route::get('activate/{code}', [
 |
  */
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('home', 'HomeController@index');
+    
+    Route::post('send', 'HomeController@sendEmail');
+    Route::get('activate/{code}', 'Auth\AuthController@activateAccount');
+
     Route::auth();
-    Route::get('send', 'HomeController@sendEmail');
+    
     Route::post('semnas', 'SemnasController@store');
 
     Route::get('user/upload', 'UserController@getUpload');
     Route::get('user/upload/redirect', 'UserController@redirectUpload');
+    Route::get('user', 'UserController@getAkun');
+    Route::get('user/image', 'UserController@getImageUpload');
+    Route::post('user/imageUpload', 'UserController@postImageUpload');
+
 
     Route::get('/admin', 'AdminController@index');
 });

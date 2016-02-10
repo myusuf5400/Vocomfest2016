@@ -15,7 +15,7 @@ class SemnasController extends Controller
         if ($validator->fails()) {
             return redirect()
                 ->back()
-                ->withErrors($validator,'semnas')
+                ->withErrors($validator, 'semnas')
                 ->withInput();
         }
 
@@ -27,19 +27,19 @@ class SemnasController extends Controller
     public function create(array $data)
     {
         Semnas::create([
-            'nama'  => $data['nama'],
-            'email'  => $data['email'],
-            'notelp' => $data['notelp'],
-            'kategori'=> $data['kategori'],
+            'nama'     => $data['nama'],
+            'email'    => $data['email'],
+            'notelp'   => $data['notelpsemnas'],
+            'kategori' => $data['kategorisemnas'],
         ]);
     }
 
     public function validator(array $data)
     {
         return Validator::make($data, [
-            'nama'   => 'required|max:60',
-            'email'  => 'required|email|max:60|unique:semnas',
-            'notelp' => 'required|max:14|unique:semnas',
+            'nama'         => 'required|max:60',
+            'email'        => 'required|email|max:60|unique:semnas',
+            'notelpsemnas' => 'required|max:14|unique:semnas,notelp',
         ]);
     }
 }

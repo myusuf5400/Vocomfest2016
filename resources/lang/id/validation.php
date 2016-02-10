@@ -11,7 +11,7 @@ return [
     | the validator class. Some of these rules have multiple versions such
     | as the size rules. Feel free to tweak each of these messages here.
     |
-    */
+     */
 
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
@@ -58,7 +58,7 @@ return [
     'not_in'               => 'The selected :attribute is invalid.',
     'numeric'              => 'The :attribute must be a number.',
     'regex'                => 'The :attribute format is invalid.',
-    'required'             => 'The :attribute field is required.',
+    'required'             => 'Kolom :attribute harus diisi.',
     'required_if'          => 'The :attribute field is required when :other is :value.',
     'required_unless'      => 'The :attribute field is required unless :other is in :values.',
     'required_with'        => 'The :attribute field is required when :values is present.',
@@ -86,9 +86,9 @@ return [
     | convention "attribute.rule" to name the lines. This makes it quick to
     | specify a specific custom language line for a given attribute rule.
     |
-    */
+     */
 
-    'custom' => [
+    'custom'               => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
@@ -103,8 +103,25 @@ return [
     | with something more reader friendly such as E-Mail Address instead
     | of "email". This simply helps us make messages a little cleaner.
     |
-    */
+     */
 
-    'attributes' => [],
+    'attributes'           => [
+        'namaketua'        => 'Nama Ketua',
+        'emailketua'       => 'Email Ketua',
+        'notelp'           => 'Nomer Handphone',
+        'namateam'         => 'Nama Tim',
+        'institusi'        => 'Instansi',
+        'anggota.0.nama'   => 'Nama Anggota Pertama',
+        'anggota.0.email'  => 'Email Anggota Pertama',
+        'anggota.0.notelp' => 'Nomer Handphone Anggota Pertama',
+        'anggota.1.nama'   => 'Nama Anggota Kedua',
+        'anggota.1.email'  => 'Email Anggota Kedua',
+        'anggota.1.notelp' => 'Nomer Handphone Anggota Kedua',
+        'anggota.2.nama'   => 'Nama Anggota Ketiga',
+        'anggota.2.email'  => 'Email Anggota Ketiga',
+        'anggota.2.notelp' => 'Nomer Handphone Anggota Ketiga',
+        'email'            => 'Email',
+        'notelpsemnas'     => 'No Handphone',
+    ],
 
 ];
