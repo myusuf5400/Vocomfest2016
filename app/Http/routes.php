@@ -40,7 +40,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('user/imageUpload', 'UserController@postImageUpload');
     
     Route::get('/admin', 'AdminController@index');
-    Route::get('/admin/table', 'AdminController@table');
+    Route::get('/admin/table/{user}', 'AdminController@table');
     Route::get('/admin/chart', 'AdminController@chart');
     Route::get('/admin/table/{user}/delete/{id}', 'AdminController@delete');
     Route::get('/admin/table/{user}/edit/{id}', 'AdminController@edit');
