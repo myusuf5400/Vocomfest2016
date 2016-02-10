@@ -122,6 +122,7 @@ return [
         'anggota.2.notelp' => 'Nomer Handphone Anggota Ketiga',
         'email'            => 'Email',
         'notelpsemnas'     => 'No Handphone',
+        'alamatinstansi'   => 'Alamat Instansi',
     ],
 
 ];

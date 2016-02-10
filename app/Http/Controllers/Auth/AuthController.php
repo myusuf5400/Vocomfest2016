@@ -33,7 +33,7 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-    protected $username   = 'username';
+    protected $username   = 'email';
 
     /**
      * Create a new authentication controller instance.
@@ -59,11 +59,11 @@ class AuthController extends Controller
             'notelp'                 => 'required|max:12|unique:users',
             'username'               => 'required|max:60|unique:users',
             'password'               => 'required|confirmed|min:6',
-            'password_confirmation ' => 'min:6',
+            'password_confirmation ' => '',
             'kategori'               => 'required',
             'namateam'               => 'required|max:60|unique:teams',
-            'instansi'               => 'required|max:60',
-            'alamatinstansi'         => 'required|max:60',
+            // 'instansi'               => 'required|max:60',
+            // 'alamatinstansi'         => 'required|max:60',
             'anggota.0.nama'         => 'max:60',
             'anggota.0.email'        => 'email|max:60|unique:users,email|required_with:anggota.0.nama',
             'anggota.0.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.0.email',
@@ -87,8 +87,8 @@ class AuthController extends Controller
         Team::create([
             'namateam'       => $data['namateam'],
             'kategori'       => $data['kategori'],
-            'instansi'       => $data['instansi'],
-            'alamatinstansi' => $data['alamatinstansi'],
+            // 'instansi'       => $data['instansi'],
+            // 'alamatinstansi' => $data['alamatinstansi'],
         ]);
 
         $team = Team::where('namateam', $data['namateam'])->first();
@@ -126,8 +126,6 @@ class AuthController extends Controller
             'level'    => $level,
             'idteam'   => $team['id'],
         ]);
-
-        $user['kategori'] = $data['kategori'];
 
         return $user;
 
@@ -170,24 +168,30 @@ class AuthController extends Controller
                 if ($now > $expired) {
                     User::where('idteam', '=', $user->idteam)->delete();
                     Team::where('id', '=', $user->idteam)->delete();
-                    return "expired";
+                    return redirect('register')
+                        ->with('message', 'Kode aktivasi sudah tidak berlaku, silahkan registrasi ulang!');
                 }
 
                 $user->code = 1;
                 if ($user->save()) {
-                    return redirect('/');
+                    if ($user->level == 1) {
+                        return redirect('/login')
+                            ->with('message', 'Akun sudah teraktivasi, silahkan login');
+                    }
+                    return redirect('/')
+                        ->with('message', 'Email sudah teraktivasi');
                 }
             }
         }
         return redirect('/')
-            ->with('message', 'Code salah');
+            ->with('message', 'Kode aktivasi salah');
     }
 
     public function sendEmail(User $user)
     {
 
         $config['subject'] = "Aktivasi Email";
-        if ($user['kategori'] == 0) {
+        if ($user->team->kategori == 0) {
             $config['email'] = "wdc@vocomfest.com";
             $config['nama']  = "Registrasi WDC";
         } else {
@@ -195,7 +199,12 @@ class AuthController extends Controller
             $config['nama']  = "Registrasi MADC";
         }
 
-        Mail::queue('emails.activateAccount', ['code' => $user['code']], function ($message) use ($config, $user) {
+        $content = [
+            'code' => $user['code'],
+            'logo' => public_path().'/assets/img/logo.png',
+        ];
+
+        Mail::queue('emails.activateAccount', $content, function ($message) use ($config, $user) {
             $message->from($config['email'], $config['nama']);
             $message->subject($config['subject']);
             $message->to($user['email']);

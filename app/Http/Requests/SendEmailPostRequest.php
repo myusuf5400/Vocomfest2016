@@ -26,7 +26,7 @@ class SendEmailPostRequest extends Request
     {
         return [
             'email'   => 'required',
-            'nama'    => 'required',
+            'nama'    => 'required|email',
             'subject' => 'required',
             'message' => 'required',
         ];

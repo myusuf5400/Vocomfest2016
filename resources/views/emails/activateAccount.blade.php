@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
         <body>
-        	<img src="vocomfest.com/asstes/img/logo.png">
+        	<img src="{{$message->embed($logo)}}">
             <a href="{{ url('activate/'.$code) }}" >
                 {{ url('activate/'.$code) }}
             </a>
