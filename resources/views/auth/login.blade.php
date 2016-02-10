@@ -27,10 +27,10 @@
             <h4 class="form-signin-heading">
                 Login to Vocomfest
             </h4>
-            <label for="inputUsername" class="sr-only">
-                Username
+            <label for="inputEmail" class="sr-only">
+                Email
             </label>
-            <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required="required" autofocus/>
+            <input type="text" name="email" id="inputEmail" class="form-control" placeholder="Email Ketua" required="required" autofocus/>
             <label for="inputPassword" class="sr-only">
                 Password
             </label>

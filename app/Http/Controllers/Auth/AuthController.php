@@ -57,13 +57,13 @@ class AuthController extends Controller
             'namaketua'              => 'required|max:60',
             'emailketua'             => 'required|email|max:60|unique:users,email',
             'notelp'                 => 'required|max:12|unique:users',
-            'username'               => 'required|max:60|unique:users',
+            // 'username'               => 'required|max:60|unique:users',
             'password'               => 'required|confirmed|min:6',
             'password_confirmation ' => '',
             'kategori'               => 'required',
             'namateam'               => 'required|max:60|unique:teams',
-            // 'instansi'               => 'required|max:60',
-            // 'alamatinstansi'         => 'required|max:60',
+            'instansi'               => 'required|max:60',
+            'alamatinstansi'         => 'required|max:60',
             'anggota.0.nama'         => 'max:60',
             'anggota.0.email'        => 'email|max:60|unique:users,email|required_with:anggota.0.nama',
             'anggota.0.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.0.email',
@@ -87,8 +87,8 @@ class AuthController extends Controller
         Team::create([
             'namateam'       => $data['namateam'],
             'kategori'       => $data['kategori'],
-            // 'instansi'       => $data['instansi'],
-            // 'alamatinstansi' => $data['alamatinstansi'],
+            'instansi'       => $data['instansi'],
+            'alamatinstansi' => $data['alamatinstansi'],
         ]);
 
         $team = Team::where('namateam', $data['namateam'])->first();
@@ -118,7 +118,6 @@ class AuthController extends Controller
 
         $user = User::create([
             'nama'     => $data['namaketua'],
-            'username' => $data['username'],
             'email'    => $data['emailketua'],
             'password' => bcrypt($data['password']),
             'notelp'   => $data['notelp'],

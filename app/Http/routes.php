@@ -38,7 +38,15 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('user', 'UserController@getAkun');
     Route::get('user/image', 'UserController@getImageUpload');
     Route::post('user/imageUpload', 'UserController@postImageUpload');
-
-
+    
     Route::get('/admin', 'AdminController@index');
+    Route::get('/admin/table', 'AdminController@table');
+    Route::get('/admin/chart', 'AdminController@chart');
+    Route::get('/admin/table/{user}/delete/{id}', 'AdminController@delete');
+    Route::get('/admin/table/{user}/edit/{id}', 'AdminController@edit');
+    Route::post('/admin/table/{user}/update/{id}', 'AdminController@update');
+    Route::get('/admin/setting', 'AdminController@setting');
+
+    Route::post('/admin/setting/post', 'AdminController@settingPost');
+
 });

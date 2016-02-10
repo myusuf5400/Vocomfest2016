@@ -10,7 +10,7 @@ class User extends Authenticatable
 {
 
     use SoftDeletes;
-
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
