@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Username atau kata sandi salah',
+    'failed' => 'Email atau kata sandi salah',
     'throttle' => 'Terlalu banyak login. Tolong coba lagi setelah :seconds detik lagi.',
 
 ];

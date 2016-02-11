@@ -12,6 +12,6 @@ class File extends Model
      * @var array
      */
     protected $fillable = [
-        'namafile', 'url', 'size', 'server', 'status', 'idteam',
+        'namafile', 'url', 'size', 'server', 'status', 'idteam','tipe'
     ];
 }

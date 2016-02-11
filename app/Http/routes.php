@@ -23,21 +23,24 @@
  */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', 'HomeController@index');
-    Route::get('home', 'HomeController@index');
+    Route::get('/', 'HomeController@index');    
+    Route::get('madc', 'HomeController@madc');
+    Route::get('wdc', 'HomeController@wdc');
+    Route::get('semnas', 'HomeController@semnas');
     
     Route::post('send', 'HomeController@sendEmail');
     Route::get('activate/{code}', 'Auth\AuthController@activateAccount');
+    Route::get('register/success', 'Auth\AuthController@getMessagaPage');
 
     Route::auth();
     
     Route::post('semnas', 'SemnasController@store');
 
-    Route::get('user/upload', 'UserController@getUpload');
+    Route::get('user/upload', 'UserController@getUploadProposal');
     Route::get('user/upload/redirect', 'UserController@redirectUpload');
     Route::get('user', 'UserController@getAkun');
     Route::get('user/image', 'UserController@getImageUpload');
-    Route::post('user/imageUpload', 'UserController@postImageUpload');
+    // Route::post('user/imageUpload', 'UserController@postImageUpload');
     
     Route::get('/admin', 'AdminController@index');
     Route::get('/admin/table', 'AdminController@table');

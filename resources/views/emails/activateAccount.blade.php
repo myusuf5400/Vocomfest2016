@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-    <html>
-        <body>
-        	<img src="{{$message->embed($logo)}}">
-            <a href="{{ url('activate/'.$code) }}" >
-                {{ url('activate/'.$code) }}
-            </a>
-        </body>
-    </html>
+<html>
+<head>
+  <title>Aktivasi Email Vocomfest 2016</title>
+</head>
+<body>
+Untuk aktivasi email akun Vocomfest 2016, silahkan klik alamat dibawah ini.
+
+<a href="{{url('activate/'.$code)}}">{{url('activate/'.$code)}}</a>
+
+Terima kasih,
+
+Vocomfest 2016
+</body>
+</html>

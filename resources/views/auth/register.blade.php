@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-@section('title', 'Register')
+@section('title', 'Registrasi')
 @section('content')
 <body style="background : #F1F2F7;">
     <div class="se-pre-con">
@@ -28,6 +28,7 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade @if (count($errors->semnas) == 0) in active @endif" id="comp">
                            @if (count($errors) > 0)
+                                <br/>
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
@@ -36,30 +37,27 @@
                                     </ul>
                                 </div>
                             @endif
+                            
+                            @if (session('message'))
+                                <br/>
+                                <div class="alert alert-success">
+                                    <ul>
+                                        <li>{{session('message')}}</li> 
+                                    </ul>
+                                </div>
+                            @endif
+                            
                             <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                                 {!! csrf_field() !!}
                                 <div class="form-group mg-t-15">
                                     <div class="col-md-6">
-                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua" value="{{old('namaketua')}}" required/>
+                                        <input type="text" name="namateam" class="form-control reg-form" placeholder="Nama Tim" value="{{old('namateam')}}" required/>
                                     </div>
                                     <div class="col-md-6">
                                         <input type="email" name="emailketua" class="form-control reg-form" placeholder="Email Ketua" value="{{old('emailketua')}}" required/>
                                     </div>
                                 </div>
-                                <div class="form-group">
-									<div class="col-md-6">
-										<input type="text" name="username" class="form-control reg-form" placeholder="Username" value="{{old('username')}}" required/>
-									</div>
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <div class="input-group-addon reg-form">
-                                                (+62)
-                                            </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomer Handphone" value="{{old('notelp')}}" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
+                                    <div class="form-group">
                                     <div class="col-md-6">
                                         <input type="password" name="password" class="form-control reg-form" placeholder="Password" required/>
                                     </div>
@@ -67,6 +65,15 @@
                                         <input type="password" name="password_confirmation" class="form-control reg-form" placeholder="Ketik Ulang Password" required/>
                                     </div>
                                 </div>
+                                <div class="form-group">
+									<div class="col-md-6">
+                                        <input type="text" name="instansi" class="form-control reg-form" placeholder="Asal Instansi" value="{{old('instansi')}}" required/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="alamatinstansi" class="form-control reg-form" placeholder="Alamat Instansi" value="{{old('alamatinstansi')}}" required/>
+                                    </div>
+                                </div>
+                            
                                 <div class="form-group">
                                     <div class="col-md-6">
                                         <input type="radio" name="kategori" value="0" id="wdc" @if(old('kategori')==0) checked @endif class="ev-cat">
@@ -83,10 +90,15 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="text" name="namateam" class="form-control reg-form" placeholder="Nama Tim" value="{{old('namateam')}}" required/>
+                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua" value="{{old('namaketua')}}" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="institusi" class="form-control reg-form" placeholder="Asal Instansi" value="{{old('institusi')}}" required/>
+                                        <div class="input-group">
+                                            <div class="input-group-addon reg-form">
+                                                (+62)
+                                            </div>
+                                            <input type="number" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomer Handphone" value="{{old('notelp')}}" required/>
+                                        </div>
                                     </div>
                                 </div>
                                 <h4>
@@ -94,49 +106,49 @@
                                 </h4>
                                 <div class="form-group" id="mem1">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota[0][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota[0][nama]')}}"/>
+                                        <input type="text" name="anggota[0][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota.0.nama')}}"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota[0][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota[0][email]')}}"/>
+                                        <input type="email" name="anggota[0][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota.0.email')}}"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[0][notelp]" placeholder="Nomer Handphone" value="{{old('anggota[0][notelp]')}}"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[0][notelp]" placeholder="Nomer Handphone" value="{{old('anggota.0.notelp')}}"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem2">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota[1][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota[1][nama]')}}"/>
+                                        <input type="text" name="anggota[1][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota.1.nama')}}"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota[1][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota[1][email]')}}"/>
+                                        <input type="email" name="anggota[1][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota.1.email')}}"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[1][notelp]" placeholder="Nomer Handphone" value="{{old('anggota[0][notelp]')}}"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[1][notelp]" placeholder="Nomer Handphone" value="{{old('anggota.1.notelp')}}"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem3">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota[2][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota[2][nama]')}}"/>
+                                        <input type="text" name="anggota.2.nama" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota[2][nama]')}}"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota[2][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota[2][email]')}}"/>
+                                        <input type="email" name="anggota.2.email" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota[2][email]')}}"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[2][notelp]" placeholder="Nomer Handphone" value="{{old('anggota[2][notelp]')}}"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[2][notelp]" placeholder="Nomer Handphone" value="{{old('anggota.2.notelp')}}"/>
                                         </div>
                                     </div>
                                 </div>
@@ -148,54 +160,7 @@
                             </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade @if (count($errors->semnas) > 0) in active @endif" id="semnas">
-                            @if (count($errors->semnas) > 0)
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->semnas->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            <form role="form" class="form-horizontal" method="POST" action="{{ url('/semnas') }}">
-                                {!! csrf_field() !!}      
-                                <div class="form-group mg-t-15">
-                                    <div class="col-md-6">
-                                        <input type="text" name="nama" class="form-control reg-form" placeholder="Nama Lengkap" value="{{old('nama')}}" required/>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="email" name="email" class="form-control reg-form" placeholder="Alamat Email" value="{{old('email')}}" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <div class="input-group-addon reg-form">
-                                                (+62)
-                                            </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="notelpsemnas" placeholder="Nomer Handphone" value="{{old('notelpsemnas')}}" required/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <select class="form-control reg-form" name="kategorisemnas">
-                                            <option value="0" @if(old('kategorisemnas')==0)selected @endif>
-                                                Mahasiswa
-                                            </option>
-                                            <option value="1" @if(old('kategorisemnas')==1)selected @endif>
-                                                Pelajar
-                                            </option>
-                                            <option value="2" @if(old('kategorisemnas')==2)selected @endif>
-                                                Umum
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-3">
-                                        <input type="submit" value="REGISTER" class="btn btn-success btn-reg"/>
-                                    </div>
-                                </div>
-                            </form>
+                            <img src="{{url('assets/img/web_semnas.jpg')}}" class="img-responsive">
                         </div>
                     </div>
                 </div>
@@ -233,7 +198,7 @@
                             <p class="small">
                                 Bukti pembayaran, kirim ke :
                                 <br/>
-                                <em>info@vocomfest.com</em>
+                                <em>madc@vocomfest.com</em>
                             </p>
                         </blockquote>
                     </div>

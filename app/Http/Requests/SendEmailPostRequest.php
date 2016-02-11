@@ -6,7 +6,7 @@ use App\Http\Requests\Request;
 
 class SendEmailPostRequest extends Request
 {
-    protected $redirect = '/home#contact';
+    protected $redirect = '/#contact';
     /**
      * Determine if the user is authorized to make this request.
      *

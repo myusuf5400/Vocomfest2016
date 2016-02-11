@@ -6,8 +6,7 @@ use App\File;
 use App\Http\Controllers\Controller;
 use Auth;
 use transloadit\Transloadit;
-use App\Http\Requests\UploadImageRequest;
-
+use App\Jobs\DownloadFileFromTransloadit;
 
 class UserController extends Controller
 {
@@ -27,25 +26,41 @@ class UserController extends Controller
             ->with('user', Auth::user());
     }
 
-    public function getImageUpload()
+    public function getUploadProposal()
     {
-        return view('user.imageUpload');
+        $config = $this->getTransloaditConfig();
+        $server = $this->getServer();
+        $auth   = config('services.transloadit')[$server];
+
+        $form = [
+            'server' => $server,
+            'tipe'   => 1,
+        ];
+
+        $transloadit = new transloadit($auth);
+
+        return view('user.uploadProposal')
+            ->with('transloadit', $transloadit->createAssemblyForm($config))
+            ->with($form);
     }
 
-    public function postImageUpload(UploadImageRequest $request)
+    public function redirectUpload()
     {
-        $image = $request->file('image');
+        $respon = Transloadit::response()->data['results']['upload'][0];
+        $server = Transloadit::response()->data['fields']['server'];
+        $tipe   = Transloadit::response()->data['fields']['tipe'];
+        $file = File::create([
+            'namafile' => $respon['name'],
+            'size'     => $respon['size'],
+            'url'      => $respon['url'],
+            'server'   => $server,
+            'status'   => 0,
+            'tipe'     => $tipe,
+        ]);
+        
+        $job = $this->dispatch(new DownloadFileFromTransloadit($file));
 
-        $nameImage = time().'.'.$image->getClientOriginalExtension();
-
-        $nameImage = $image->move(storage_path().'/image',$nameImage);
-
-        $team = Auth::user()->team;
-
-        $team->imgteam = $nameImage;
-        $team->save();
-
-        return redirect()->back();
+        return redirect('user');
     }
 
     public function getUpload()
@@ -59,20 +74,6 @@ class UserController extends Controller
         return view('user.upload')
             ->with('transloadit', $transloadit->createAssemblyForm($config))
             ->with('server', $server);
-    }
-
-    public function redirectUpload()
-    {
-        $respon = Transloadit::response()->data['results']['upload'][0];
-        $server = Transloadit::response()->data['fields']['server'];
-        File::create([
-            'namafile' => $respon['name'],
-            'size'     => $respon['size'],
-            'url'      => $respon['url'],
-            'server'   => $server,
-            'status'   => 0,
-        ]);
-        return redirect('user');
     }
 
     public function getServer()

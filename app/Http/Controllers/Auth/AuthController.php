@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Team;
 use App\User;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
@@ -64,15 +65,15 @@ class AuthController extends Controller
             'namateam'               => 'required|max:60|unique:teams',
             'instansi'               => 'required|max:60',
             'alamatinstansi'         => 'required|max:60',
-            'anggota.0.nama'         => 'max:60',
-            'anggota.0.email'        => 'email|max:60|unique:users,email|required_with:anggota.0.nama',
-            'anggota.0.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.0.email',
-            'anggota.1.nama'         => 'max:60',
-            'anggota.1.email'        => 'email|max:60|unique:users,email|required_with:anggota.1.nama',
-            'anggota.1.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.1.email',
-            'anggota.2.nama'         => 'max:60',
-            'anggota.2.email'        => 'email|max:60|unique:users,email|required_with:anggota.2.nama',
-            'anggota.2.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.2.email',
+            // 'anggota.0.nama'         => 'max:60',
+            // 'anggota.0.email'        => 'email|max:60|unique:users,email|required_with:anggota.0.nama',
+            // 'anggota.0.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.0.email',
+            // 'anggota.1.nama'         => 'max:60',
+            // 'anggota.1.email'        => 'email|max:60|unique:users,email|required_with:anggota.1.nama',
+            // 'anggota.1.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.1.email',
+            // 'anggota.2.nama'         => 'max:60',
+            // 'anggota.2.email'        => 'email|max:60|unique:users,email|required_with:anggota.2.nama',
+            // 'anggota.2.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.2.email',
         ]);
     }
 
@@ -94,21 +95,22 @@ class AuthController extends Controller
         $team = Team::where('namateam', $data['namateam'])->first();
 
         if ($data['kategori'] == 0) {
-            $max   = 1;
             $level = 0;
         } else {
-            $max   = 2;
             $level = 1;
         }
 
-        $anggota = $data['anggota'];
+        if($data['anggota']!==null){
+            $max = (count($data['anggota'])>$max)?count($data['anggota']):$max;
+            $anggota = $data['anggota'];
+        }
 
         for ($i = 0; $i <= $max; $i++) {
             if ($anggota[$i]['nama'] != null) {
                 User::create([
                     'nama'   => $anggota[$i]['nama'],
                     'email'  => $anggota[$i]['email'],
-                    'notelp' => $anggota[$i]['notelp'],
+                    'notelp' => '62'.$anggota[$i]['notelp'],
                     'idteam' => $team['id'],
                 ]);
             } else {
@@ -120,11 +122,13 @@ class AuthController extends Controller
             'nama'     => $data['namaketua'],
             'email'    => $data['emailketua'],
             'password' => bcrypt($data['password']),
-            'notelp'   => $data['notelp'],
+            'notelp'   => '62'.$data['notelp'],
             'code'     => str_random(30),
             'level'    => $level,
             'idteam'   => $team['id'],
         ]);
+
+        $user['kategori'] = $data['kategori'];
 
         return $user;
 
@@ -151,7 +155,18 @@ class AuthController extends Controller
             $this->sendEmail($user);
         }
 
-        return redirect('/login');
+        return redirect('/register/success')
+            ->with('message', 'Tim anda telah terdaftar, silahkan verifikasi email dengan dengan mengakses alamat yang sudah dikirim ke ' . $user['email'] . ' maksimal 2x24 Jam');
+
+    }
+
+    public function getMessagaPage()
+    {
+        if (session('message')) {
+            return view('auth.message');
+        }
+
+        return redirect($this->redirectTo);
     }
 
     public function activateAccount($code)
@@ -177,12 +192,12 @@ class AuthController extends Controller
                         return redirect('/login')
                             ->with('message', 'Akun sudah teraktivasi, silahkan login');
                     }
-                    return redirect('/')
-                        ->with('message', 'Email sudah teraktivasi');
+                    return redirect('/register/message')
+                        ->with('message', 'Email anda sudah terverifikasi');
                 }
             }
         }
-        return redirect('/')
+        return redirect('/register')
             ->with('message', 'Kode aktivasi salah');
     }
 
@@ -190,7 +205,7 @@ class AuthController extends Controller
     {
 
         $config['subject'] = "Aktivasi Email";
-        if ($user->team->kategori == 0) {
+        if ($user['kategori'] == 0) {
             $config['email'] = "wdc@vocomfest.com";
             $config['nama']  = "Registrasi WDC";
         } else {
@@ -200,13 +215,34 @@ class AuthController extends Controller
 
         $content = [
             'code' => $user['code'],
-            'logo' => public_path().'/assets/img/logo.png',
         ];
 
-        Mail::queue('emails.activateAccount', $content, function ($message) use ($config, $user) {
+        Mail::send('emails.activateAccount', $content, function ($message) use ($config, $user) {
             $message->from($config['email'], $config['nama']);
             $message->subject($config['subject']);
             $message->to($user['email']);
         });
+    }
+
+    /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  bool  $throttles
+     * @return \Illuminate\Http\Response
+     */
+    protected function handleUserWasAuthenticated(Request $request, $throttles)
+    {
+        Auth::logout();
+        
+        if ($throttles) {
+            $this->clearLoginAttempts($request);
+        }
+
+        if (method_exists($this, 'authenticated')) {
+            return $this->authenticated($request, Auth::guard($this->getGuard())->user());
+        }
+
+        return redirect()->intended($this->redirectPath());
     }
 }

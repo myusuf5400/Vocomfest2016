@@ -29,17 +29,15 @@ elixir.config.images = {
 
 elixir(function(mix) {
     mix.styles([
-    	'resources/assets/css/*.css'
+    	'vocomfest.css',
+        'timeline.css',
+        'custom.css'
     	],'public/assets/css/vocomfest.css'
     );
     mix.scripts([
-    	'jquery.1.11.1-min.js',
-    	'bootstrap.min.js',
-    	'modernizr.js',
-    	'jquery.nicescroll.min.js',
-    	'loader.js',
-    	'wow.min.js',
-        'owl.carousel.min.js'], 'public/assets/js/vocomfest.js'
+    	'vocomfest.js',
+        'modernizr.js',
+        'main.js'], 'public/assets/js/vocomfest.js'
     );
     mix.imagemin();
 });

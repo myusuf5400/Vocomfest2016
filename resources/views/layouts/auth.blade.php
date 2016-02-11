@@ -14,11 +14,11 @@
             @yield('title')
         </title>
         <!-- CSS Here -->
-        <link rel="stylesheet" type="text/css" href="assets/css/vocomfest.css"/>
+        <link rel="stylesheet" type="text/css" href="{{url('assets/css/vocomfest.css')}}"/>
     </head>
     @yield('content')
     <!-- JS Here -->
-    <script type="text/javascript" src="assets/js/vocomfest.js">
+    <script type="text/javascript" src="{{url('assets/js/vocomfest.js')}}">
     </script>
     <script type="text/javascript">
     $(document).ready(function() {

@@ -19,6 +19,7 @@ class CreateFilesTable extends Migration
             $table->integer('size');
             $table->boolean('server');
             $table->boolean('status');
+            $table->boolean('tipe');
             $table->integer('idteam')->unsigned();
             $table->timestamps();
         });

@@ -1,0 +1,22 @@
+#events{
+	padding-top: 40px;
+}
+#timeline{
+	padding-top: 55px;
+}
+#about{
+	padding-top: 60px!important;
+}
+
+.content{
+	text-align: justify;
+	text-indent: 4em;
+}
+
+.navbar-nav{
+	font-size: 13px;
+}
+
+#contact div .container{
+	margin-top: 50px;
+}

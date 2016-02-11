@@ -25,7 +25,7 @@ class Admin
             }
         }
 
-        if ($request->user()['level'] != 6 || $request->user()['code'] != 1) {
+        if ($request->user()['level'] != 6) {
             Auth::logout();
             return redirect()->guest('login');
         }

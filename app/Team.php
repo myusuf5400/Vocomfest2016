@@ -14,7 +14,7 @@ class Team extends Model
      * @var array
      */
     protected $fillable = [
-        'namateam', 'kategori', 'institusi', 'imgteam',
+        'namateam', 'kategori', 'instansi', 'alamatinstansi'
     ];
 
     protected $dates = [

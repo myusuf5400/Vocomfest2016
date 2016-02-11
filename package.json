@@ -2,6 +2,7 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.8.8",
+    "gulp-inline-css": "^3.0.1",
     "laravel-elixir-imagemin": "^0.2.3",
     "laravel-elixir-spritesmith": "^0.2.1"
   },

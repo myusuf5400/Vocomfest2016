@@ -17,6 +17,20 @@ class HomeController extends Controller
         return view('welcome');
     }
 
+    public function wdc()
+    {
+        return view('wdc');
+    }
+
+    public function madc()
+    {
+        return view('madc');
+    }
+    public function semnas()
+    {
+        return view('semnas');
+    }
+
     public function sendEmail(SendEmailPostRequest $data)
     {
         $config = [
@@ -30,7 +44,8 @@ class HomeController extends Controller
             $message->to('info@vocomfest.com');
         });
 
-        return redirect('/');
+        return redirect()
+            ->back();
     }
 
 }

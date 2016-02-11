@@ -25,7 +25,7 @@ class User
             }
         }
 
-        if($request->user()['code']!=1||$request->user()['level']!=1){
+        if($request->user()['level']!=1){
             Auth::logout(); 
             return redirect()->guest('login');
         }
