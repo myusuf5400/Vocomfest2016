@@ -9,7 +9,7 @@
             @include('navbar')
         </nav>
     </header>
-    <div class="container">
+    <div class="container event-details">
         <ol class="breadcrumb">
             <li>
                 <a href="{{url('/')}}">
@@ -389,8 +389,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- /container -->
-                <footer class="kick">
+                <footer class="footer-bottom">
                     <div class="copy">
                         <div class="container">
                             <div class="row">
@@ -406,53 +405,16 @@
                 @endsection
 @section('script')
     <!-- JS Here -->
-    <script type="text/javascript" src="{{url('assets/js/jquery.1.11.1-min.js')}}"></script>
-    <script type="text/javascript" src="{{url('assets/js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="{{url('assets/js/modernizr.js')}}"></script>
-    <script type="text/javascript" src="{{url('assets/js/jquery.nicescroll.min.js')}}"></script>
-    <script type="text/javascript" src="{{url('assets/js/loader.js')}}"></script>
+    <script type="text/javascript" src="{{url('assets/js/vocomfest.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             // initialize
-            $("html").niceScroll({
-                cursorcolor : 'rgba(0,0,0,0.5)',
-                cursorwidth : '7px',
-                cursorborder : 'none',
-                cursorborderradius : '0px' ,
-                zindex : '101'
-            }) ;
-
-            $('#de').click(function(){
-                $('footer').addClass('kick') ;
-            });
-            $('#al').click(function(){
-                $('footer').addClass('kick') ;
-            });
-            $('#pg  ').click(function(){
-                $('footer').addClass('kick') ;
-            });
-            $('#ma').click(function(){
-                $('footer').addClass('kick') ;
-            });
-
-            $('#te').click(function(){
-                $('footer').removeClass('kick') ;
-            });
-            $('#ti').click(function(){
-                $('footer').removeClass('kick') ;
-            });
-            $('#ap').click(function(){
-                $('footer').removeClass('kick') ;
-            });
+            $("html").niceScroll().remove();
         }) ;
     </script>
 @endsection
 
 @section('stylesheet')
 <!-- CSS Here -->
-    <link rel="stylesheet" type="text/css" href="{{url('assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('assets/css/vocomfest-reset.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('assets/css/vocomfest-fonts.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('assets/css/loader.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="{{url('assets/css/vocomfest.css')}}">
 @endsection

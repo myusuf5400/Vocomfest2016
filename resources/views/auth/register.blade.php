@@ -160,7 +160,7 @@
                             </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade @if (count($errors->semnas) > 0) in active @endif" id="semnas">
-                            <img src="{{url('assets/img/web_semnas.jpg')}}" class="img-responsive">
+                            <img src="{{url('assets/img/web_semnas.jpg')}}" class="img-responsive coming-semnas">
                         </div>
                     </div>
                 </div>
@@ -199,20 +199,6 @@
                                 Bukti pembayaran, kirim ke :
                                 <br/>
                                 <em>madc@vocomfest.com</em>
-                            </p>
-                        </blockquote>
-                    </div>
-                    <div id="seminar">
-                        <blockquote>
-                            <p class="small">
-                                Seminar Nasional
-                            </p>
-                            <p class="small">
-                                <strong>
-                                    MBAYAR
-                                </strong>
-                                <br/>
-                                Tunggu ya :*
                             </p>
                         </blockquote>
                     </div>

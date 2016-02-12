@@ -19,9 +19,6 @@ time, mark, audio, video{
 	font-family : 'Lato-Light' ;
 }
 
-ol, ul {
-	list-style: none;
-}
 blockquote, q {
 	quotes: none;
 }
@@ -5894,7 +5891,7 @@ hr.bord2-right{
 /* Testimonial */
 #testimoni{
 	background: #217346 ;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 .img-testi{
 	max-width: 125px ;
@@ -6399,25 +6396,89 @@ Main Components
 }
 
 #events{
-	padding-top: 40px;
+  padding-top: 40px;
+  min-height: 100vh;
 }
-#timeline{
-	padding-top: 55px;
+
+#home{
+  min-height: 100vh;
 }
+
 #about{
-	padding-top: 60px!important;
+  padding-top: 60px!important;
+  min-height: 100vh;
 }
 
-.content{
-	text-align: justify;
-	text-indent: 4em;
-}
-
-.navbar-nav{
-	font-size: 13px;
+#timeline{
+  padding-top: 60px;  
+  min-height: 100vh;
 }
 
 #contact div .container{
-	margin-top: 50px;
+  margin-top: 48px;
+}
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+body{
+  min-height: 100vh;
+}
+.event-details{
+  margin-top: -50px;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.event-details ol{
+  margin-top: 70px;
+}
+
+.footer-bottom{
+  margin-top: -50px;
+}
+
+.cd-timeline-navigation{
+  list-style: none;
+}
+.tab-pane p{
+  text-indent: 1.5em;
+  text-align: justify;
+}
+.tab-pane ol li{
+  text-align: justify;
+}
+
+.tab-pane ul li{
+  text-align: justify;
+}
+
+.tab-pane ol{
+  display: block;
+    list-style-type: decimal;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+.tab-pane ol ul{
+  display: block;
+    list-style-type: circle;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 20px;
+}
+.tab-pane br{
+  text-indent: 1em;
+}
+
+.content{
+  text-align: justify;
+  text-indent: 3em;
 }
 /*# sourceMappingURL=vocomfest.css.map */

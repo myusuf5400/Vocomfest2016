@@ -49,36 +49,28 @@
                     </a>
                 </li>
                 <?php if(Auth::guest()): ?>
-                <li>
-                    <a href="<?php echo e(url('/register')); ?>">
-                        REGISTER
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo e(url('/login')); ?>">
-                        LOGIN
-                    </a>
-                </li>
+                    <li>
+                        <a href="<?php echo e(url('/register')); ?>">
+                            REGISTER
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo e(url('/login')); ?>">
+                            LOGIN
+                        </a>
+                    </li>
                 <?php else: ?>
-                <?php if(Auth::user()->
-                level==6): ?>
-                <li>
-                    <a href="<?php echo e(url('admin')); ?>">
-                        ADMIN
-                    </a>
-                </li>
-                <?php else: ?>
-                <li>
-                    <a href="<?php echo e(url('user')); ?>">
-                        PESERTA
-                    </a>
-                </li>
-                <?php endif; ?>
-                <li>
-                    <a href="<?php echo e(url('/logout')); ?>">
-                        LOGOUT
-                    </a>
-                </li>
+                    <?php if(Auth::user()->level==6): ?>
+                    <li><a href="<?php echo e(url('admin')); ?>">ADMIN</a></li>
+                    <?php else: ?>
+                    <li><a href="<?php echo e(url('user')); ?>">PESERTA</a></li>
+                    <?php endif; ?>
+
+                    <li>
+                        <a href="<?php echo e(url('/logout')); ?>">
+                            LOGOUT
+                        </a>
+                    </li>
                 <?php endif; ?>
             </ul>
         </div>

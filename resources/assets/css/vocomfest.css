@@ -19,9 +19,6 @@ time, mark, audio, video{
 	font-family : 'Lato-Light' ;
 }
 
-ol, ul {
-	list-style: none;
-}
 blockquote, q {
 	quotes: none;
 }
@@ -5894,7 +5891,7 @@ hr.bord2-right{
 /* Testimonial */
 #testimoni{
 	background: #217346 ;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 .img-testi{
 	max-width: 125px ;

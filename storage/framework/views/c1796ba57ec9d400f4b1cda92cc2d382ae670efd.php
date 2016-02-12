@@ -8,7 +8,7 @@
             <?php echo $__env->make('navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </nav>
     </header>
-    <div class="container">
+    <div class="container event-details">
         <ol class="breadcrumb">
             <li>
                 <a href="<?php echo e(url('/')); ?>">
@@ -388,8 +388,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- /container -->
-                <footer class="kick">
+                <footer class="footer-bottom">
                     <div class="copy">
                         <div class="container">
                             <div class="row">
@@ -405,54 +404,17 @@
                 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
     <!-- JS Here -->
-    <script type="text/javascript" src="<?php echo e(url('assets/js/jquery.1.11.1-min.js')); ?>"></script>
-    <script type="text/javascript" src="<?php echo e(url('assets/js/bootstrap.min.js')); ?>"></script>
-    <script type="text/javascript" src="<?php echo e(url('assets/js/modernizr.js')); ?>"></script>
-    <script type="text/javascript" src="<?php echo e(url('assets/js/jquery.nicescroll.min.js')); ?>"></script>
-    <script type="text/javascript" src="<?php echo e(url('assets/js/loader.js')); ?>"></script>
+    <script type="text/javascript" src="<?php echo e(url('assets/js/vocomfest.js')); ?>"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             // initialize
-            $("html").niceScroll({
-                cursorcolor : 'rgba(0,0,0,0.5)',
-                cursorwidth : '7px',
-                cursorborder : 'none',
-                cursorborderradius : '0px' ,
-                zindex : '101'
-            }) ;
-
-            $('#de').click(function(){
-                $('footer').addClass('kick') ;
-            });
-            $('#al').click(function(){
-                $('footer').addClass('kick') ;
-            });
-            $('#pg  ').click(function(){
-                $('footer').addClass('kick') ;
-            });
-            $('#ma').click(function(){
-                $('footer').addClass('kick') ;
-            });
-
-            $('#te').click(function(){
-                $('footer').removeClass('kick') ;
-            });
-            $('#ti').click(function(){
-                $('footer').removeClass('kick') ;
-            });
-            $('#ap').click(function(){
-                $('footer').removeClass('kick') ;
-            });
+            $("html").niceScroll().remove();
         }) ;
     </script>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('stylesheet'); ?>
 <!-- CSS Here -->
-    <link rel="stylesheet" type="text/css" href="<?php echo e(url('assets/css/bootstrap.min.css')); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(url('assets/css/vocomfest-reset.css')); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(url('assets/css/vocomfest-fonts.css')); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(url('assets/css/loader.css')); ?>">
-
+    <link rel="stylesheet" type="text/css" href="<?php echo e(url('assets/css/vocomfest.css')); ?>">
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

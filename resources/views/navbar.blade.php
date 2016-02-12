@@ -49,36 +49,28 @@
                     </a>
                 </li>
                 @if(Auth::guest())
-                <li>
-                    <a href="{{url('/register')}}">
-                        REGISTER
-                    </a>
-                </li>
-                <li>
-                    <a href="{{url('/login')}}">
-                        LOGIN
-                    </a>
-                </li>
+                    <li>
+                        <a href="{{url('/register')}}">
+                            REGISTER
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('/login')}}">
+                            LOGIN
+                        </a>
+                    </li>
                 @else
-                @if(Auth::user()->
-                level==6)
-                <li>
-                    <a href="{{url('admin')}}">
-                        ADMIN
-                    </a>
-                </li>
-                @else
-                <li>
-                    <a href="{{url('user')}}">
-                        PESERTA
-                    </a>
-                </li>
-                @endif
-                <li>
-                    <a href="{{url('/logout')}}">
-                        LOGOUT
-                    </a>
-                </li>
+                    @if(Auth::user()->level==6)
+                    <li><a href="{{url('admin')}}">ADMIN</a></li>
+                    @else
+                    <li><a href="{{url('user')}}">PESERTA</a></li>
+                    @endif
+
+                    <li>
+                        <a href="{{url('/logout')}}">
+                            LOGOUT
+                        </a>
+                    </li>
                 @endif
             </ul>
         </div>
