@@ -65,15 +65,15 @@ class AuthController extends Controller
             'namateam'               => 'required|max:60|unique:teams',
             'instansi'               => 'required|max:60',
             'alamatinstansi'         => 'required|max:60',
-            // 'anggota.0.nama'         => 'max:60',
-            // 'anggota.0.email'        => 'email|max:60|unique:users,email|required_with:anggota.0.nama',
-            // 'anggota.0.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.0.email',
-            // 'anggota.1.nama'         => 'max:60',
-            // 'anggota.1.email'        => 'email|max:60|unique:users,email|required_with:anggota.1.nama',
-            // 'anggota.1.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.1.email',
-            // 'anggota.2.nama'         => 'max:60',
-            // 'anggota.2.email'        => 'email|max:60|unique:users,email|required_with:anggota.2.nama',
-            // 'anggota.2.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.2.email',
+            'anggota.0.nama'         => 'max:60',
+            'anggota.0.email'        => 'email|max:60|unique:users,email|required_with:anggota.0.nama',
+            'anggota.0.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.0.email',
+            'anggota.1.nama'         => 'max:60',
+            'anggota.1.email'        => 'email|max:60|unique:users,email|required_with:anggota.1.nama',
+            'anggota.1.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.1.email',
+            'anggota.2.nama'         => 'max:60',
+            'anggota.2.email'        => 'email|max:60|unique:users,email|required_with:anggota.2.nama',
+            'anggota.2.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.2.email',
         ]);
     }
 
@@ -95,26 +95,24 @@ class AuthController extends Controller
         $team = Team::where('namateam', $data['namateam'])->first();
 
         if ($data['kategori'] == 0) {
+            $max   = 1;
             $level = 0;
         } else {
+            $max   = 2;
             $level = 1;
         }
 
-        if($data['anggota']!==null){
-            $max = (count($data['anggota'])>$max)?count($data['anggota']):$max;
+        if (isset($data['anggota'])) {
+            $max     = (count($data['anggota']) > $max) ? $max : count($data['anggota']);
             $anggota = $data['anggota'];
-        }
+            for ($i = 0; $i < $max; $i++) {
 
-        for ($i = 0; $i <= $max; $i++) {
-            if ($anggota[$i]['nama'] != null) {
                 User::create([
                     'nama'   => $anggota[$i]['nama'],
                     'email'  => $anggota[$i]['email'],
-                    'notelp' => '62'.$anggota[$i]['notelp'],
+                    'notelp' => '62' . $anggota[$i]['notelp'],
                     'idteam' => $team['id'],
                 ]);
-            } else {
-                $i = $max;
             }
         }
 
@@ -122,7 +120,7 @@ class AuthController extends Controller
             'nama'     => $data['namaketua'],
             'email'    => $data['emailketua'],
             'password' => bcrypt($data['password']),
-            'notelp'   => '62'.$data['notelp'],
+            'notelp'   => '62' . $data['notelp'],
             'code'     => str_random(30),
             'level'    => $level,
             'idteam'   => $team['id'],
@@ -193,7 +191,7 @@ class AuthController extends Controller
                             ->with('message', 'Akun sudah teraktivasi, silahkan login');
                     }
                     return redirect('/register/message')
-                        ->with('message', 'Email anda sudah terverifikasi');
+                        ->with('message', 'Email anda sudah terverifikasi, silahkan melakukan pembayaran');
                 }
             }
         }
@@ -217,7 +215,7 @@ class AuthController extends Controller
             'code' => $user['code'],
         ];
 
-        Mail::send('emails.activateAccount', $content, function ($message) use ($config, $user) {
+        Mail::queue('emails.activateAccount', $content, function ($message) use ($config, $user) {
             $message->from($config['email'], $config['nama']);
             $message->subject($config['subject']);
             $message->to($user['email']);
@@ -233,8 +231,12 @@ class AuthController extends Controller
      */
     protected function handleUserWasAuthenticated(Request $request, $throttles)
     {
-        Auth::logout();
-        
+        if (Auth::user()->code != 1) {
+            Auth::logout();
+            return redirect()
+                ->back();
+        }
+
         if ($throttles) {
             $this->clearLoginAttempts($request);
         }

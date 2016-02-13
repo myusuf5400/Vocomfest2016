@@ -39,7 +39,7 @@ return [
     |
      */
 
-    'url'             => env('APP_URL', 'http://www.vocomfest.com'),
+    'url'             => env('APP_URL', 'http://www.vocomfest.com/public'),
 
     /*
     |--------------------------------------------------------------------------

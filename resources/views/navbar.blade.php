@@ -13,16 +13,11 @@
                 </span>
             </button>
             <a href="{{url('/#home')}}" class="navbar-brand">
-                <img src="assets/img/logo.png" alt="Vocomfest 2016" title="Vocomfest 2016" class="logo"/>
+                <img src="{{url('assets/img/logo.png')}}" alt="Vocomfest 2016" title="Vocomfest 2016" class="logo"/>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="{{url('/#home')}}">
-                        HOME
-                    </a>
-                </li>
                 <li>
                     <a href="{{url('/#about')}}">
                         ABOUT
@@ -63,7 +58,7 @@
                     @if(Auth::user()->level==6)
                     <li><a href="{{url('admin')}}">ADMIN</a></li>
                     @else
-                    <li><a href="{{url('user')}}">PESERTA</a></li>
+                    <li><a href="{{url('user')}}">DASHBOARD</a></li>
                     @endif
 
                     <li>

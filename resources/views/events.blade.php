@@ -19,14 +19,12 @@
                 </div>
                 <div class="col-md-10 pull-left text-left">
                     <p class="content">
-                        Web Design Competition 2015 merupakan kompetisi untuk para pengembang website di tingkat SMA/SMK sederajat. Dikarenakan melihat trend sekarang yang hamper disetiap aspek membutuhkan web sebagai sarana bersosialisasi dan berkomunikasi. Web Design Competition 2015 mengangkat tema
-                        <strong>
-                            “Bring Indonesia Tourism to The World”
-                        </strong>
-                        .
+                        Web Design Competition merupakan rangkaian acara VOCOMFEST 2016 yang pertama dimana mengangkat tema “Smart E-Government for Indonesian People”. Kompetisi ini ditujukan untuk siswa SMA/SMK sederajat yang sudah bisa maupun masih belajar mengembangkan website...
+                        
+                    
                     </p>
                     <p>
-                        <a href="website.html" class="btn btn-learn">
+                        <a href="{{url('wdc')}}" class="btn btn-learn">
                             Learn More
                         </a>
                     </p>
@@ -35,7 +33,7 @@
         </div>
         <div class="row wow animated fadeInRight">
             <div class="col-md-7 pull-right cvr-event">
-                <img src="assets/img/madc_1.jpg" alt="Web Design Competition" title="Web Design Competition" class="img-event"/>
+                <img src="assets/img/madc_1.jpg" alt="Web Design Competition" title="Web Design Competition" class="img-event img-responsive"/>
             </div>
             <div class="col-md-5 pull-right arrow-right">
                 <div class="col-md-9 pull-right">
@@ -46,10 +44,11 @@
                 </div>
                 <div class="col-md-10 pull-right text-right">
                     <p class="content">
-                        Mobile Apps Dev Competition merupakan kompetisi berbasis platform android, tantangan yang diberikan kepada peserta adalah membuat aplikasi yang mampu membantu mengatasi permasalahan kehidupan sehari-hari untuk menjadi lebih baik. Melalui kompetisi ini, diharapkan dapat memberikan kontribusi dalam mencetak generasi baru pengembangan aplikasi.
+                       Mobile Apps Development Competition (MADC) VOCOMFest 2016 merupakan kompetisi membangun aplikasi mobile yang berbasis platform Android. Kompetisi ini terbuka bagi mahasiswa seluruh universitas di Indonesia. MADC VOCOMFEST 2016 ini mengusung tema "Smart Apps for Services". Melalui kompetisi ini, diharapkan mampu mencetak generasi baru developer aplikasi mobile...
+
                     </p>
                     <p>
-                        <a href="madc.html" class="btn btn-learn">
+                        <a href="{{url('madc')}}" class="btn btn-learn">
                             Learn More
                         </a>
                     </p>
@@ -58,7 +57,7 @@
         </div>
         <div class="row wow animated fadeInLeft">
             <div class="col-md-7 cvr-event">
-                <img src="assets/img/seminar_1.jpg" alt="Web Design Competition" title="Web Design Competition" class="img-event"/>
+                <img src="assets/img/semnas_1.jpg" alt="Web Design Competition" title="Web Design Competition" class="img-event"/>
             </div>
             <div class="col-md-5 arrow-left">
                 <div class="col-md-7 pull-left">
@@ -69,13 +68,13 @@
                 </div>
                 <div class="col-md-10 pull-left text-left">
                     <p class="content">
-                        Kegiatan ini merupakan serangkaian acara VOCOMFEST 2015 yang berbentuk Seminar Nasional yang bertemakan "Cloud Security and Big Data for Business Productivity". Kegiatan ini bertujuan untuk memberikan pemahaman terhadap big data dan cloud computing ...
+                        Kegiatan ini merupakan serangkaian acara VOCOMFEST 2016 yang berbentuk Seminar Nasional yang bertemakan "Implementation Strategic and Cyber Security Policy of E-government". Kegiatan ini bertujuan untuk memberikan pemahaman terhadap implementasi E-government...
                     </p>
                     <p>
                         &nbsp;
                     </p>
                     <p>
-                        <a href="semnas.html" class="btn btn-learn">
+                        <a href="{{url('semnas')}}" class="btn btn-learn">
                             Learn More
                         </a>
                     </p>

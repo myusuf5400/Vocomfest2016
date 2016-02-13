@@ -28,7 +28,7 @@ return [
         'array'   => 'The :attribute must have between :min and :max items.',
     ],
     'boolean'              => 'The :attribute field must be true or false.',
-    'confirmed'            => 'The :attribute confirmation does not match.',
+    'confirmed'            => 'Kolom konfirmasi :attribute tidak sama.',
     'date'                 => 'The :attribute is not a valid date.',
     'date_format'          => 'The :attribute does not match the format :format.',
     'different'            => 'The :attribute and :other must be different.',
@@ -50,9 +50,9 @@ return [
     ],
     'mimes'                => 'The :attribute must be a file of type: :values.',
     'min'                  => [
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => 'Kolom :attribute minimal :min angka.',
         'file'    => 'The :attribute must be at least :min kilobytes.',
-        'string'  => 'The :attribute must be at least :min characters.',
+        'string'  => 'Kolom :attribute minimal :min karakter.',
         'array'   => 'The :attribute must have at least :min items.',
     ],
     'not_in'               => 'The selected :attribute is invalid.',
@@ -89,9 +89,46 @@ return [
      */
 
     'custom'               => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'anggota.0.email'  => [
+            'required_with' => 'Email anggota pertama harus diisi.',
+            'email'         => 'Format email salah.',
+            'unique'        => 'Email sudah digunakan.',
+            'max'           => 'Maksimal 60 karakter.',
         ],
+        'anggota.1.email'  => [
+            'required_with' => 'Email anggota kedua harus diisi.',
+            'email'         => 'Format email salah.',
+            'unique'        => 'Email sudah digunakan.',
+            'max'           => 'Maksimal 60 karakter.',
+        ],
+        'anggota.2.email'  => [
+            'required_with' => 'Email anggota ketiga harus diisi.',
+            'email'         => 'Format email salah.',
+            'unique'        => 'Email sudah digunakan.',
+            'max'           => 'Maksimal 60 karakter.',
+        ],
+        'anggota.0.notelp' => [
+            'required_with' => 'Nomer handphone anggota pertama harus diisi.',
+            'max'           => 'Maksimal 12 angka.',
+        ],
+        'anggota.1.notelp' => [
+            'required_with' => 'Nomer handphone anggota kedua harus diisi.',
+            'max'           => 'Maksimal 12 angka.',
+        ],
+        'anggota.2.notelp' => [
+            'required_with' => 'Nomer handphone anggota ketiga harus diisi.',
+            'max'           => 'Maksimal 12 angka.',
+        ],
+        'anggota.0.nama'   => [
+            'max' => 'Maksimal 60 karaker.',
+        ],
+        'anggota.1.nama'   => [
+            'max' => 'Maksimal 60 karaker.',
+        ],
+        'anggota.2.nama'   => [
+            'max' => 'Maksimal 60 karaker.',
+        ],
+
     ],
 
     /*
@@ -112,15 +149,6 @@ return [
         'namateam'         => 'Nama Tim',
         'instansi'         => 'Instansi',
         'alamatinstansi'   => 'Alamat Instansi',
-        'anggota.0.nama'   => 'Nama Anggota Pertama',
-        'anggota.0.email'  => 'Email Anggota Pertama',
-        'anggota.0.notelp' => 'Nomer Handphone Anggota Pertama',
-        'anggota.1.nama'   => 'Nama Anggota Kedua',
-        'anggota.1.email'  => 'Email Anggota Kedua',
-        'anggota.1.notelp' => 'Nomer Handphone Anggota Kedua',
-        'anggota.2.nama'   => 'Nama Anggota Ketiga',
-        'anggota.2.email'  => 'Email Anggota Ketiga',
-        'anggota.2.notelp' => 'Nomer Handphone Anggota Ketiga',
         'email'            => 'Email',
         'notelpsemnas'     => 'No Handphone',
         'alamatinstansi'   => 'Alamat Instansi',

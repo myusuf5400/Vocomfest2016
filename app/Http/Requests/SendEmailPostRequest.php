@@ -25,8 +25,8 @@ class SendEmailPostRequest extends Request
     public function rules()
     {
         return [
-            'email'   => 'required',
-            'nama'    => 'required|email',
+            'email'   => 'required|email',
+            'nama'    => 'required',
             'subject' => 'required',
             'message' => 'required',
         ];

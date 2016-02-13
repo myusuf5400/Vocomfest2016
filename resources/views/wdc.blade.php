@@ -89,7 +89,7 @@
                                 Satu tim harus berasal dari sekolah yang sama.
                             </li>
                             <li>
-                                Tim mendaftar secara online di website www.vocomfest.com atau mendaftar pada stand di lobby KPTU Sekolah Vokasi Universitas Gadjah Mada Sekip Unit I Yogyakarta.
+                                Tim mendaftar secara online di website <a href="{{url('/register')}}">www.vocomfest.com/register</a> atau mendaftar pada stand di lobby KPTU Sekolah Vokasi Universitas Gadjah Mada Sekip Unit I Yogyakarta.
                             </li>
                             <li>
                                 Peserta harus melunasi biaya pendaftaran sebesar Rp 75.000,00.
@@ -186,7 +186,7 @@
                                         </h1>
                                         <ol>
                                             <li>
-                                                Peserta mengisi formulir pendaftaran yang ada di web www.vocomfest.com atau mendaftar pada stan di KPTU Sekolah Vokasi Universitas Gadjah Mada Sekip Unit I Yogyakarta.
+                                                Peserta mengisi formulir pendaftaran yang ada di web <a href="{{url('/register')}}">www.vocomfest.com/register</a> atau mendaftar pada stan di KPTU Sekolah Vokasi Universitas Gadjah Mada Sekip Unit I Yogyakarta.
                                             </li>
                                             <li>
                                                 Pendaftaran paling lambat tanggal 10 Maret 2016.
@@ -195,13 +195,13 @@
                                                 Pembayaran untuk pendaftaran online silahkan transfer ke nomor rekening bank mandiri : 171 00 0078594 2, atas nama Nurul Puspa Dewi.
                                             </li>
                                             <li>
-                                                Peserta mengirimkan  scan bukti pembayaran ke email :wdc@vocomfest.com dengan subject validasi pembayaran wdc (username).
+                                                Peserta mengirimkan  scan bukti pembayaran ke email :wdc@vocomfest.com dengan subject validasi pembayaran wdc (Nama Tim).
                                             </li>
                                             <li>
-                                                Sebelum mengirimkan bukti pembayaran, akun peserta tidak dapat login ke website www.vocomfest.com, pembayaran akan diverifikasi terlebih dahulu lalu peserta dapat login di website www.vocomfest.com dengan username dan password saat registrasi.
+                                                Sebelum mengirimkan bukti pembayaran, akun peserta tidak dapat login ke website www.vocomfest.com, pembayaran akan diverifikasi terlebih dahulu lalu peserta dapat login di website <a href="{{url('/login')}}">www.vocomfest.com/login</a> dengan email ketua dan password saat registrasi.
                                             </li>
                                             <li>
-                                                Hasil karya dikirimkan melalui website www.vocomfest.com dengan nama folder: WDC_nama tim_nama website kedinasan yang digunakan, contoh : WDC_Doa Anak_Pariwisata Bali.
+                                                Hasil karya dikirimkan melalui website <a href="{{url('/user/upload')}}">www.vocomfest.com</a> dengan nama folder: WDC_nama tim_nama website kedinasan yang digunakan, contoh : WDC_Doa Anak_Pariwisata Bali.
                                             </li>
                                             <li>
                                                 Yang harus disertakan dalam pengumpulan hasil karya:
@@ -268,7 +268,7 @@
                                         </h1>
                                         <ol>
                                             <li>
-                                                Peserta melakukan pendaftaran di www.vocomfest.com/register
+                                                Peserta melakukan pendaftaran di <a href="{{url('/register')}}">www.vocomfest.com/register</a>
                                             </li>
                                             <li>
                                                 Peserta mengisi form registrasi yang tersedia dengan data yang sebenarnya-benarnya.
@@ -286,7 +286,7 @@
                                                 Akun peserta akan diaktifasi oleh panitia setelah peserta mengirimkan bukti pembayaran dan scan kartu pelajar.
                                             </li>
                                             <li>
-                                                Setelah akun diaktifasi, peserta dapat melakukan login di www.vocomfest.com/login
+                                                Setelah akun diaktifasi, peserta dapat melakukan login di <a href="{{url('/login')}}">www.vocomfest.com/login</a>
                                             </li>
                                         </ol>
                                     </div>
@@ -313,12 +313,6 @@
 @section('script')
     <!-- JS Here -->
     <script type="text/javascript" src="{{url('assets/js/vocomfest.js')}}"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            // initialize
-            $("html").niceScroll().remove();
-        }) ;
-    </script>
 @endsection
 
 @section('stylesheet')

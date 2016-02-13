@@ -232,7 +232,7 @@
                                             Pendaftaran dibuka dan pengumpulan proposal ide aplikasi (11 Februari 2016)
                                             <br/>
                                             Peserta melakukan pendaftaran sesuai prosedur secara GRATIS dan peserta sudah dapat mulai mengumpulkan proposal ide aplikasi melalui web :
-                                            <a href="http://vocomfest.com/">
+                                            <a href="<?php echo e(url('/user/upload')); ?>">
                                                 www.vocomfest.com
                                             </a>
                                             .
@@ -266,11 +266,11 @@
                                             Pengumpulan APK & Dokumentasi Aplikasi jadi (21 Maret – 14 April 2016)
                                             <br/>
                                             Finalis akan mengumpulkan APK ke
-                                            <a href="http://vocomfest.com/">
+                                            <a href="<?php echo e(url('/user/upload')); ?>">
                                                 www.vocomfest.com
                                             </a>
                                             & dokumentasi pengembangan aplikasi yang berupa video teaser aplikasi via youtube masing-masing dan mengirimkan link video ke
-                                            <a href="http://vocomfest.com/">
+                                            <a href="<?php echo e(url('/user/upload')); ?>">
                                                 www.vocomfest.com
                                             </a>
                                             .
@@ -308,9 +308,9 @@
                                     </h1>
                                     <p>
                                         Aplikasi jadi/protype yang dikirim dalam bentuk executable file (.APK) dan dikirim melalui website
-                                        <a href="http://vocomfest.com/" >
-                                            www.vocomfest.com
-                                        </a>
+                                        <a href="<?php echo e(url('/user/upload')); ?>">
+                                                www.vocomfest.com
+                                            </a>
                                         dengan nama folder :
                                         <b>
                                             Nama_tim(spasi)Nama_aplikasi
@@ -352,7 +352,7 @@
                                             Fitur dan desain
                                         </li>
                                         <li>
-                                            Kesusuaian ide dengan aplikasi yang dibuat.
+                                            Kesesuaian ide dengan aplikasi yang dibuat.
                                         </li>
                                         <li>
                                             Fungsionalitas.
@@ -365,7 +365,7 @@
                                     </h1>
                                     <ol>
                                         <li>
-                                            Peserta melakukan pendaftaran di www.vocomfest.com/register
+                                            Peserta melakukan pendaftaran di <a href="<?php echo e(url('/register')); ?>">www.vocomfest.com/register</a>
                                             <li>
                                                 Peserta mengisi form registrasi yang tersedia dengan data yang sebenarnya-benarnya.
                                             </li>
@@ -379,7 +379,7 @@
                                                 Akun peserta akan diaktifasi oleh panitia, setelah peserta mengirim scan Kartu Tanda Mahasiswa (KTM).
                                             </li>
                                             <li>
-                                                Setelah akun diaktifasi, peserta dapat melakukan login di www.vocomfest.com/login
+                                                Setelah akun diaktifasi, peserta dapat melakukan login di <a href="<?php echo e(url('/login')); ?>">www.vocomfest.com/login</a>
                                             </li>
                                         </ol>
                                     </div>
@@ -406,10 +406,6 @@
     <!-- JS Here -->
     <script type="text/javascript" src="<?php echo e(url('assets/js/vocomfest.js')); ?>"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            // initialize
-            $("html").niceScroll().remove();
-        }) ;
     </script>
 <?php $__env->stopSection(); ?>
 

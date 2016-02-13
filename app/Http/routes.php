@@ -34,7 +34,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::auth();
     
-    Route::post('semnas', 'SemnasController@store');
+    // Route::post('semnas', 'SemnasController@store');
 
     Route::get('user/upload', 'UserController@getUploadProposal');
     Route::get('user/upload/redirect', 'UserController@redirectUpload');

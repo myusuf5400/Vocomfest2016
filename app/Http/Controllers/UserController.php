@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\File;
 use App\Http\Controllers\Controller;
+use App\Jobs\DownloadFileFromTransloadit;
 use Auth;
 use transloadit\Transloadit;
-use App\Jobs\DownloadFileFromTransloadit;
 
 class UserController extends Controller
 {
@@ -22,8 +22,13 @@ class UserController extends Controller
 
     public function getAkun()
     {
-        return view('user.akun')
-            ->with('user', Auth::user());
+        if (Auth::user()->team->kategori == 0) {
+            return view('user.akunWDC')
+                ->with('user', Auth::user());
+        } else {
+            return view('user.akunMADC')
+                ->with('user', Auth::user());
+        }
     }
 
     public function getUploadProposal()
@@ -34,22 +39,40 @@ class UserController extends Controller
 
         $form = [
             'server' => $server,
-            'tipe'   => 1,
         ];
 
         $transloadit = new transloadit($auth);
 
-        return view('user.uploadProposal')
-            ->with('transloadit', $transloadit->createAssemblyForm($config))
-            ->with($form);
+        if (Auth::user()->team->kategori == 0) {
+            return view('user.uploadFileWDC')
+                ->with('transloadit', $transloadit->createAssemblyForm($config))
+                ->with($form);
+        } else {
+            return view('user.uploadProposalMADC')
+                ->with('transloadit', $transloadit->createAssemblyForm($config))
+                ->with($form);
+        }
+
     }
 
     public function redirectUpload()
     {
-        $respon = Transloadit::response()->data['results']['upload'][0];
+        $respon;
+
+        if (isset(Transloadit::response()->data['results']['upload'])) {
+            $respon = Transloadit::response()->data['results']['upload'];
+        } else if (isset(Transloadit::response()->data['results']['uploads'])) {
+            $respon = Transloadit::response()->data['results']['uploads'];
+        } else {
+            return redirect()
+                ->back()
+                ->with('error', 'Upload gagal, silahkan cek kembali file anda');
+        }
+        $respon = $respon[0];
+
         $server = Transloadit::response()->data['fields']['server'];
         $tipe   = Transloadit::response()->data['fields']['tipe'];
-        $file = File::create([
+        $file   = File::create([
             'namafile' => $respon['name'],
             'size'     => $respon['size'],
             'url'      => $respon['url'],
@@ -57,10 +80,12 @@ class UserController extends Controller
             'status'   => 0,
             'tipe'     => $tipe,
         ]);
-        
+
         $job = $this->dispatch(new DownloadFileFromTransloadit($file));
 
-        return redirect('user');
+        return redirect()
+                ->back()
+                ->with('message', 'Upload file berhasil');
     }
 
     public function getUpload()
@@ -90,13 +115,21 @@ class UserController extends Controller
     public function getTransloaditConfig()
     {
         return [
-            'params' => [
+            'attributes' => [
+                'class' => 'form-horizontal',
+            ],
+            'params'     => [
                 'steps'        => [
                     'upload' => [
-                        'robot' => '/file/filter',
+                        'robot'   => '/file/filter',
+                        'accepts' => [
+                            ['${file.ext}', '=', 'zip'],
+                            ['${file.ext}', '=', 'pdf'],
+                            ['${file.ext}', '=', 'rar'],
+                        ],
                     ],
                 ],
-                'redirect_url' => 'http://vocomfest.io/user/upload/redirect',
+                'redirect_url' => url('user/upload/redirect'),
             ],
         ];
     }

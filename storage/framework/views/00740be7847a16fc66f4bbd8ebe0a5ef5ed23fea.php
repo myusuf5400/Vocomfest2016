@@ -177,28 +177,33 @@
                                 <br/>
                                 Untuk Mahasiswa S1/D4/D3/D2/D1
                                 <br/>
-                                Max. 4 orang
+                                Max. 4 orang per Tim
+                            </p>
+                            <p class="small">
+                                KTM, kirim ke :
+                                <br/>
+                                <em>madc@vocomfest.com</em>
                             </p>
                         </blockquote>
                         <blockquote>
                             <p class="small">
-                                Web Design
+                                Web Design Competition
                             </p>
                             <p class="small">
                                 <strong>
                                     75.000/tim
                                 </strong>
                                 <br/>
-                                Untuk Siswa SLTA
+                                Untuk Siswa SMA/SMK/Sederajat
                                 <br/>
-                                Max. 3 orang
+                                Max. 3 orang per Tim
                             </p>
                         </blockquote>
                         <blockquote>
                             <p class="small">
-                                Bukti pembayaran, kirim ke :
+                                Bukti pembayaran dan kartu pelajar, kirim ke :
                                 <br/>
-                                <em>madc@vocomfest.com</em>
+                                <em>wdc@vocomfest.com</em>
                             </p>
                         </blockquote>
                     </div>

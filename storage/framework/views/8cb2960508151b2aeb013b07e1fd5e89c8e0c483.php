@@ -13,16 +13,11 @@
                 </span>
             </button>
             <a href="<?php echo e(url('/#home')); ?>" class="navbar-brand">
-                <img src="assets/img/logo.png" alt="Vocomfest 2016" title="Vocomfest 2016" class="logo"/>
+                <img src="<?php echo e(url('assets/img/logo.png')); ?>" alt="Vocomfest 2016" title="Vocomfest 2016" class="logo"/>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="<?php echo e(url('/#home')); ?>">
-                        HOME
-                    </a>
-                </li>
                 <li>
                     <a href="<?php echo e(url('/#about')); ?>">
                         ABOUT
@@ -63,7 +58,7 @@
                     <?php if(Auth::user()->level==6): ?>
                     <li><a href="<?php echo e(url('admin')); ?>">ADMIN</a></li>
                     <?php else: ?>
-                    <li><a href="<?php echo e(url('user')); ?>">PESERTA</a></li>
+                    <li><a href="<?php echo e(url('user')); ?>">DASHBOARD</a></li>
                     <?php endif; ?>
 
                     <li>
