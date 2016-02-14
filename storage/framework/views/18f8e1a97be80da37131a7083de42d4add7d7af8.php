@@ -96,7 +96,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 social-center">
                                         <div class="col-md-1">
                                             &nbsp;
                                         </div>

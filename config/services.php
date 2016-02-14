@@ -41,8 +41,8 @@ return [
             'secret' => '184c2bd432dca7a9c32d9b4907e939dd281ca58c',
         ],
         [
-            'key'    => '346447c0be4b11e58822ad144396c0a2',
-            'secret' => '184c2bd432dca7a9c32d9b4907e939dd281ca58c',
+            'key'    => 'c0473a00d1b411e58554bf6e7ce998e2',
+            'secret' => 'bfa8bbf345c1fe0c50ae7ea240aabd4882ae1efe',
         ],
     ],
 ];

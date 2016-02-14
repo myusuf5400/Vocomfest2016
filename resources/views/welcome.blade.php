@@ -115,12 +115,6 @@
       });
     });
 
-    $(document).ready(function () {
-  $(".navbar-nav li a").click(function(event) {
-    $(".navbar-collapse").collapse('hide');
-  });
-});
-
     $(document).ready(function(){
         // nice scroll
         $("html").niceScroll({
@@ -150,5 +144,12 @@
             autoHeight : false
         }) ;
     }) ;
+	$(document).ready(function(){
+	    $('.nav a').on('click', function(){
+	    	if (window.innerWidth <= 768) {
+	    	$('.navbar-toggle').click() //bootstrap 3.x by Richard
+			}
+		});
+	}) ;
     </script>
     @endsection

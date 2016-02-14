@@ -1,3 +1,4 @@
+/*Welcome*/
 #events {
     padding-top: 40px;
     min-height: 100vh;
@@ -5,6 +6,7 @@
 
 #home {
     min-height: 100vh;
+    height: 100vh;
 }
 
 #about {
@@ -17,6 +19,7 @@
     min-height: 100vh;
 }
 
+/*Contact*/
 #contact div .container {
     margin-top: 48px;
 }
@@ -148,7 +151,28 @@ body {
     list-style: none;
 }
 
-.container-message {
-    margin-left: 40px;
-    margin-right: 40px;
+.capti{
+    margin-top: 10vh;
+}
+
+#owl-example .owl-controls{
+    margin-top: 20vh!important;
+}
+
+@media (min-width: 992px) {
+    .pull-right-md{
+        float: right;
+    }
+
+}
+
+@media (max-width: 750px) {
+    .contact-us, .social{
+        text-align: center;
+    }
+
+    .social-center{
+        text-align: center; 
+    }
+    
 }

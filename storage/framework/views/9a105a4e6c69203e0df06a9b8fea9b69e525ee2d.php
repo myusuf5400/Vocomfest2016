@@ -17,26 +17,28 @@
                 <hr class="bord greeny"/>
                 <div class="container">
 				<div class="col-md-6" style="padding-top : 70px ;">
-					<div class="container-message">
-						<?php if(session('error')): ?>
-	                    <br/>
-	                    <div class="alert alert-danger">
-	                        <ul>
-	                            <li><?php echo e(session('error')); ?></li> 
-	                        </ul>
-	                    </div>
-	                <?php endif; ?>
-	                <?php if(session('message')): ?>
-	                    <br/>
-	                    <div class="alert alert-success">
-	                        <ul>
-	                            <li><?php echo e(session('message')); ?></li> 
-	                        </ul>
-	                    </div>
-	                <?php endif; ?>
-					</div>
 					<?php echo $transloadit; ?>
 
+						<div class="form-group">
+							<div class="col-md-10 col-md-offset-1">
+								<?php if(session('error')): ?>
+				                    <br/>
+				                    <div class="alert alert-danger">
+				                        <ul>
+				                            <li><?php echo e(session('error')); ?></li> 
+				                        </ul>
+				                    </div>
+				                <?php endif; ?>
+				                <?php if(session('message')): ?>
+				                    <br/>
+				                    <div class="alert alert-success">
+				                        <ul>
+				                            <li><?php echo e(session('message')); ?></li> 
+				                        </ul>
+				                    </div>
+				                <?php endif; ?>
+							</div>
+						</div>
 						<div class="form-group">
 							<div class="col-md-10 col-md-offset-1">
 								<input type="file" name="upload" class="form-control" style="border-radius : 0 ; box-shadow : 0px ;" required>

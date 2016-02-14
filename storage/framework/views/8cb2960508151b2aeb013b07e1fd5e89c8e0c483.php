@@ -12,12 +12,17 @@
                 <span class="icon-bar">
                 </span>
             </button>
-            <a href="<?php echo e(url('/#home')); ?>" class="navbar-brand">
+            <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
                 <img src="<?php echo e(url('assets/img/logo.png')); ?>" alt="Vocomfest 2016" title="Vocomfest 2016" class="logo"/>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="nav navbar-nav navbar-right">
+            	<li>
+                    <a href="<?php echo e(url('/#home')); ?>">
+                        HOME
+                    </a
+                   </li>
                 <li>
                     <a href="<?php echo e(url('/#about')); ?>">
                         ABOUT

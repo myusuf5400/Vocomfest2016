@@ -18,25 +18,27 @@
                 <hr class="bord greeny"/>
                 <div class="container">
 				<div class="col-md-6" style="padding-top : 70px ;">
-				<div class="container-message">
-						@if (session('error'))
-	                    <br/>
-	                    <div class="alert alert-danger">
-	                        <ul>
-	                            <li>{{session('error')}}</li> 
-	                        </ul>
-	                    </div>
-	                @endif
-	                @if (session('message'))
-	                    <br/>
-	                    <div class="alert alert-success">
-	                        <ul>
-	                            <li>{{session('message')}}</li> 
-	                        </ul>
-	                    </div>
-	                @endif
-					</div>
 					{!!$transloadit!!}
+						<div class="form-group">
+							<div class="col-md-10 col-md-offset-1">
+								@if (session('error'))
+				                    <br/>
+				                    <div class="alert alert-danger">
+				                        <ul>
+				                            <li>{{session('error')}}</li> 
+				                        </ul>
+				                    </div>
+				                @endif
+				                @if (session('message'))
+				                    <br/>
+				                    <div class="alert alert-success">
+				                        <ul>
+				                            <li>{{session('message')}}</li> 
+				                        </ul>
+				                    </div>
+				                @endif
+							</div>
+						</div>
 						<div class="form-group">
 							<div class="col-md-10 col-md-offset-1">
 								<input type="file" name="upload" class="form-control" style="border-radius : 0 ; box-shadow : 0px ;" required>

@@ -115,7 +115,7 @@
                                             @else
                                             <td>MADC</td>
                                             @endif
-                                            <td>{{ $apa3->institusi }}</td>
+                                            <td>{{ $apa3->instansi }}</td>
                                         </tr>   
                                     @endforeach
                                     @endif

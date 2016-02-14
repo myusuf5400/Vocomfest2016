@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Team;
 use DB;
 
 class AdminController extends Controller
@@ -26,6 +27,7 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+
     public function table()
     {
         $data  = DB::table('semnas')->get();
@@ -34,6 +36,19 @@ class AdminController extends Controller
 
         return view('admin.table')->with('data', $data)->with('data2', $data2)->with('data3', $data3);
     }
+
+    public function getMadc()
+    {
+        $madc = Team::all();
+        return view('admin.madcTable')
+            ->with('madc', $madc);
+    }
+
+    public function deleteMadc()
+    {
+        $team = Team::where 
+    }
+
     public function chart()
     {
         return view('admin.chart');

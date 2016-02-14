@@ -32,9 +32,21 @@
             <?php echo $__env->yieldContent('title'); ?>
         </title>
         <!-- CSS Here -->
-        <?php echo $__env->yieldContent('stylesheet'); ?>
+        <link href="<?php echo e(url('assets/css/admin.css')); ?>" rel="stylesheet" />
     </head>
-    <?php echo $__env->yieldContent('content'); ?>
-    <?php echo $__env->yieldContent('script'); ?>
+    <body>
+        <div id="wrapper">
+            <?php echo $__env->make('admin.navtop', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <!--/. NAV TOP  -->
+            <?php echo $__env->make('admin.navside', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <?php echo $__env->yieldContent('content'); ?>
+        </div>
+    <script type="text/javascript" src="<?php echo e(url('assets/js/admin.js')); ?>"></script>
+    </script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
 </body>
 </html>

@@ -31,13 +31,26 @@ elixir(function(mix) {
     mix.styles([
     	'vocomfest.css',
         'timeline.css',
-        'custom.css'
-    	],'public/assets/css/vocomfest.css'
+        'custom.css'],'public/assets/css/vocomfest.css'
+    );
+    mix.styles([
+        'bootstrap.css',
+        'custom-styles.css',
+        'font-awesome.css',
+        'dataTables.bootstrap.css'],'public/assets/css/admin.css'
     );
     mix.scripts([
+        'jquery.js',
     	'vocomfest.js',
         'modernizr.js',
         'main.js'], 'public/assets/js/vocomfest.js'
+    );
+    mix.scripts([
+        'jquery.js',
+        'bootstrap.min.js',
+        'jquery.metisMenu.js',
+        'jquery.dataTables.js',
+        'dataTables.bootstrap.js'], 'public/assets/js/admin.js'
     );
     mix.imagemin();
 });

@@ -12,12 +12,17 @@
 				<span class="icon-bar">
 				</span>
 			</button>
-			<a href="{{url('/#home')}}" class="navbar-brand">
+			<a href="{{url('/')}}" class="navbar-brand">
                 <img src="{{url('assets/img/logo.png')}}" alt="Vocomfest 2016" title="Vocomfest 2016" class="logo"/>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
-            <ul class="nav navbar-nav navbar-right">  
+            <ul class="nav navbar-nav navbar-right">
+            	<li>
+                    <a href="{{url('/user')}}">
+                    DASHBOARD
+                    </a>
+                </li> 
             	<li>
                     <a href="{{url('/user/upload')}}">
                         UPLOAD @if(Auth::user()->team->kategori==0)WEB @else PROPOSAL @endif

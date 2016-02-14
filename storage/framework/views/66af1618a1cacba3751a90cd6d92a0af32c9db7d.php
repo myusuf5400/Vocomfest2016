@@ -116,7 +116,7 @@
                                             <?php else: ?>
                                             <td>MADC</td>
                                             <?php endif; ?>
-                                            <td><?php echo e($apa3->institusi); ?></td>
+                                            <td><?php echo e($apa3->instansi); ?></td>
                                         </tr>   
                                     <?php endforeach; ?>
                                     <?php endif; ?>

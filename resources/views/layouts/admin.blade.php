@@ -10,7 +10,7 @@
         <meta name="keywords" content="Lomba web, lomba mobile apps, lomba IT, UGM, Himakomsi, Vocomfest, Vocomfest 2016"/>
         <meta name="robots" content="index,follow"/>
         <meta name="Copyright" content="Vocomfest 2016 adalah website buatan Tim TS Vocomfest 2016"/>
-        <link rel="apple-touch-icon" sizes="57x57" href="{{url('assets/img/favicons/apple-touch-icon-57x57.png')}}"/>
+       <link rel="apple-touch-icon" sizes="57x57" href="{{url('assets/img/favicons/apple-touch-icon-57x57.png')}}"/>
         <link rel="apple-touch-icon" sizes="60x60" href="{{url('assets/img/favicons/apple-touch-icon-60x60.png')}}"/>
         <link rel="apple-touch-icon" sizes="72x72" href="{{url('assets/img/favicons/apple-touch-icon-72x72.png')}}"/>
         <link rel="apple-touch-icon" sizes="76x76" href="{{url('assets/img/favicons/apple-touch-icon-76x76.png')}}"/>
@@ -32,48 +32,21 @@
             @yield('title')
         </title>
         <!-- CSS Here -->
-        <link rel="stylesheet" type="text/css" href="{{url('assets/css/vocomfest.css')}}"/>
+        <link href="{{url('assets/css/admin.css')}}" rel="stylesheet" />
     </head>
-    @yield('content')
-    <!-- JS Here -->
-    <script type="text/javascript" src="{{url('assets/js/vocomfest.js')}}">
+    <body>
+        <div id="wrapper">
+            @include('admin.navtop')
+            <!--/. NAV TOP  -->
+            @include('admin.navside')
+                @yield('content')
+        </div>
+    <script type="text/javascript" src="{{url('assets/js/admin.js')}}"></script>
     </script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-    // initialize
-        @if(count($errors->semnas)>0)
-            $('#seminar').show();
-            $('#compete').hide();
-        @else
-            $('#seminar').hide();
-        @endif
-
-        $('#mem3').hide();
-        $('#tab-event a[href="#comp"]').click(function() {
-            $('#compete').fadeIn();
-            $('#seminar').fadeOut();
-            $('#comp').tab('show');
-        });
-        $('#tab-event a[href="#semnas"]').click(function() {
-            $('#seminar').fadeIn();
-            $('#compete').fadeOut();
-            $('#semnas').tab('show');
-        });
-        $("html").niceScroll({
-            cursorcolor: 'rgba(0,0,0,0.5)',
-            cursorwidth: '7px',
-            cursorborder: 'none',
-            cursorborderradius: '0px',
-            zindex: '101'
-        });
-        $('.ev-cat').click(function() {
-            if ($('#wdc').is(':checked')) {
-                $('#mem3').fadeOut();
-            } else {
-                $('#mem3').fadeIn();
-            }
-        });
-    });
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
     </script>
 </body>
 </html>

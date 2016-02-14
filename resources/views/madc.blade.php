@@ -310,8 +310,8 @@
                                     <p>
                                         Aplikasi jadi/protype yang dikirim dalam bentuk executable file (.APK) dan dikirim melalui website
                                         <a href="{{url('/user/upload')}}">
-                                            www.vocomfest.com
-                                        </a>
+                                                www.vocomfest.com
+                                            </a>
                                         dengan nama folder :
                                         <b>
                                             Nama_tim(spasi)Nama_aplikasi
@@ -366,10 +366,7 @@
                                     </h1>
                                     <ol>
                                         <li>
-                                            Peserta melakukan pendaftaran di
-                                            <a href="{{url('/register')}}">
-                                                www.vocomfest.com/register
-                                            </a>
+                                            Peserta melakukan pendaftaran di <a href="{{url('/register')}}">www.vocomfest.com/register</a>
                                             <li>
                                                 Peserta mengisi form registrasi yang tersedia dengan data yang sebenarnya-benarnya.
                                             </li>
@@ -383,10 +380,7 @@
                                                 Akun peserta akan diaktifasi oleh panitia, setelah peserta mengirim scan Kartu Tanda Mahasiswa (KTM).
                                             </li>
                                             <li>
-                                                Setelah akun diaktifasi, peserta dapat melakukan login di
-                                                <a href="{{url('/login')}}">
-                                                    www.vocomfest.com/login
-                                                </a>
+                                                Setelah akun diaktifasi, peserta dapat melakukan login di <a href="{{url('/login')}}">www.vocomfest.com/login</a>
                                             </li>
                                         </ol>
                                     </div>
@@ -409,14 +403,14 @@
                     </div>
                 </footer>
                 @endsection
-                @section('script')
-                <!-- JS Here -->
-                <script type="text/javascript" src="{{url('assets/js/vocomfest.js')}}">
-                </script>
-                <script type="text/javascript">
-                </script>
-                @endsection
-                @section('stylesheet')
-                <!-- CSS Here -->
-                <link rel="stylesheet" type="text/css" href="{{url('assets/css/vocomfest.css')}}"/>
-                @endsection
+@section('script')
+    <!-- JS Here -->
+    <script type="text/javascript" src="{{url('assets/js/vocomfest.js')}}"></script>
+    <script type="text/javascript">
+    </script>
+@endsection
+
+@section('stylesheet')
+<!-- CSS Here -->
+    <link rel="stylesheet" type="text/css" href="{{url('assets/css/vocomfest.css')}}">
+@endsection

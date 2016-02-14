@@ -9,10 +9,10 @@
                         <hr class="bord greeny"/>
                     </div>
                     <div class="row wow animated fadeInDown">
-                        <div class="col-md-4 pull-right">
-                            <img src="assets/img/logo-hima.png" class="logo-med center-block pd-bt-20"/>
+                        <div class="col-md-4 pull-right-md">
+                            <img src="assets/img/logo-hima.png" class="logo-med center-block pd-bt-20 img-responsive"/>
                         </div>
-                        <div class="col-md-8 pd-bt-20 pull-right">
+                        <div class="col-md-8 pd-bt-20 pull-right-md">
                             <p class="content">
                                 HIMAKOMSI (Himpunan Mahasiswa Komputer dan Sistem Informasi) merupakan sebuah wadah bagi mahasiswa Komputer dan Sistem Informasi (KOMSI) yang ingin mengembangkan pengetahuannya dibidang organisasi. Himakomsi sendiri dibentuk pada tahun 2010, setelah berpisah dengan Himakom (Himpunan Mahasiswa Ilmu Komputer). Kegiatan Himakomsi UGM dituangkan dalam bentuk program-program kerja yang bertujuan mendukung Tri Dharma Perguruan Tinggi yang terdiri atas Pendidikan dan Pengajaran, Penelitian, dan Pengabdian kepada Masyarakat.
                             </p>

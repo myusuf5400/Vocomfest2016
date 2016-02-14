@@ -57,35 +57,37 @@ class UserController extends Controller
 
     public function redirectUpload()
     {
-        $respon;
+        $response = Transloadit::response();
+        if ($response) {
+            if (!empty($response->data['results'])) {
+                $respon = $response->data['results']['upload'][0];
 
-        if (isset(Transloadit::response()->data['results']['upload'])) {
-            $respon = Transloadit::response()->data['results']['upload'];
-        } else if (isset(Transloadit::response()->data['results']['uploads'])) {
-            $respon = Transloadit::response()->data['results']['uploads'];
-        } else {
-            return redirect()
-                ->back()
-                ->with('error', 'Upload gagal, silahkan cek kembali file anda');
+                $server = $response->data['fields']['server'];
+                $tipe   = $response->data['fields']['tipe'];
+                $file   = File::create([
+                    'namafile' => $respon['name'],
+                    'size'     => $respon['size'],
+                    'url'      => $respon['url'],
+                    'server'   => $server,
+                    'status'   => 0,
+                    'tipe'     => $tipe,
+                ]);
+
+                $job = $this->dispatch(new DownloadFileFromTransloadit($file));
+
+                return redirect('/user/upload')
+                    ->with('message', 'Upload file berhasil');
+
+            } else {
+                return redirect('/user/upload')
+                    ->with('error', 'Upload gagal, silahkan cek kembali file anda');
+            }
+
         }
-        $respon = $respon[0];
-
-        $server = Transloadit::response()->data['fields']['server'];
-        $tipe   = Transloadit::response()->data['fields']['tipe'];
-        $file   = File::create([
-            'namafile' => $respon['name'],
-            'size'     => $respon['size'],
-            'url'      => $respon['url'],
-            'server'   => $server,
-            'status'   => 0,
-            'tipe'     => $tipe,
-        ]);
-
-        $job = $this->dispatch(new DownloadFileFromTransloadit($file));
 
         return redirect()
-                ->back()
-                ->with('message', 'Upload file berhasil');
+            ->away(Request::url());
+
     }
 
     public function getUpload()
