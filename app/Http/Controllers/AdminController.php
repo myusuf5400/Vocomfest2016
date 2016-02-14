@@ -27,14 +27,16 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+    
+    public function table($user)
 
-    public function table()
     {
-        $data  = DB::table('semnas')->get();
-        $data3 = DB::table('teams')->get();
+        $data  = DB::table($user)->get();
         $data2 = DB::table('users')->get();
-
-        return view('admin.table')->with('data', $data)->with('data2', $data2)->with('data3', $data3);
+        if ($data == 'semnas') {
+            return view('admin.tableSemnas')->with('data',$data);
+        }
+        return view('admin.table')->with('data', $data)->with('data2', $data2);
     }
 
     public function getMadc()
