@@ -12,7 +12,7 @@
 			<div class="col-md-12">
 				<aside class="col-md-4 upload pd-bt-40">
 					<p class="text-center big strong">Petunjuk Teknis Lomba WDC </p>
-					<p class="text-center"><a href="#" class="btn btn-learn"><i class="icon-download"></i>&nbsp;<strong>DOWNLOAD</strong></a></p>
+					<p class="text-center"><a href="<?php echo e(url('/petunjuk/ketentuan WDC.pdf')); ?>" class="btn btn-learn"><i class="icon-download"></i>&nbsp;<strong>DOWNLOAD</strong></a></p>
 				</aside>
 				<div class="col-md-8">
 					<h3>Selamat datang, <?php echo e(Auth::user()->team->namateam); ?></h3>

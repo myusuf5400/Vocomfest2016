@@ -11,6 +11,14 @@
             <div class="form-signin-heading" style="text-align:center;">
                 <img src="assets/img/logo.png" class="logo-big"/>
             </div>
+            <?php if(session('error')): ?>
+                                    <br/>
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            <li><?php echo session('error'); ?></li> 
+                                        </ul>
+                                    </div>
+                                <?php endif; ?>
             <?php if(count($errors) > 0): ?>
                 <div class="alert alert-danger">
                     <ul>

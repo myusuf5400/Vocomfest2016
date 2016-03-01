@@ -2,14 +2,20 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
-                    <li>
-                        <a href="{{url('admin')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
+<!--                     <li>
+                        <a href="{{url('admin')}}"><i class="fa fa-dashboard"></i>Dashboard</a>
                     </li>
 					<li>
-                        <a href="{{url('admin/chart')}}"><i class="fa fa-bar-chart-o"></i> Grafik</a>
+                        <a href="{{url('admin/chart')}}"><i class="fa fa-bar-chart-o"></i>Grafik</a>
+                    </li> -->
+                    <li>
+                        <a href="{{url('admin')}}"><i class="fa fa-dashboard"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="{{url('admin/table')}}"><i class="fa fa-table"></i> Tabel</a>
+                        <a href="{{url('admin/wdc')}}"><i class="fa fa-table"></i>Tabel WDC</a>
+                    </li>
+                    <li>
+                        <a href="{{url('admin/madc')}}"><i class="fa fa-table"></i>Tabel MADC</a>
                     </li>
                 </ul>
 

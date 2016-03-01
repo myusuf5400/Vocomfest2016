@@ -42,16 +42,22 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('user/image', 'UserController@getImageUpload');
     // Route::post('user/imageUpload', 'UserController@postImageUpload');
     
-    Route::get('/admin', 'AdminController@index');D
-    Route::get('/admin/table', 'AdminController@table');
+    Route::get('/admin', 'AdminController@index');
 
     Route::get('/admin/madc', 'AdminController@getMadc');
-    Route::delete('/admin/madc/{team}', 'AdminController@deleteMadc');
-    Route::get('/admin/table/{user}', 'AdminController@table');
-    Route::get('/admin/chart', 'AdminController@chart');
-    Route::get('/admin/table/{user}/delete/{id}', 'AdminController@delete');
-    Route::get('/admin/table/{user}/edit/{id}', 'AdminController@edit');
-    Route::post('/admin/table/{user}/update/{id}', 'AdminController@update');
+    Route::get('/admin/wdc', 'AdminController@getWdc');
+   
+    Route::delete('/admin/team/delete/{team}', 'AdminController@deleteTeam');
+    Route::post('/admin/aktivasi/{team}', 'AdminController@aktivasi');
+
+    Route::post('/admin/team/edit/{team}', 'AdminController@editTeam');
+
+    // Route::post('/admin/{type}/update/{id}', 'AdminController@update');
+    Route::post('/admin/team/update/{team}', 'AdminController@updateTeam');
+
+
+    Route::post('/admin/{type}/anggota/{team}', 'AdminController@getAnggota');
+
     Route::get('/admin/setting', 'AdminController@setting');
 
     Route::post('/admin/setting/post', 'AdminController@settingPost');

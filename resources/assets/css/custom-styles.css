@@ -433,3 +433,16 @@ font-size: 19px;
     float: right;
 }
 
+.action li{
+    float: left;
+    margin-right: 10px;
+}
+
+.action li form button{
+    /*padding: 0px;*/
+}
+.action{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}

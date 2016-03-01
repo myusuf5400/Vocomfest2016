@@ -14,4 +14,8 @@ class File extends Model
     protected $fillable = [
         'namafile', 'url', 'size', 'server', 'status', 'idteam','tipe'
     ];
+
+    public function team(){
+        return $this->hasOne('App\Team','id','idteam');
+    }
 }

@@ -99,7 +99,7 @@ class AuthController extends Controller
             $level = 0;
         } else {
             $max   = 2;
-            $level = 1;
+            $level = 0;
         }
 
         if (isset($data['anggota'])) {
@@ -186,12 +186,13 @@ class AuthController extends Controller
 
                 $user->code = 1;
                 if ($user->save()) {
-                    if ($user->level == 1) {
-                        return redirect('/login')
-                            ->with('message', 'Akun sudah teraktivasi, silahkan login');
-                    }
-                    return redirect('/register/message')
-                        ->with('message', 'Email anda sudah terverifikasi, silahkan melakukan pembayaran');
+                    if ($user->team->kategori == 0) {
+                        return redirect('/register/success')
+                        ->with('message', 'Email anda sudah terverifikasi, silahkan mengirimkan bukti pembayaran dan scan kartu pelajar maksimal 1 minggu ke wdc@vocomfest.com atau tim akan di hapus'); 
+                    }else{
+                        return redirect('/register/success')
+                            ->with('message', 'Email anda sudah terverifikasi, silahkan mengirimkan scan KTM ke wdc@vocomfest.com untuk bisa login');
+                    }  
                 }
             }
         }
@@ -232,10 +233,29 @@ class AuthController extends Controller
     protected function handleUserWasAuthenticated(Request $request, $throttles)
     {
         if (Auth::user()->code != 1) {
+            $error = 'Email belum terverifikasi';
+
             Auth::logout();
             return redirect()
-                ->back();
+                ->back()
+                ->with('error',$error);
         }
+
+        if (Auth::user()->level == 0) {
+            $error;
+
+            if(Auth::user()->team->kategori==0){
+                $error =  'Maaf, tim belum terverifikasi <br/> Silahkan mengirimkan bukti pembayaran dan scan kartu pelajar ke wdc@vocomfest.com';
+            }else{
+                $error =  'Maaf, tim belum terverifikasi <br/>Silahkan mengirimkan scan KTM ke madc@vocomfest.com'.Auth::user()->team->user()->get();
+            }
+            Auth::logout();
+            return redirect()
+                ->back()
+                ->with('error',$error);
+        }
+
+
 
         if ($throttles) {
             $this->clearLoginAttempts($request);
@@ -246,5 +266,18 @@ class AuthController extends Controller
         }
 
         return redirect()->intended($this->redirectPath());
+    }
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->loginUsername() => 'required', 'password' => 'required',
+        ]);
     }
 }

@@ -11,6 +11,14 @@
             <div class="form-signin-heading" style="text-align:center;">
                 <img src="assets/img/logo.png" class="logo-big"/>
             </div>
+            @if (session('error'))
+                                    <br/>
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            <li>{!!session('error')!!}</li> 
+                                        </ul>
+                                    </div>
+                                @endif
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>

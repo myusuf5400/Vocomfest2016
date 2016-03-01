@@ -57,6 +57,7 @@ class UserController extends Controller
 
     public function redirectUpload()
     {
+        sleep(30);
         $response = Transloadit::response();
         if ($response) {
             if (!empty($response->data['results'])) {
@@ -71,6 +72,7 @@ class UserController extends Controller
                     'server'   => $server,
                     'status'   => 0,
                     'tipe'     => $tipe,
+                    'idteam'   => Auth::user()->team->id,
                 ]);
 
                 $job = $this->dispatch(new DownloadFileFromTransloadit($file));
@@ -135,4 +137,5 @@ class UserController extends Controller
             ],
         ];
     }
+
 }

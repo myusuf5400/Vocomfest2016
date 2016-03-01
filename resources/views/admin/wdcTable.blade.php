@@ -1,11 +1,12 @@
-<?php $__env->startSection('title', 'Dashboard Admin Vocomfest 2016'); ?>
-<?php $__env->startSection('content'); ?>
-    <div id="page-wrapper" >
+@extends('layouts.admin')
+@section('title', 'Dashboard Admin Vocomfest 2016')
+@section('content')
+	<div id="page-wrapper" >
             <div id="page-inner">
-             <div class="row">
+			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Tabel Tim <small>MADC</small>
+                            Tabel Peserta <small>Tabel Peserta</small>
                         </h1>
                     </div>
                 </div>
@@ -17,13 +18,12 @@
                             <div class="panel-heading">
                                  Tabel Semnas
                             </div>
-                            <?php if(session('status')): ?>
+                            @if(session('status'))
                             <div class="alert alert-warning alert-dismissable">
                               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                              <strong>Well</strong> <?php echo e(session('status')); ?>
-
+                              <strong>Well</strong> {{ session('status') }}
                             </div>
-                            <?php endif; ?>
+                            @endif
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -40,61 +40,52 @@
                                         </thead>
                                         <tbody>
                                             <?php $i = 1?>
-                                            <?php foreach($madc as $tim): ?>
+                                            @foreach($wdc as $tim)
                                             <tr class="odd gradeX">
-                                                <td><?php echo e($i++); ?></td>
-                                                <td><?php echo e($tim->namateam); ?></td>
-                                                <td><?php echo e($tim->ketua()->first()['email']); ?></td>
-                                                <td class="center"><?php echo e($tim->instansi); ?></td>
+                                                <td>{{ $i++}}</td>
+                                                <td>{{$tim->namateam}}</td>
+                                                <td>{{$tim->ketua()->first()['email']}}</td>
+                                                <td class="center">{{$tim->instansi}}</td>
                                                 <td class="center">
-                                                    <?php if($tim->ketua()->first()['code']==1): ?>
-                                                        Sudah terverifikasi
-                                                    <?php else: ?>
-                                                        Belum terverifikasi
-                                                    <?php endif; ?>
+                                                	@if($tim->ketua()->first()['code']==1)
+                                                		Sudah terverifikasi
+                                                	@else
+                                                		Belum terverifivaksi
+                                                	@endif
                                                 </td>
                                                 <td class="center">
-                                                    <?php if($tim->ketua()->first()['level']==1): ?>
-                                                        Sudah diaktivasi
-                                                    <?php else: ?>
-                                                        <form action="<?php echo e(url('admin/aktivasi/'.$tim->id)); ?>" method="POST">
-                                                        <?php echo e(csrf_field()); ?>
-
-
-                                                        <button class="btn btn-success">Aktivasi</button>
-                                                        </form>
-                                                    <?php endif; ?>
+                                                	@if($tim->ketua()->first()['level']==1)
+                                                		Sudah diaktivasi
+                                                	@else
+                                                		<a href="{{url('/admin/aktivasi/').'/'.$tim->id}}">Aktivasi</a>
+                                                	@endif
                                                 </td>
                                                 <td>
                                                     <ul class="action">
                                                     <li>
-                                                    <form action="<?php echo e(url('admin/team/delete/'.$tim->id)); ?>" method="POST">
-                                                    <?php echo e(csrf_field()); ?>
-
-                                                    <?php echo e(method_field('DELETE')); ?>
-
+                                                    <form action="{{ url('admin/team/delete/'.$tim->id) }}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
 
                                                     <button class="btn btn-danger">Hapus</button>
                                                     </form>
                                                     </li>
                                                     <li>
-                                                    <form action="<?php echo e(url('admin/team/edit/'.$tim->id)); ?>" method="POST">
-                                                    <?php echo e(csrf_field()); ?>
-
+                                                    <form action="{{ url('admin/team/edit/'.$tim->id) }}" method="POST">
+                                                    {{ csrf_field() }}
 
                                                     <button class="btn btn-warning">Edit</button>
                                                     </form>
                                                     </li>
                                                     <li>
-                                                    <form action="<?php echo e(url('admin/madc/anggota/'.$tim->id)); ?>" method="POST">
-                                                    <?php echo e(csrf_field()); ?>
-
+                                                    <form action="{{ url('admin/wdc/anggota/'.$tim->id) }}" method="POST">
+                                                    {{ csrf_field() }}
                                                     <button class="btn btn-info">Detail</button>
                                                     </form>
                                                     </li>
                                                 </td>
                                             </tr>
-                                            <?php endforeach; ?>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -103,8 +94,8 @@
                     </div>
                 </div>
             </div>
+            <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
         </div>
     <!-- /. PAGE INNER  -->
     </div>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@endsection

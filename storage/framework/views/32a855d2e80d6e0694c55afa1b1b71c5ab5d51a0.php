@@ -1,14 +1,14 @@
-@extends('layouts.admin')
-@section('title', 'Dashboard Admin Vocomfest 2016')
-@section('content')
+<?php $__env->startSection('title', 'Dashboard Admin Vocomfest 2016'); ?>
+<?php $__env->startSection('content'); ?>
 
 <div id="page-wrapper" >
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="page-header">
-                    Update Data Tim {{$data->
-                    namateam}}
+                    Update Data Tim <?php echo e($data->
+                    namateam); ?>
+
                     <small>
                         Edit data
                     </small>
@@ -23,7 +23,7 @@
                         Form Edit
                     </div>
                     <div class="panel-body">
-                        @if(session('status'))
+                        <?php if(session('status')): ?>
                         <div class="alert alert-success alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                                 &times;
@@ -31,11 +31,12 @@
                             <strong>
                                 Success
                             </strong>
-                            {{ session('status') }}
+                            <?php echo e(session('status')); ?>
+
                         </div>
-                        @endif
-                        @foreach($errors->
-                        all() as $error)
+                        <?php endif; ?>
+                        <?php foreach($errors->
+                        all() as $error): ?>
                         <div class="alert alert-warning alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                                 &times;
@@ -43,17 +44,18 @@
                             <strong>
                                 Whops
                             </strong>
-                            {{ $error }}
+                            <?php echo e($error); ?>
+
                         </div>
-                        @endforeach
+                        <?php endforeach; ?>
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
-                                <form role="form" method="post" action="{{ url('/admin/team/update/') }}/{{ $data->id }}">
+                                <form role="form" method="post" action="<?php echo e(url('/admin/team/update/')); ?>/<?php echo e($data->id); ?>">
                                     <div class="form-group">
                                         <label for="namaTeam">
                                             Nama
                                         </label>
-                                        <input type="text" class="form-control" id="namaTeam" name="namateam" value="{{ $data->namateam }}" placeholder="Nama Team">
+                                        <input type="text" class="form-control" id="namaTeam" name="namateam" value="<?php echo e($data->namateam); ?>" placeholder="Nama Team">
                                     </div>
                                     <div class="form-group">
                                         <label for="kategori">
@@ -61,15 +63,15 @@
                                         </label>
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <input type="radio" name="kategori" value="0" id="wdc" @if($data->
-                                                kategori==0) checked @endif class="ev-cat"/>
+                                                <input type="radio" name="kategori" value="0" id="wdc" <?php if($data->
+                                                kategori==0): ?> checked <?php endif; ?> class="ev-cat"/>
                                                 <label for="web">
                                                     Web Design Competition
                                                 </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="radio" name="kategori" value="1" id="madc" @if($data->
-                                                kategori==1) checked @endif class="ev-cat"/>
+                                                <input type="radio" name="kategori" value="1" id="madc" <?php if($data->
+                                                kategori==1): ?> checked <?php endif; ?> class="ev-cat"/>
                                                 <label for="madc">
                                                     Mobile Apps Development Competition
                                                 </label>
@@ -80,13 +82,13 @@
                                         <label for="instansi">
                                             Institusi
                                         </label>
-                                        <input type="text" class="form-control" id="instansi" value="{{ $data->instansi }}" name="instansi" placeholder="Instansi">
+                                        <input type="text" class="form-control" id="instansi" value="<?php echo e($data->instansi); ?>" name="instansi" placeholder="Instansi">
                                     </div>
                                     <div class="form-group">
                                         <label for="instansi">
                                             Alamat Instansi
                                         </label>
-                                        <input type="text" class="form-control" id="instansi" value="{{ $data->alamatinstansi }}" name="alamatinstansi" placeholder="Alamat Instansi">
+                                        <input type="text" class="form-control" id="instansi" value="<?php echo e($data->alamatinstansi); ?>" name="alamatinstansi" placeholder="Alamat Instansi">
                                     </div>
                                     <div class="form-group">
                                         <label for="status">
@@ -94,22 +96,22 @@
                                         </label>
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <input type="radio" name="level" value="0" id="belum" @if($data->
-                                                ketua->level==0) checked @endif class="ev-cat"/>
+                                                <input type="radio" name="level" value="0" id="belum" <?php if($data->
+                                                ketua->level==0): ?> checked <?php endif; ?> class="ev-cat"/>
                                                 <label for="belum">
                                                     Belum teraktivasi
                                                 </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="radio" name="level" value="1" id="sudah" @if($data->
-                                                ketua->level==1) checked @endif class="ev-cat"/>
+                                                <input type="radio" name="level" value="1" id="sudah" <?php if($data->
+                                                ketua->level==1): ?> checked <?php endif; ?> class="ev-cat"/>
                                                 <label for="sudah">
                                                     Teraktivasi
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+                                    <input type="hidden" value="<?php echo e(csrf_token()); ?>" name="_token" />
                                     <br/>
                                     <br/>
                                     <button type="submit" class="btn btn-default">
@@ -137,4 +139,5 @@
     </div>
     <!-- /. PAGE INNER -->
 </div
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

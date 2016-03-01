@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Team;
+use App\User;
 use DB;
+use Request;
 
 class AdminController extends Controller
 {
@@ -25,96 +27,188 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $team         = Team::all();
+        $stat['wdc']  = $team->where('kategori', 0)->count();
+        $stat['madc'] = $team->where('kategori', 1)->count();
+        return view('admin.index')
+            ->with('stat', $stat);
     }
-    
-    public function table($user)
 
-    {
-        $data  = DB::table($user)->get();
-        $data2 = DB::table('users')->get();
-        if ($data == 'semnas') {
-            return view('admin.tableSemnas')->with('data',$data);
-        }
-        return view('admin.table')->with('data', $data)->with('data2', $data2);
-    }
+    // public function table($user)
+
+    // {
+    //     $data  = DB::table($user)->get();
+    //     $data2 = DB::table('users')->get();
+    //     if ($data == 'semnas') {
+    //         return view('admin.tableSemnas')->with('data',$data);
+    //     }
+    //     return view('admin.table')->with('data', $data)->with('data2', $data2);
+    // }
 
     public function getMadc()
     {
-        $madc = Team::all();
+        $madc = Team::all()->where('kategori', 1);
         return view('admin.madcTable')
             ->with('madc', $madc);
     }
 
-    public function deleteMadc()
+    public function getWdc()
     {
-        $team = Team::where 
+        $wdc = Team::all()->where('kategori', 0);
+        return view('admin.wdcTable')
+            ->with('wdc', $wdc);
+    }
+
+    public function getAnggota($type, Team $team)
+    {
+        $anggota = $team->user;
+        if ($type == 'wdc') {
+            return view('admin.tableAnggota')
+                ->with('data', $anggota);
+        } else if ($type == 'madc') {
+            return view('admin.tableAnggota')
+                ->with('data', $anggota);
+        }
+
+        return redirect()
+            ->back()
+            ->with('status', 'Error');
     }
 
     public function chart()
     {
         return view('admin.chart');
     }
-    public function delete($user, $id)
+    // public function delete($id)
+    // {
+    //     if ($user == 'semnas') {
+    //         $data = DB::table($user)->select('nama')->where('id', $id)->first();
+    //         $sts  = 'data ' . $data->nama . ' berhasil di hapus';
+    //     } else if ($user == 'teams') {
+    //         $data = DB::table($user)->select('namateam')->where('id', $id)->first();
+    //         $sts  = 'data ' . $data->namateam . ' berhasil di hapus';
+    //     } else if ($user == 'users') {
+    //         $data = DB::table($user)->select('nama')->where('id', $id)->first();
+    //         $sts  = 'data ' . $data->nama . ' berhasil di hapus';
+    //     }
+
+    //     DB::table($user)->where('id', $id)->delete();
+
+    //     return redirect('/admin/table')->with('status', $sts);
+    // }
+
+    public function deleteTeam(Team $team)
     {
-        if ($user == 'semnas') {
-            $data = DB::table($user)->select('nama')->where('id', $id)->first();
-            $sts  = 'data ' . $data->nama . ' berhasil di hapus';
-        } else if ($user == 'teams') {
-            $data = DB::table($user)->select('namateam')->where('id', $id)->first();
-            $sts  = 'data ' . $data->namateam . ' berhasil di hapus';
-        } else if ($user == 'users') {
-            $data = DB::table($user)->select('nama')->where('id', $id)->first();
-            $sts  = 'data ' . $data->nama . ' berhasil di hapus';
+
+        $message = 'Data ' . $team->namateam . ' berhasil di hapus';
+
+        $team->user()->delete();
+
+        $team->delete();
+
+        return redirect()
+            ->back()
+            ->with('status', $message);
+    }
+
+    public function deleteAnggota($id)
+    {
+        $anggota = User::find($id);
+
+        $message = 'Anggota dengan nama ' . $team->nama . ' berhasil di hapus';
+
+        $anggota->delete();
+
+        return redirect()
+            ->back()
+            ->with('status', $message);
+    }
+
+    public function aktivasi(Team $team)
+    {
+        $message = 'Data ' . $team->namateam . ' berhasil di aktivasi';
+
+        if ($team->ketua()->first()->update(['level' => 1])) {
+            return redirect()
+                ->back()
+                ->with('status', $message);
         }
 
-        DB::table($user)->where('id', $id)->delete();
+        return redirect()
+            ->back()
+            ->with('status', 'Data ' . $team->namateam . ' tidak berhasil di aktivasi');
+    }
 
-        return redirect('/admin/table')->with('status', $sts);
-    }
-    public function edit($user, $id)
+    public function editTeam(Team $team)
     {
-        $data = DB::table($user)->where('id', $id)->get();
-        if ($user == 'semnas') {
-            return view('admin.edit')->with('data', $data);
-        } else if ($user == 'teams') {
-            return view('admin.editTeams')->with('data', $data);
-        } else if ($user == 'users') {
-            return view('admin.editUsers')->with('data', $data);
-        }
+        return view('admin.editTeams')
+            ->with('data', $team);
     }
-    public function update($user, $id)
+
+    public function updateTeam(Team $team)
     {
-        if ($user == 'semnas') {
-            DB::table($user)
-                ->where('id', $id)
-                ->update([
-                    'nama'   => request('nama'),
-                    'notelp' => request('notelp'),
-                    'email'  => request('email'),
-                    'status' => request('status'),
-                ]);
-        } else if ($user == 'teams') {
-            DB::table($user)
-                ->where('id', $id)
-                ->update([
-                    'namateam'  => request('namateam'),
-                    'kategori'  => request('kategori'),
-                    'institusi' => request('institusi'),
-                ]);
-        } else if ($user == 'users') {
-            DB::table($user)
-                ->where('id', $id)
-                ->update([
-                    'nama'   => request('nama'),
-                    'notelp' => request('notelp'),
-                    'email'  => request('email'),
-                    'level'  => request('ststus'),
-                ]);
+        $team->namateam       = request('namateam');
+        $team->kategori       = request('kategori');
+        $team->instansi       = request('instansi');
+        $team->alamatinstansi = request('alamatinstansi');
+        $team->ketua->level   = request('level');
+
+        $redirect = ($team->kategori==0)?'/admin/wdc':'/admin/madc';
+
+        if ($team->save()&&$team->ketua->save()) {  
+            return redirect($redirect)
+                ->with('status', 'Data berhasil di update');
         }
 
-        return redirect('admin/table')->with('status', 'Data berhasil di update');
+        return redirect($redirect)
+                ->with('status', 'Data tidak berhasil di update');
     }
+
+    // public function update($type, $id)
+    // {
+    //     if ($type == 'semnas') {
+    //         DB::table($type)
+    //             ->where('id', $id)
+    //             ->update([
+    //                 'nama'   => request('nama'),
+    //                 'notelp' => request('notelp'),
+    //                 'email'  => request('email'),
+    //                 'status' => request('status'),
+    //             ]);
+    //     } else if ($type == 'teams') {
+    //         DB::table($type)
+    //             ->where('id', $id)
+    //             ->update([
+    //                 'namateam'       => request('namateam'),
+    //                 'kategori'       => request('kategori'),
+    //                 'instansi'       => request('instansi'),
+    //                 'alamatinstansi' => request('alamatinstansi'),
+    //                 '',
+    //             ]);
+    //     } else if ($type == 'teams') {
+    //         DB::table($type)
+    //             ->where('id', $id)
+    //             ->update([
+    //                 'namateam'       => request('namateam'),
+    //                 'kategori'       => request('kategori'),
+    //                 'instansi'       => request('instansi'),
+    //                 'alamatinstansi' => request('alamatinstansi'),
+    //             ]);
+    //     } else if ($type == 'users') {
+    //         DB::table($type)
+    //             ->where('id', $id)
+    //             ->update([
+    //                 'nama'   => request('nama'),
+    //                 'notelp' => request('notelp'),
+    //                 'email'  => request('email'),
+    //                 'level'  => request('ststus'),
+    //             ]);
+    //     }
+
+    //     return redirect()
+    //         ->back()
+    //         ->with('status', 'Data berhasil di update');
+    // }
     public function setting()
     {
         $data = DB::table('settings')->get();

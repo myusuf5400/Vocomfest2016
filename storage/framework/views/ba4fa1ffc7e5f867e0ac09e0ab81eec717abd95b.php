@@ -1,11 +1,11 @@
 <?php $__env->startSection('title', 'Dashboard Admin Vocomfest 2016'); ?>
 <?php $__env->startSection('content'); ?>
-    <div id="page-wrapper" >
+	<div id="page-wrapper" >
             <div id="page-inner">
-             <div class="row">
+			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Tabel Tim <small>MADC</small>
+                            Tabel Peserta <small>Tabel Peserta</small>
                         </h1>
                     </div>
                 </div>
@@ -40,30 +40,25 @@
                                         </thead>
                                         <tbody>
                                             <?php $i = 1?>
-                                            <?php foreach($madc as $tim): ?>
+                                            <?php foreach($wdc as $tim): ?>
                                             <tr class="odd gradeX">
                                                 <td><?php echo e($i++); ?></td>
                                                 <td><?php echo e($tim->namateam); ?></td>
                                                 <td><?php echo e($tim->ketua()->first()['email']); ?></td>
                                                 <td class="center"><?php echo e($tim->instansi); ?></td>
                                                 <td class="center">
-                                                    <?php if($tim->ketua()->first()['code']==1): ?>
-                                                        Sudah terverifikasi
-                                                    <?php else: ?>
-                                                        Belum terverifikasi
-                                                    <?php endif; ?>
+                                                	<?php if($tim->ketua()->first()['code']==1): ?>
+                                                		Sudah terverifikasi
+                                                	<?php else: ?>
+                                                		Belum terverifivaksi
+                                                	<?php endif; ?>
                                                 </td>
                                                 <td class="center">
-                                                    <?php if($tim->ketua()->first()['level']==1): ?>
-                                                        Sudah diaktivasi
-                                                    <?php else: ?>
-                                                        <form action="<?php echo e(url('admin/aktivasi/'.$tim->id)); ?>" method="POST">
-                                                        <?php echo e(csrf_field()); ?>
-
-
-                                                        <button class="btn btn-success">Aktivasi</button>
-                                                        </form>
-                                                    <?php endif; ?>
+                                                	<?php if($tim->ketua()->first()['level']==1): ?>
+                                                		Sudah diaktivasi
+                                                	<?php else: ?>
+                                                		<a href="<?php echo e(url('/admin/aktivasi/').'/'.$tim->id); ?>">Aktivasi</a>
+                                                	<?php endif; ?>
                                                 </td>
                                                 <td>
                                                     <ul class="action">
@@ -86,7 +81,7 @@
                                                     </form>
                                                     </li>
                                                     <li>
-                                                    <form action="<?php echo e(url('admin/madc/anggota/'.$tim->id)); ?>" method="POST">
+                                                    <form action="<?php echo e(url('admin/wdc/anggota/'.$tim->id)); ?>" method="POST">
                                                     <?php echo e(csrf_field()); ?>
 
                                                     <button class="btn btn-info">Detail</button>
@@ -103,6 +98,7 @@
                     </div>
                 </div>
             </div>
+            <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
         </div>
     <!-- /. PAGE INNER  -->
     </div>
