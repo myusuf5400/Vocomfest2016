@@ -195,7 +195,7 @@
                                                 Pembayaran untuk pendaftaran online silahkan transfer ke nomor rekening bank mandiri : 171 00 0078594 2, atas nama Nurul Puspa Dewi.
                                             </li>
                                             <li>
-                                                Peserta mengirimkan  scan bukti pembayaran ke email :wdc@vocomfest.com dengan subject validasi pembayaran wdc (Nama Tim).
+                                                Peserta mengirimkan  scan bukti pembayaran dan kartu pelajar ke email :wdc@vocomfest.com dengan subject validasi pembayaran wdc (Nama Tim).
                                             </li>
                                             <li>
                                                 Sebelum mengirimkan bukti pembayaran, akun peserta tidak dapat login ke website www.vocomfest.com, pembayaran akan diverifikasi terlebih dahulu lalu peserta dapat login di website <a href="{{url('/login')}}">www.vocomfest.com/login</a> dengan email ketua dan password saat registrasi.
@@ -277,7 +277,7 @@
                                                 Setelah selesai melakukan registrasi, peserta melakukan pembayaran sebesar Rp. 75.000,00 ke rekening Mandiri 171 00 0078594 2 atas nama Nurul Puspa Dewi.
                                             </li>
                                             <li>
-                                                Peserta mengirimkan foto bukti pembayaran dan scan kartu pelajar ketua dan anggota ke email wdc@vocomfest.com dengan Subyek “Bukti Pembayaran dan Scan Kartu Pelajar WDC (Nama Tim)”.
+                                                Peserta mengirimkan scan bukti pembayaran dan kartu pelajar ketua dan anggota ke email wdc@vocomfest.com dengan Subyek “Bukti Pembayaran dan Scan Kartu Pelajar WDC (Nama Tim)”.
                                             </li>
                                             <li>
                                                 Setelah selesai mengirimkan bukti pembayaran dan scan kartu pelajar, peserta mengkonfirmasi di nomor 089639704303 bahwa kelompok tersebut telah mengirim bukti pembayaran dan scan kartu pelajar.
