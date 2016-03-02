@@ -48,7 +48,13 @@
             $('#seminar').hide();
         @endif
 
-        $('#mem3').hide();
+        @if(old('kategori')==1)
+            $('#mem3').show();
+        @else
+            $('#mem3').hide();
+        @endif
+
+        
         $('#tab-event a[href="#comp"]').click(function() {
             $('#compete').fadeIn();
             $('#seminar').fadeOut();
