@@ -57,38 +57,38 @@ class UserController extends Controller
 
     public function redirectUpload()
     {
-        sleep(30);
-        $response = Transloadit::response();
-        if ($response) {
-            if (!empty($response->data['results'])) {
-                $respon = $response->data['results']['upload'][0];
-
-                $server = $response->data['fields']['server'];
-                $tipe   = $response->data['fields']['tipe'];
-                $file   = File::create([
-                    'namafile' => $respon['name'],
-                    'size'     => $respon['size'],
-                    'url'      => $respon['url'],
-                    'server'   => $server,
-                    'status'   => 0,
-                    'tipe'     => $tipe,
-                    'idteam'   => Auth::user()->team->id,
-                ]);
-
-                $job = $this->dispatch(new DownloadFileFromTransloadit($file));
-
-                return redirect('/user/upload')
-                    ->with('message', 'Upload file berhasil');
-
-            } else {
-                return redirect('/user/upload')
-                    ->with('error', 'Upload gagal, silahkan cek kembali file anda');
-            }
-
+    	sleep(15);
+    	$response = Transloadit::response();
+    	if($response){
+	        if (!empty($response->data['results'])) {
+	           $respon = $response->data['results']['upload'][0];
+	
+	        $server = $response->data['fields']['server'];
+	        $tipe   = $response->data['fields']['tipe'];
+	        $file   = File::create([
+	            'namafile' => $respon['name'],
+	            'size'     => $respon['size'],
+	            'url'      => $respon['url'],
+	            'server'   => $server,
+	            'status'   => 0,
+	            'tipe'     => $tipe,
+	            'idteam'   => Auth::user()->team->id,
+	        ]);
+	
+	        $job = $this->dispatch(new DownloadFileFromTransloadit($file));
+	
+	        return redirect('/user/upload')
+	                ->with('message', 'Upload file berhasil');
+	        
+	        }else{
+	        	return redirect('/user/upload')
+	                	->with('error', 'Upload gagal, silahkan cek kembali file anda');
+	        }
+	        
         }
-
+        
         return redirect()
-            ->away(Request::url());
+        ->away(Request::url());
 
     }
 
@@ -137,5 +137,4 @@ class UserController extends Controller
             ],
         ];
     }
-
 }

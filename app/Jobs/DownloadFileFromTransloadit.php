@@ -31,12 +31,11 @@ class DownloadFileFromTransloadit extends Job implements ShouldQueue
      */
     public function handle()
     {
-        $file = file_get_contents($this->file->url);
-        $save = file_put_contents(storage_path().'/file/'.$this->file->tipe.'/'.$this->file->namafile, $file);
-        if ($save) {
-            $this->file->status = 1;
-            $this->file->url    = storage_path().'/file/'.$this->file->tipe.'/'.$this->file->namafile;
-            $this->file->save();
-        }
+        exec("wget --limit-rate=400k ".$this->file->url." -O 'storage/file/".$this->file->tipe."/".$this->file->namafile."'", $output, $return);
+        if(!$return){
+	    $this->file->status = 1;
+	    $this->file->url    = 'storage/file/'.$this->file->tipe.'/'.$this->file->namafile;
+	    $this->file->save();
+	}
     }
 }

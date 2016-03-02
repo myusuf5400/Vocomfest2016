@@ -95,10 +95,10 @@ class AuthController extends Controller
         $team = Team::where('namateam', $data['namateam'])->first();
 
         if ($data['kategori'] == 0) {
-            $max   = 1;
+            $max   = 2;
             $level = 0;
         } else {
-            $max   = 2;
+            $max   = 3;
             $level = 0;
         }
 
@@ -180,24 +180,24 @@ class AuthController extends Controller
                 if ($now > $expired) {
                     User::where('idteam', '=', $user->idteam)->delete();
                     Team::where('id', '=', $user->idteam)->delete();
-                    return redirect('register')
-                        ->with('message', 'Kode aktivasi sudah tidak berlaku, silahkan registrasi ulang!');
+                    return redirect('/register')
+                        ->with('error', 'Kode aktivasi sudah tidak berlaku, silahkan registrasi ulang!');
                 }
 
                 $user->code = 1;
-                if ($user->save()) {
+               	if ($user->save()) {
                     if ($user->team->kategori == 0) {
                         return redirect('/register/success')
-                        ->with('message', 'Email anda sudah terverifikasi, silahkan mengirimkan bukti pembayaran dan scan kartu pelajar maksimal 1 minggu ke wdc@vocomfest.com atau tim akan di hapus'); 
+                        ->with('message', 'Email anda sudah terverifikasi, silahkan mengirimkan bukti pembayaran dan scan kartu pelajar maksimal 1 minggu ke wdc@vocomfest.com atau tim akan di hapus.'); 
                     }else{
                         return redirect('/register/success')
-                            ->with('message', 'Email anda sudah terverifikasi, silahkan mengirimkan scan KTM ke wdc@vocomfest.com untuk bisa login');
+                            ->with('message', 'Email anda sudah terverifikasi, silahkan mengirimkan scan KTM ke madc@vocomfest.com untuk bisa login.');
                     }  
                 }
             }
         }
         return redirect('/register')
-            ->with('message', 'Kode aktivasi salah');
+            ->with('error', 'Kode aktivasi salah');
     }
 
     public function sendEmail(User $user)
@@ -233,29 +233,27 @@ class AuthController extends Controller
     protected function handleUserWasAuthenticated(Request $request, $throttles)
     {
         if (Auth::user()->code != 1) {
-            $error = 'Email belum terverifikasi';
-
+        	
             Auth::logout();
+ 		
             return redirect()
                 ->back()
-                ->with('error',$error);
+                ->with('error','Email belum terverifikasi');
         }
-
+        
         if (Auth::user()->level == 0) {
             $error;
 
             if(Auth::user()->team->kategori==0){
-                $error =  'Maaf, tim belum terverifikasi <br/> Silahkan mengirimkan bukti pembayaran dan scan kartu pelajar ke wdc@vocomfest.com';
+                $error =  'Maaf, tim belum terverifikasi <br/>Silahkan mengirimkan bukti pembayaran dan scan kartu pelajar ke wdc@vocomfest.com';
             }else{
-                $error =  'Maaf, tim belum terverifikasi <br/>Silahkan mengirimkan scan KTM ke madc@vocomfest.com'.Auth::user()->team->user()->get();
+                $error =  'Maaf, tim belum terverifikasi <br/>Silahkan mengirimkan scan KTM ke madc@vocomfest.com ';
             }
             Auth::logout();
             return redirect()
                 ->back()
                 ->with('error',$error);
         }
-
-
 
         if ($throttles) {
             $this->clearLoginAttempts($request);
@@ -266,18 +264,5 @@ class AuthController extends Controller
         }
 
         return redirect()->intended($this->redirectPath());
-    }
-
-    /**
-     * Validate the user login request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
-     */
-    protected function validateLogin(Request $request)
-    {
-        $this->validate($request, [
-            $this->loginUsername() => 'required', 'password' => 'required',
-        ]);
     }
 }
