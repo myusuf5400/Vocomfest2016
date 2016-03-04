@@ -55,25 +55,25 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'namaketua'              => 'required|max:60',
-            'emailketua'             => 'required|email|max:60|unique:users,email',
-            'notelp'                 => 'required|max:12|unique:users',
-            // 'username'               => 'required|max:60|unique:users',
+            'namateam'               => 'required|max:60|unique:teams,namateam,NULL,id,deleted_at,NULL',
+            'emailketua'             => 'required|email|max:60|unique:users,email,NULL,id,deleted_at,NULL',
             'password'               => 'required|confirmed|min:6',
             'password_confirmation ' => '',
+            'namaketua'              => 'required|max:60',
+            'notelp'                 => 'required|max:12|unique:users,notelp,NULL,id,deleted_at,NULL',
+            // 'username'               => 'required|max:60|unique:users',
             'kategori'               => 'required',
-            'namateam'               => 'required|max:60|unique:teams',
             'instansi'               => 'required|max:60',
             'alamatinstansi'         => 'required|max:60',
             'anggota.0.nama'         => 'max:60',
-            'anggota.0.email'        => 'email|max:60|unique:users,email|required_with:anggota.0.nama',
-            'anggota.0.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.0.email',
+            'anggota.0.email'        => 'email|max:60|unique:users,email,NULL,id,deleted_at,NULL|required_with:anggota.0.nama',
+            'anggota.0.notelp'       => 'max:12|unique:users,notelp,NULL,id,deleted_at,NULL|required_with:anggota.0.email',
             'anggota.1.nama'         => 'max:60',
-            'anggota.1.email'        => 'email|max:60|unique:users,email|required_with:anggota.1.nama',
-            'anggota.1.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.1.email',
+            'anggota.1.email'        => 'email|max:60|unique:users,email,NULL,id,deleted_at,NULL|required_with:anggota.1.nama',
+            'anggota.1.notelp'       => 'max:12|unique:users,notelp,NULL,id,deleted_at,NULL|required_with:anggota.1.email',
             'anggota.2.nama'         => 'max:60',
-            'anggota.2.email'        => 'email|max:60|unique:users,email|required_with:anggota.2.nama',
-            'anggota.2.notelp'       => 'max:12|unique:users,notelp|required_with:anggota.2.email',
+            'anggota.2.email'        => 'email|max:60|unique:users,email,NULL,id,deleted_at,NULL|required_with:anggota.2.nama',
+            'anggota.2.notelp'       => 'max:12|unique:users,notelp,NULL,id,deleted_at,NULL|required_with:anggota.2.email',
         ]);
     }
 
@@ -110,7 +110,7 @@ class AuthController extends Controller
                 User::create([
                     'nama'   => $anggota[$i]['nama'],
                     'email'  => $anggota[$i]['email'],
-                    'notelp' => '62' . $anggota[$i]['notelp'],
+                    'notelp' => $anggota[$i]['notelp'],
                     'idteam' => $team['id'],
                 ]);
             }
@@ -120,7 +120,7 @@ class AuthController extends Controller
             'nama'     => $data['namaketua'],
             'email'    => $data['emailketua'],
             'password' => bcrypt($data['password']),
-            'notelp'   => '62' . $data['notelp'],
+            'notelp'   => $data['notelp'],
             'code'     => str_random(30),
             'level'    => $level,
             'idteam'   => $team['id'],

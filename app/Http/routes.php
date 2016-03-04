@@ -36,30 +36,35 @@ Route::group(['middleware' => ['web']], function () {
     
     // Route::post('semnas', 'SemnasController@store');
 
+    //Route untuk user
+
     Route::get('user/upload', 'UserController@getUploadProposal');
     Route::get('user/upload/redirect', 'UserController@redirectUpload');
     Route::get('user', 'UserController@getAkun');
     Route::get('user/image', 'UserController@getImageUpload');
+
     // Route::post('user/imageUpload', 'UserController@postImageUpload');
     
+    //Route untuk admin
+    
     Route::get('/admin', 'AdminController@index');
-
     Route::get('/admin/madc', 'AdminController@getMadc');
     Route::get('/admin/wdc', 'AdminController@getWdc');
-   
+
     Route::delete('/admin/team/delete/{team}', 'AdminController@deleteTeam');
-    Route::post('/admin/aktivasi/{team}', 'AdminController@aktivasi');
-
-    Route::post('/admin/team/edit/{team}', 'AdminController@editTeam');
-
-    // Route::post('/admin/{type}/update/{id}', 'AdminController@update');
-    Route::post('/admin/team/update/{team}', 'AdminController@updateTeam');
+    Route::post('/admin/team/aktivasi/{team}', 'AdminController@aktivasi');
+    Route::get('/admin/team/edit/{team}', 'AdminController@editTeam');
+    Route::post('/admin/team/update', 'AdminController@updateTeam');
+    Route::get('/admin/team/detail/{team}', 'AdminController@getDetail');
 
 
-    Route::post('/admin/{type}/anggota/{team}', 'AdminController@getAnggota');
+    Route::delete('/admin/anggota/delete/{id}', 'AdminController@deleteAnggota');
+    Route::get('/admin/anggota/edit/{id}', 'AdminController@editAnggota');
+    Route::get('/admin/anggota/new/{team}', 'AdminController@getNewAnggota');
+    Route::post('/admin/anggota/new', 'AdminController@postNewAnggota');
+    Route::post('/admin/anggota/update', 'AdminController@updateAnggota');
+    // Route::get('/admin/setting', 'AdminController@setting');
 
-    Route::get('/admin/setting', 'AdminController@setting');
-
-    Route::post('/admin/setting/post', 'AdminController@settingPost');
+    // Route::post('/admin/setting/post', 'AdminController@settingPost');
 
 });

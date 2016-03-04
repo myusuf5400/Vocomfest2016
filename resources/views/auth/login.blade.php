@@ -52,6 +52,12 @@
                 LOG IN
             </button>
             <p class="text-center">
+                Forgot password?
+                <a href="{{url('/password/reset')}}">
+                    Click here!
+                </a>
+            </p>
+            <p class="text-center">
                 Don't have account?
                 <a href="{{url('/register')}}">
                     Register!

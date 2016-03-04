@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('layouts.auth')
+@section('title', 'Reset Password')
 <!-- Main Content -->
 @section('content')
 <div class="container">
@@ -45,3 +45,5 @@
     </div>
 </div>
 @endsection
+
+
