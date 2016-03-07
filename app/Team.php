@@ -22,11 +22,13 @@ class Team extends Model
     ];
 
     public function user(){
-        return $this->hasMany('App\User','idteam','id');
+        return $this->hasMany('App\User','idteam','id')
+            ->orderBy('code', 'desc');
     }
 
     public function ketua(){
-        return $this->hasOne('App\User','idteam','id')->where('code','!=','');
+        return $this->hasOne('App\User','idteam','id')
+            ->where('code','!=','');
     }
 
     public function file(){

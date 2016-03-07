@@ -55,34 +55,17 @@
                                                 </td>
                                                 <td class="center">
                                                 	@if($tim->ketua()->first()['level']==1)
-                                                		Sudah diaktivasi
-                                                	@else
-                                                		<a href="{{url('/admin/aktivasi/').'/'.$tim->id}}">Aktivasi</a>
-                                                	@endif
+                                                        Sudah diaktivasi
+                                                    @else
+                                                        <form action="{{ url('admin/team/aktivasi/'.$tim->id) }}" method="POST">
+                                                        {{ csrf_field() }}
+
+                                                        <button class="btn btn-success">Aktivasi</button>
+                                                        </form>
+                                                    @endif
                                                 </td>
                                                 <td>
-                                                    <ul class="action">
-                                                    <li>
-                                                    <form action="{{ url('admin/team/delete/'.$tim->id) }}" method="POST">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('DELETE') }}
-
-                                                    <button class="btn btn-danger">Hapus</button>
-                                                    </form>
-                                                    </li>
-                                                    <li>
-                                                    <form action="{{ url('admin/team/edit/'.$tim->id) }}" method="POST">
-                                                    {{ csrf_field() }}
-
-                                                    <button class="btn btn-warning">Edit</button>
-                                                    </form>
-                                                    </li>
-                                                    <li>
-                                                    <form action="{{ url('admin/wdc/anggota/'.$tim->id) }}" method="POST">
-                                                    {{ csrf_field() }}
-                                                    <button class="btn btn-info">Detail</button>
-                                                    </form>
-                                                    </li>
+                                                    @include('admin.actionTeam')
                                                 </td>
                                             </tr>
                                             @endforeach

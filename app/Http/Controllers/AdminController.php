@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateAnggotaRequest;
+use App\Http\Requests\UpdateTeamRequest;
 use App\Team;
 use App\User;
 use DB;
@@ -34,17 +36,6 @@ class AdminController extends Controller
             ->with('stat', $stat);
     }
 
-    // public function table($user)
-
-    // {
-    //     $data  = DB::table($user)->get();
-    //     $data2 = DB::table('users')->get();
-    //     if ($data == 'semnas') {
-    //         return view('admin.tableSemnas')->with('data',$data);
-    //     }
-    //     return view('admin.table')->with('data', $data)->with('data2', $data2);
-    // }
-
     public function getMadc()
     {
         $madc = Team::all()->where('kategori', 1);
@@ -59,43 +50,26 @@ class AdminController extends Controller
             ->with('wdc', $wdc);
     }
 
-    public function getAnggota($type, Team $team)
+    public function getDetail(Team $team)
     {
-        $anggota = $team->user;
-        if ($type == 'wdc') {
-            return view('admin.tableAnggota')
-                ->with('data', $anggota);
-        } else if ($type == 'madc') {
-            return view('admin.tableAnggota')
-                ->with('data', $anggota);
+        $max = ($team->kategori == 0) ? 3 : 4;
+        if ($team->user()->count() < $max) {
+            $showNew = true;
+        } else {
+            $showNew = false;
         }
 
-        return redirect()
-            ->back()
-            ->with('status', 'Error');
+        return view('admin.tableDetail')
+            ->with('anggotas', $team->user)
+            ->with('files', $team->file)
+            ->with('showNew', $showNew);
+
     }
 
     public function chart()
     {
         return view('admin.chart');
     }
-    // public function delete($id)
-    // {
-    //     if ($user == 'semnas') {
-    //         $data = DB::table($user)->select('nama')->where('id', $id)->first();
-    //         $sts  = 'data ' . $data->nama . ' berhasil di hapus';
-    //     } else if ($user == 'teams') {
-    //         $data = DB::table($user)->select('namateam')->where('id', $id)->first();
-    //         $sts  = 'data ' . $data->namateam . ' berhasil di hapus';
-    //     } else if ($user == 'users') {
-    //         $data = DB::table($user)->select('nama')->where('id', $id)->first();
-    //         $sts  = 'data ' . $data->nama . ' berhasil di hapus';
-    //     }
-
-    //     DB::table($user)->where('id', $id)->delete();
-
-    //     return redirect('/admin/table')->with('status', $sts);
-    // }
 
     public function deleteTeam(Team $team)
     {
@@ -115,7 +89,13 @@ class AdminController extends Controller
     {
         $anggota = User::find($id);
 
-        $message = 'Anggota dengan nama ' . $team->nama . ' berhasil di hapus';
+        if ($anggota->level == 6 || $anggota->code != null) {
+            return redirect()
+                ->back()
+                ->with('status', 'Error');
+        }
+
+        $message = 'Anggota dengan nama ' . $anggota->nama . ' berhasil di hapus';
 
         $anggota->delete();
 
@@ -134,7 +114,7 @@ class AdminController extends Controller
                 ->with('status', $message);
         }
 
-        return redirect()
+        return redirect::to()
             ->back()
             ->with('status', 'Data ' . $team->namateam . ' tidak berhasil di aktivasi');
     }
@@ -145,70 +125,92 @@ class AdminController extends Controller
             ->with('data', $team);
     }
 
-    public function updateTeam(Team $team)
+    public function editAnggota($id)
     {
-        $team->namateam       = request('namateam');
-        $team->kategori       = request('kategori');
-        $team->instansi       = request('instansi');
-        $team->alamatinstansi = request('alamatinstansi');
-        $team->ketua->level   = request('level');
+        $anggota = User::find($id);
 
-        $redirect = ($team->kategori==0)?'/admin/wdc':'/admin/madc';
+        if ($anggota->level == 6) {
+            return redirect()
+                ->back()
+                ->with('status', 'Error');
+        }
 
-        if ($team->save()&&$team->ketua->save()) {  
+        return view('admin.editAnggota')
+            ->with('data', $anggota);
+    }
+
+    public function updateTeam(UpdateTeamRequest $request)
+    {
+        $team                 = Team::find($request['id']);
+        $team->namateam       = $request['namateam'];
+        $team->kategori       = $request['kategori'];
+        $team->instansi       = $request['instansi'];
+        $team->alamatinstansi = $request['alamatinstansi'];
+        $team->ketua->level   = $request['level'];
+
+        $redirect = ($team->kategori == 0) ? '/admin/wdc' : '/admin/madc';
+
+        if ($team->save() && $team->ketua->save()) {
             return redirect($redirect)
                 ->with('status', 'Data berhasil di update');
         }
 
         return redirect($redirect)
-                ->with('status', 'Data tidak berhasil di update');
+            ->with('status', 'Data tidak berhasil di update');
     }
 
-    // public function update($type, $id)
-    // {
-    //     if ($type == 'semnas') {
-    //         DB::table($type)
-    //             ->where('id', $id)
-    //             ->update([
-    //                 'nama'   => request('nama'),
-    //                 'notelp' => request('notelp'),
-    //                 'email'  => request('email'),
-    //                 'status' => request('status'),
-    //             ]);
-    //     } else if ($type == 'teams') {
-    //         DB::table($type)
-    //             ->where('id', $id)
-    //             ->update([
-    //                 'namateam'       => request('namateam'),
-    //                 'kategori'       => request('kategori'),
-    //                 'instansi'       => request('instansi'),
-    //                 'alamatinstansi' => request('alamatinstansi'),
-    //                 '',
-    //             ]);
-    //     } else if ($type == 'teams') {
-    //         DB::table($type)
-    //             ->where('id', $id)
-    //             ->update([
-    //                 'namateam'       => request('namateam'),
-    //                 'kategori'       => request('kategori'),
-    //                 'instansi'       => request('instansi'),
-    //                 'alamatinstansi' => request('alamatinstansi'),
-    //             ]);
-    //     } else if ($type == 'users') {
-    //         DB::table($type)
-    //             ->where('id', $id)
-    //             ->update([
-    //                 'nama'   => request('nama'),
-    //                 'notelp' => request('notelp'),
-    //                 'email'  => request('email'),
-    //                 'level'  => request('ststus'),
-    //             ]);
-    //     }
+    public function updateAnggota(UpdateAnggotaRequest $request)
+    {
+        $anggota = User::find($request['id']);
 
-    //     return redirect()
-    //         ->back()
-    //         ->with('status', 'Data berhasil di update');
-    // }
+        if ($anggota->level == 6) {
+            return redirect()
+                ->back()
+                ->with('status', 'Error');
+        }
+
+        $anggota->nama   = $request['nama'];
+        $anggota->notelp = $request['notelp'];
+        $anggota->email  = $request['email'];
+
+        if ($anggota->save()) {
+            return redirect()
+                ->back()
+                ->with('status', 'Data berhasil di update');
+        }
+
+        return redirect()
+            ->back()
+            ->with('status', 'Data tidak berhasil di update');
+    }
+
+    public function getNewAnggota($team)
+    {
+        $team = Team::find($team);
+        $max  = ($team->kategori == 0) ? 3 : 4;
+        if ($team->user()->count() < $max) {
+            return view('admin.newAnggota')
+                ->with('id', $team->id);
+        }
+        return redirect()
+            ->back()
+            ->with('status', 'Tim sudah penuh');
+    }
+
+    public function postNewAnggota(UpdateAnggotaRequest $request)
+    {
+        $team = Team::find($request['id']);
+
+        User::create([
+            'nama'   => $request['nama'],
+            'email'  => $request['email'],
+            'notelp' => '62' . $request['notelp'],
+            'idteam' => $request['id'],
+        ]);
+        return redirect('admin/team/anggota/' . $request['id'])
+            ->with('status', 'Anggota sudah di tambah');
+    }
+
     public function setting()
     {
         $data = DB::table('settings')->get();

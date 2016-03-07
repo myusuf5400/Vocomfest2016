@@ -138,10 +138,10 @@
                                 </div>
                                 <div class="form-group" id="mem3">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota.2.nama" class="form-control reg-form" placeholder="Nama Anggota" value="<?php echo e(old('anggota[2][nama]')); ?>"/>
+                                        <input type="text" name="anggota[2][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="<?php echo e(old('anggota.2.nama')); ?>"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota.2.email" class="form-control reg-form" placeholder="Email Anggota" value="<?php echo e(old('anggota[2][email]')); ?>"/>
+                                        <input type="email" name="anggota[2][email]" class="form-control reg-form" placeholder="Email Anggota" value="<?php echo e(old('anggota.2.email')); ?>"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">

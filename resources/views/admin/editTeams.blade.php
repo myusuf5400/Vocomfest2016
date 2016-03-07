@@ -48,7 +48,8 @@
                         @endforeach
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
-                                <form role="form" method="post" action="{{ url('/admin/team/update/') }}/{{ $data->id }}">
+                                <form role="form" method="post" action="{{ url('/admin/team/update/') }}">
+                                    <input type="hidden" name="id" value="{{$data->id}}">
                                     <div class="form-group">
                                         <label for="namaTeam">
                                             Nama
@@ -113,7 +114,7 @@
                                     <br/>
                                     <br/>
                                     <button type="submit" class="btn btn-default">
-                                        Submit
+                                        Update
                                     </button>
                                 </form>
                             </div>

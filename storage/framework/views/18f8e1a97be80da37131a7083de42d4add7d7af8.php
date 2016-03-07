@@ -107,6 +107,12 @@
                                             <a href="http://twitter.com/vocomfest" target="_blank">
                                                 <img class="social" src="assets/img/twitter.png" alt="Twitter" title="Twitter Account"/>
                                             </a>
+                                            <a href="https://www.instagram.com/vocomfest/">
+                                                <img class="social" src="assets/img/instagram.png" alt="Instagram" title="Instagram Account"/>
+                                            </a>
+                                            <a href="http://line.me/ti/p/~@ipe9770i">
+                                                <img class="social" src="assets/img/line.png" alt="Line" title="Line Account"/>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

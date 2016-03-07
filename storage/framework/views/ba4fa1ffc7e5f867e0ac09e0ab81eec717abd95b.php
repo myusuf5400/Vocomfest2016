@@ -55,38 +55,18 @@
                                                 </td>
                                                 <td class="center">
                                                 	<?php if($tim->ketua()->first()['level']==1): ?>
-                                                		Sudah diaktivasi
-                                                	<?php else: ?>
-                                                		<a href="<?php echo e(url('/admin/aktivasi/').'/'.$tim->id); ?>">Aktivasi</a>
-                                                	<?php endif; ?>
+                                                        Sudah diaktivasi
+                                                    <?php else: ?>
+                                                        <form action="<?php echo e(url('admin/team/aktivasi/'.$tim->id)); ?>" method="POST">
+                                                        <?php echo e(csrf_field()); ?>
+
+
+                                                        <button class="btn btn-success">Aktivasi</button>
+                                                        </form>
+                                                    <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    <ul class="action">
-                                                    <li>
-                                                    <form action="<?php echo e(url('admin/team/delete/'.$tim->id)); ?>" method="POST">
-                                                    <?php echo e(csrf_field()); ?>
-
-                                                    <?php echo e(method_field('DELETE')); ?>
-
-
-                                                    <button class="btn btn-danger">Hapus</button>
-                                                    </form>
-                                                    </li>
-                                                    <li>
-                                                    <form action="<?php echo e(url('admin/team/edit/'.$tim->id)); ?>" method="POST">
-                                                    <?php echo e(csrf_field()); ?>
-
-
-                                                    <button class="btn btn-warning">Edit</button>
-                                                    </form>
-                                                    </li>
-                                                    <li>
-                                                    <form action="<?php echo e(url('admin/wdc/anggota/'.$tim->id)); ?>" method="POST">
-                                                    <?php echo e(csrf_field()); ?>
-
-                                                    <button class="btn btn-info">Detail</button>
-                                                    </form>
-                                                    </li>
+                                                    <?php echo $__env->make('admin.actionTeam', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                                 </td>
                                             </tr>
                                             <?php endforeach; ?>
