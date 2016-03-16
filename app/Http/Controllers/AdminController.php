@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateAnggotaRequest;
 use App\Http\Requests\UpdateTeamRequest;
+use App\Http\Requests\SemnasRequest;
 use App\Team;
 use App\User;
 use DB;
@@ -22,6 +23,51 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
+    public function semnas()
+    {
+        $data = DB::table('semnas')->get();
+
+        return view('admin.tableSemnas',[
+            'data'  => $data
+            ]);
+    }
+    public function deleteSemnas($id)
+    {
+        DB::table('semnas') 
+            ->where([
+                'id'    => $id
+                ])
+            ->delete();
+
+        return redirect()
+                ->back()
+                ->with('status','Data berhasil di hapus');
+    }
+    public function editSemnas($id)
+    {
+        $data = DB::table('semnas')
+                ->where('id',$id)
+                ->first();
+
+
+        return view('admin.edit')
+                ->with('data',$data);
+    }
+    public function postEditSemnas(SemnasRequest $request)
+    {
+
+        DB::table('semnas')
+            ->where('id',$request->get('id'))
+            ->update([
+                'nama'      => $request->get('nama'),
+                'notelp'    => $request->get('notelp'),
+                'email'     => $request->get('email'),
+                'kategori'  => $request->get('kategori'),
+                'status'    => $request->get('status'),
+            ]);
+
+        return redirect('admin/semnas')->with('status','Data berhasil di update');
+    }
     /**
      * Show the application dashboard.
      *
@@ -32,8 +78,14 @@ class AdminController extends Controller
         $team         = Team::all();
         $stat['wdc']  = $team->where('kategori', 0)->count();
         $stat['madc'] = $team->where('kategori', 1)->count();
+        $data = DB::table('semnas')
+                ->get();
+
         return view('admin.index')
-            ->with('stat', $stat);
+            ->with([
+                'stat'  => $stat,
+                'data'  => $data,
+                ]);
     }
 
     public function getMadc()

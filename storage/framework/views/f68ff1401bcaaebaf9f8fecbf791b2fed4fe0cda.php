@@ -1,6 +1,6 @@
-﻿@extends('layouts.admin')
-@section('title', 'Dashboard Admin Vocomfest 2016')
-@section('content')
+﻿
+<?php $__env->startSection('title', 'Dashboard Admin Vocomfest 2016'); ?>
+<?php $__env->startSection('content'); ?>
         <div id="page-wrapper">
             <div id="page-inner">
 
@@ -16,11 +16,11 @@
 
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                    <a href="{{url('admin/wdc')}}">
+                    <a href="<?php echo e(url('admin/wdc')); ?>">
                         <div class="panel panel-primary text-center no-boder bg-color-green">
                             <div class="panel-body">
                                 <i class="glyphicon glyphicon-phone" style="font-size: 150px;"></i>
-                                <h3>{{$stat['wdc']}}</h3>
+                                <h3><?php echo e($stat['wdc']); ?></h3>
                             </div>
                             <div class="panel-footer back-footer-green">
                                 WDC
@@ -30,11 +30,11 @@
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <a href="{{url('admin/madc')}}">
+                        <a href="<?php echo e(url('admin/madc')); ?>">
                         <div class="panel panel-primary text-center no-boder bg-color-blue">
                             <div class="panel-body">
                                 <i class="glyphicon glyphicon-globe" style="font-size: 150px;"></i>
-                                <h3>{{$stat['madc']}}</h3>
+                                <h3><?php echo e($stat['madc']); ?></h3>
                             </div>
                             <div class="panel-footer back-footer-blue">
                                 MADC
@@ -44,11 +44,11 @@
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <a href="{{url('admin/semnas')}}">
+                        <a href="<?php echo e(url('admin/semnas')); ?>">
                         <div class="panel panel-primary text-center no-boder bg-color-red">
                             <div class="panel-body">
                                 <i class="glyphicon glyphicon-user" style="font-size: 150px;"></i>
-                                <h3>{{count($data)}}</h3>
+                                <h3><?php echo e(count($data)); ?></h3>
                             </div>
                             <div class="panel-footer back-footer-red">
                                 MADC
@@ -88,4 +88,6 @@
             </div>
             <!-- /. PAGE INNER  -->
         </div>
-  @endsection
+  <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

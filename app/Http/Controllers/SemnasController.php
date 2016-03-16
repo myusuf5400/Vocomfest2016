@@ -22,7 +22,7 @@ class SemnasController extends Controller
         $user = $this->create($request->all());
 
         return redirect('/register/success')
-            ->with('message', 'Selamat, anda telah terdaftar pada Semnsa Vocomfest 2016');
+            ->with('message', 'Selamat, anda telah terdaftar pada Seminar Nasional Vocomfest 2016');
     }
 
     public function create(array $data)

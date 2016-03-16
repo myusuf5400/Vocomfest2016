@@ -34,7 +34,12 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::auth();
     
-    // Route::post('semnas', 'SemnasController@store');
+    Route::post('semnas', 'SemnasController@store');
+    Route::get('admin/semnas', 'AdminController@semnas');
+    Route::get('admin/semnas/edit/{id}', 'AdminController@editSemnas');
+    Route::post('admin/semnas/edit', 'AdminController@postEditSemnas');
+    Route::get('admin/semnas/delete/{id}', 'AdminController@deleteSemnas');
+
 
     //Route untuk user
 

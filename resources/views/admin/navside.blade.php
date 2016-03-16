@@ -17,6 +17,9 @@
                     <li>
                         <a href="{{url('admin/madc')}}"><i class="fa fa-table"></i>Tabel MADC</a>
                     </li>
+                    <li>
+                        <a href="{{url('admin/semnas')}}"><i class="fa fa-table"></i>Tabel Semnas</a>
+                    </li>
                 </ul>
 
             </div>

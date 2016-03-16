@@ -1,6 +1,4 @@
-@extends('layouts.admin')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
      <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -19,12 +17,13 @@
                             <div class="panel-heading">
                                  Tabel Semnas
                             </div>
-                            @if(session('status'))
+                            <?php if(session('status')): ?>
                             <div class="alert alert-warning alert-dismissable">
                               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                              <strong>Well</strong> {{ session('status') }}
+                              <strong>Well</strong> <?php echo e(session('status')); ?>
+
                             </div>
-                            @endif
+                            <?php endif; ?>
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -42,20 +41,20 @@
                                         </thead>
                                         <tbody>
                                             <?php $i=1; ?>
-                                            @foreach($data as $apa)
+                                            <?php foreach($data as $apa): ?>
                                             <tr class="odd gradeX">
-                                                <td>{{ $i }} <?php $i++ ?></td>
-                                                <td>{{$apa->nama}}</td>
-                                                <td>{{$apa->notelp}}</td>
-                                                <td class="center">{{$apa->email}}</td>
+                                                <td><?php echo e($i); ?> <?php $i++ ?></td>
+                                                <td><?php echo e($apa->nama); ?></td>
+                                                <td><?php echo e($apa->notelp); ?></td>
+                                                <td class="center"><?php echo e($apa->email); ?></td>
                                                 <td class="center">
-                                                    @if($apa->kategori == 0)
+                                                    <?php if($apa->kategori == 0): ?>
                                                         Mahasiswa
-                                                    @elseif($apa->kategori == 1)
+                                                    <?php elseif($apa->kategori == 1): ?>
                                                         Pelajar
-                                                    @else
+                                                    <?php else: ?>
                                                         Umum
-                                                    @endif
+                                                    <?php endif; ?>
                                                 </td>
                                                 <td>
                                                     <?php
@@ -64,29 +63,29 @@
                                                         }
                                                     ?>
                                                 </td>
-                                                @if($apa->status)
+                                                <?php if($apa->status): ?>
                                                     <td class="text-center alert-success">
                                                           <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
                                                     </td>
-                                                @else
+                                                <?php else: ?>
                                                     <td class="text-center alert-danger">
                                                           <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                                                     </td>
-                                                @endif
+                                                <?php endif; ?>
                                                 <td>
-                                                <a href="{{ url('/admin/semnas/delete') }}/{{ $apa->id }}">
+                                                <a href="<?php echo e(url('/admin/semnas/delete')); ?>/<?php echo e($apa->id); ?>">
                                                     <button class="btn btn-xs btn-danger">
                                                         <span class="glyphicon glyphicon-trash"></span>
                                                     </button>
                                                 </a>
-                                                <a href="{{ url('/admin/semnas/edit') }}/{{ $apa->id }}">
+                                                <a href="<?php echo e(url('/admin/semnas/edit')); ?>/<?php echo e($apa->id); ?>">
                                                     <button class="btn btn-xs btn-warning">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </button>
                                                 </a>
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                            <?php endforeach; ?>
                                             
                                         </tbody>
                                     </table>
@@ -100,6 +99,8 @@
             </div>
         </div>
     <!-- /. PAGE INNER  -->
-@endsection
+<?php $__env->stopSection(); ?>
        
 
+
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

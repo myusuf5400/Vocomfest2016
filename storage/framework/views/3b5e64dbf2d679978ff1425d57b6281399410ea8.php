@@ -1,6 +1,5 @@
-@extends('layouts.auth')
-@section('title', 'Registrasi')
-@section('content')
+<?php $__env->startSection('title', 'Registrasi'); ?>
+<?php $__env->startSection('content'); ?>
 <body style="background : #F1F2F7;">
     <div class="se-pre-con">
     </div>
@@ -13,12 +12,12 @@
                 <div class="col-md-9" id="tab-event">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" @if (count($errors->semnas) == 0) class="active" @endif>
+                        <li role="presentation" <?php if(count($errors->semnas) == 0): ?> class="active" <?php endif; ?>>
                             <a href="#comp" aria-controls="comp" role="tab" data-toggle="tab">
                                 Competitions
                             </a>
                         </li>
-                        <li role="presentation"  @if (count($errors->semnas) > 0) class="active" @endif>
+                        <li role="presentation"  <?php if(count($errors->semnas) > 0): ?> class="active" <?php endif; ?>>
                             <a href="#semnas" aria-controls="semnas" role="tab" data-toggle="tab">
                                 Seminar Nasional
                             </a>
@@ -26,35 +25,36 @@
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade @if (count($errors->semnas) == 0) in active @endif" id="comp">
-                           @if (count($errors) > 0)
+                        <div role="tabpanel" class="tab-pane fade <?php if(count($errors->semnas) == 0): ?> in active <?php endif; ?>" id="comp">
+                           <?php if(count($errors) > 0): ?>
                                 <br/>
                                 <div class="alert alert-danger">
                                     <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
+                                        <?php foreach($errors->all() as $error): ?>
+                                            <li><?php echo e($error); ?></li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </div>
-                            @endif
+                            <?php endif; ?>
                             
-                            @if (session('message'))
+                            <?php if(session('message')): ?>
                                 <br/>
                                 <div class="alert alert-success">
                                     <ul>
-                                        <li>{{session('message')}}</li> 
+                                        <li><?php echo e(session('message')); ?></li> 
                                     </ul>
                                 </div>
-                            @endif
+                            <?php endif; ?>
                             
-                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                                {!! csrf_field() !!}
+                            <form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('/register')); ?>">
+                                <?php echo csrf_field(); ?>
+
                                 <div class="form-group mg-t-15">
                                     <div class="col-md-6">
-                                        <input type="text" name="namateam" class="form-control reg-form" placeholder="Nama Tim" value="{{old('namateam')}}" required/>
+                                        <input type="text" name="namateam" class="form-control reg-form" placeholder="Nama Tim" value="<?php echo e(old('namateam')); ?>" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" name="emailketua" class="form-control reg-form" placeholder="Email Ketua" value="{{old('emailketua')}}" required/>
+                                        <input type="email" name="emailketua" class="form-control reg-form" placeholder="Email Ketua" value="<?php echo e(old('emailketua')); ?>" required/>
                                     </div>
                                 </div>
                                     <div class="form-group">
@@ -67,22 +67,22 @@
                                 </div>
                                 <div class="form-group">
 									<div class="col-md-6">
-                                        <input type="text" name="instansi" class="form-control reg-form" placeholder="Asal Instansi" value="{{old('instansi')}}" required/>
+                                        <input type="text" name="instansi" class="form-control reg-form" placeholder="Asal Instansi" value="<?php echo e(old('instansi')); ?>" required/>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="alamatinstansi" class="form-control reg-form" placeholder="Alamat Instansi" value="{{old('alamatinstansi')}}" required/>
+                                        <input type="text" name="alamatinstansi" class="form-control reg-form" placeholder="Alamat Instansi" value="<?php echo e(old('alamatinstansi')); ?>" required/>
                                     </div>
                                 </div>
                             
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="radio" name="kategori" value="0" id="wdc" @if(old('kategori')==0) checked @endif class="ev-cat">
+                                        <input type="radio" name="kategori" value="0" id="wdc" <?php if(old('kategori')==0): ?> checked <?php endif; ?> class="ev-cat">
                                         <label for="web">
                                             Web Design Competition
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="radio" name="kategori" value="1" id="madc" @if(old('kategori')==1) checked @endif class="ev-cat">
+                                        <input type="radio" name="kategori" value="1" id="madc" <?php if(old('kategori')==1): ?> checked <?php endif; ?> class="ev-cat">
                                         <label for="madc">
                                             Mobile Apps Development Competition
                                         </label>
@@ -90,14 +90,14 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua" value="{{old('namaketua')}}" required/>
+                                        <input type="text" name="namaketua" class="form-control reg-form" placeholder="Nama Ketua" value="<?php echo e(old('namaketua')); ?>" required/>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomer Handphone" value="{{old('notelp')}}" required/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="notelp" placeholder="Nomer Handphone" value="<?php echo e(old('notelp')); ?>" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -106,49 +106,49 @@
                                 </h4>
                                 <div class="form-group" id="mem1">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota[0][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota.0.nama')}}"/>
+                                        <input type="text" name="anggota[0][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="<?php echo e(old('anggota.0.nama')); ?>"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota[0][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota.0.email')}}"/>
+                                        <input type="email" name="anggota[0][email]" class="form-control reg-form" placeholder="Email Anggota" value="<?php echo e(old('anggota.0.email')); ?>"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[0][notelp]" placeholder="Nomer Handphone" value="{{old('anggota.0.notelp')}}"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[0][notelp]" placeholder="Nomer Handphone" value="<?php echo e(old('anggota.0.notelp')); ?>"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem2">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota[1][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota.1.nama')}}"/>
+                                        <input type="text" name="anggota[1][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="<?php echo e(old('anggota.1.nama')); ?>"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota[1][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota.1.email')}}"/>
+                                        <input type="email" name="anggota[1][email]" class="form-control reg-form" placeholder="Email Anggota" value="<?php echo e(old('anggota.1.email')); ?>"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[1][notelp]" placeholder="Nomer Handphone" value="{{old('anggota.1.notelp')}}"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[1][notelp]" placeholder="Nomer Handphone" value="<?php echo e(old('anggota.1.notelp')); ?>"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="mem3">
                                     <div class="col-md-4">
-                                        <input type="text" name="anggota[2][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="{{old('anggota.2.nama')}}"/>
+                                        <input type="text" name="anggota[2][nama]" class="form-control reg-form" placeholder="Nama Anggota" value="<?php echo e(old('anggota.2.nama')); ?>"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="email" name="anggota[2][email]" class="form-control reg-form" placeholder="Email Anggota" value="{{old('anggota.2.email')}}"/>
+                                        <input type="email" name="anggota[2][email]" class="form-control reg-form" placeholder="Email Anggota" value="<?php echo e(old('anggota.2.email')); ?>"/>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[2][notelp]" placeholder="Nomer Handphone" value="{{old('anggota.2.notelp')}}"/>
+                                            <input type="number" class="form-control reg-form" id="hp" name="anggota[2][notelp]" placeholder="Nomer Handphone" value="<?php echo e(old('anggota.2.notelp')); ?>"/>
                                         </div>
                                     </div>
                                 </div>
@@ -159,18 +159,19 @@
                                 </div>
                             </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade @if (count($errors->semnas) > 0) in active @endif" id="semnas">
-                            @if (count($errors->semnas) > 0)
+                        <div role="tabpanel" class="tab-pane fade <?php if(count($errors->semnas) > 0): ?> in active <?php endif; ?>" id="semnas">
+                            <?php if(count($errors->semnas) > 0): ?>
                                 <div class="alert alert-danger">
                                     <ul>
-                                        @foreach ($errors->semnas->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
+                                        <?php foreach($errors->semnas->all() as $error): ?>
+                                            <li><?php echo e($error); ?></li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </div>
-                            @endif
-                            <form role="form" class="form-horizontal" method="POST" action="{{ url('/semnas') }}">
-                                {!! csrf_field() !!}
+                            <?php endif; ?>
+                            <form role="form" class="form-horizontal" method="POST" action="<?php echo e(url('/semnas')); ?>">
+                                <?php echo csrf_field(); ?>
+
                                 <div class="form-group mg-t-15">
                                     <div class="col-md-6">
                                         <input type="text" name="nama" class="form-control reg-form" placeholder="Nama Lengkap"/>
@@ -185,7 +186,7 @@
                                             <div class="input-group-addon reg-form">
                                                 (+62)
                                             </div>
-                                            <input type="text" class="form-control reg-form" id="notelp" name="notelpsemnas" placeholder="Nomor HP"/>
+                                            <input type="text" class="form-control reg-form" id="hp" name="notelpsemnas" placeholder="Nomor HP"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -209,7 +210,7 @@
                                 </div>
                             </form>
 
-                            <!-- <img src="{{url('assets/img/web_semnas.jpg')}}" class="img-responsive coming-semnas"> -->
+                            <!-- <img src="<?php echo e(url('assets/img/web_semnas.jpg')); ?>" class="img-responsive coming-semnas"> -->
                         </div>
                     </div>
                 </div>
@@ -262,15 +263,17 @@
         <div class="col-md-12 pd-bt-10">
             <p class="text-center">
                 Want to
-                <a href="{{url('/')}}">
+                <a href="<?php echo e(url('/')); ?>">
                     back home?
                 </a>
                 Or you already have accout?
-                <a href="{{url('/login')}}">
+                <a href="<?php echo e(url('/login')); ?>">
                     Login here.
                 </a>
             </p>
         </div>
     </div>
     <!-- /container -->
-    @endsection
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.auth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
