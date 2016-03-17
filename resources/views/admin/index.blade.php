@@ -51,7 +51,7 @@
                                 <h3>{{count($data)}}</h3>
                             </div>
                             <div class="panel-footer back-footer-red">
-                                MADC
+                                Semnas
 
                             </div>
                         </div>
